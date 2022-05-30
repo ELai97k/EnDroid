@@ -1,0 +1,61 @@
+import discord
+from discord.ext import commands
+
+class Info(commands.Cog):
+    """Custom help command"""
+    def __init__(self, client):
+        self.client = client
+
+    # default help command custom mod
+    @commands.command()
+    async def info(self, ctx):
+        if ctx.author == self.client.user:
+            return
+
+        embed = discord.Embed (
+            title = "Bot's List of Commands",
+            color=0xc7ecf7
+        )
+        embed.add_field(name="info", 
+        value="Alternate help command that you're looking at right now.",
+        inline=False)
+
+        embed.add_field(name="help", 
+        value="Displays the bot's default help command.",
+        inline=False)
+
+        embed.add_field(name="ask", 
+        value="8ball command, ask the bot anything.",
+        inline=False)
+
+        embed.add_field(name="embed", 
+        value="Displays a test embed.",
+        inline=False)
+
+        embed.add_field(name="ping", 
+        value="This command will show the bot's latency in ms (milliseconds).",
+        inline=False)
+
+        embed.add_field(name="poll", 
+        value="This command allows you to create and make polls so that everyone can vote.",
+        inline=False)
+
+        embed.add_field(name="test", 
+        value="This command is a test command.",
+        inline=False)
+
+        embed.add_field(name="responses", 
+        value="Displays an embed that shows what the bot auto respond to.",
+        inline=False)
+
+        embed.add_field(name="reminder", 
+        value="Get the bot to set a reminder for you and be pinged when it's due.",
+        inline=False)
+
+        embed.set_footer(text="Bot functions listed here will be subject to future changes")
+
+        await ctx.send(embed=embed)
+
+
+def setup(client):
+    client.add_cog(Info(client))
