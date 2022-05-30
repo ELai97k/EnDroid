@@ -13,7 +13,7 @@ class Stanley(commands.Cog):
             return
 
         embed = discord.Embed (
-            title = "8888",
+            title = "8888888888888888",
             description = "8888888888888888888888888888",
             color=0xfe3088
         )
