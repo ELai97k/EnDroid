@@ -55,6 +55,7 @@ class Stanley(commands.Cog):
 
     # change bot status
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def stanley_status(self, ctx):
         if ctx.author == self.client.user:
             return
