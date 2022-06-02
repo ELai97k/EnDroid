@@ -289,7 +289,7 @@ class Auto_Responses(commands.Cog):
 
         # e
         if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189:
-            await asyncio.sleep(20)
+            await asyncio.sleep(60)
             e_responses = [
                 "what's going on here?",
                 "wdym",
