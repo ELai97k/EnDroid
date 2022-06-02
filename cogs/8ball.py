@@ -17,6 +17,7 @@ class EightBall(commands.Cog):
             "Yes",
             "No",
             "Maybe",
+            "I don't know",
             "You may rely on it",
             "Cannot tell you now",
             "Cannot predict now.",
@@ -25,7 +26,7 @@ class EightBall(commands.Cog):
             "Outlook not so good.",
             "It is decidedly so.",
             "Most likely.",
-            "Most unlikely",
+            "Very unlikely",
             "My reply is no.",
             "My reply is yes.",
             "Very doubtful.",
@@ -36,7 +37,8 @@ class EightBall(commands.Cog):
             "Without a doubt.",
             "Ask again later",
             "Try again later.",
-            "Reply hazy, try again later."
+            "Reply hazy, try again later.",
+            "As I see it, yes."
         ]
         await ctx.channel.trigger_typing()
         await ctx.send(f'{random.choice(eight_ball)}')
