@@ -2,17 +2,76 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import json
 
 intents = discord.Intents.default().all()
 intents.members = True
 
-client = commands.Bot(command_prefix="?/", case_insensitive=True, intents=intents)
+
+# setting up prefixes.json as json file
+def get_prefix(client, message):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+    
+  return prefixes[str(message.guild.id)]
+
+client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
 
 # cogs
 for filename in os.listdir("./cogs"):
   if filename.endswith(".py"):
     client.load_extension(f'cogs.{filename [:-3]}')
+
+
+# add default prefix and guild id to json file when bot joins server
+@client.event
+async def on_guild_join(guild):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  # default prefix
+  prefixes[str(guild.id)] = "?/"
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent=4)
+
+# remove prefix and guild id from json file
+@client.event
+async def on_guild_remove(guild):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes.pop(str(guild.id))
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent=4)
+
+# change prefix command
+@client.command()
+@commands.has_permissions(administrator=True)
+async def changeprefix(ctx, prefix):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes[str(ctx.guild.id)] = prefix
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent=4)
+
+  embed = discord.Embed (
+    title="The bot's default prefix has been changed",
+    color=0xc7ecf7
+  )
+  embed.add_field (name="Default prefix",
+      value="?/",
+      inline=False)
+
+  embed.add_field (name="New prefix",
+      value=f"{prefix}",
+      inline=False)
+      
+  await ctx.send(embed=embed)
 
 
 # on message event

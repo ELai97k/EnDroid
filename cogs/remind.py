@@ -31,9 +31,9 @@ class Remind(commands.Cog):
                 seconds += int(time[:-1]) * 60 * 60 * 24
                 counter = f"{seconds // 60 // 60 // 24} days"
 
-            #command_prefix = "?/"
+            command_prefix = "?/"
             r_command = "remind"
-            reminder = ctx.message.content.lower().replace(f"{r_command}", "").replace(f"{time}", "").strip()
+            reminder = ctx.message.content.lower().replace(f"{command_prefix}", "").replace(f"{r_command}", "").replace(f"{time}", "").strip()
             
             if reminder is None:
                 await ctx.send("Please tell me what to remind you.")

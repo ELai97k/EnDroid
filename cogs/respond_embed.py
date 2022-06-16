@@ -7,7 +7,7 @@ class Respond_Embed(commands.Cog):
 
     # embed showing bot's auto responses
     @commands.command()
-    async def responese(self, ctx):
+    async def responses(self, ctx):
         embed = discord.Embed (
             title = "Endroid will automatically respond to the following messages:",
             description = "`I'm\nI am\nF\nTell me a joke\n:(\nTell me something\nI have no friends\nPog\nPoggers\nPogchamp\nPing\nBruh\nHello Endroid\nHi Endroid\nInput\nStupid bot\nDead chat\nTeleport bread\nHey Endroid`",

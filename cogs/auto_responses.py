@@ -218,7 +218,7 @@ class Auto_Responses(commands.Cog):
                 # tell me about yourself
                 if reply_message.content.lower().startswith("tell me about yourself"):
                     await reply_message.channel.trigger_typing()
-                    await reply_message.channel.send("My name is Endroid and I am a Discord bot created by someone named ELai.\nI was programmed using Python's discord.py\nI am sometimes random and funny\nI am also crazy and insane")
+                    await reply_message.channel.send("My name is Endroid and I am a Discord bot created by someone named ELai.\nI was programmed using Python's discord.py\nI am sometimes random and funny\nI am also rather boring, socially awkward and a piece of shit")
 
                 # time
                 if reply_message.content.lower().replace("'", "").strip().startswith("whats the time") or reply_message.content.lower().replace("'", "").strip().startswith("whats the time now") or reply_message.content.lower().startswith("what time is it") or reply_message.content.lower().startswith("what time is it now") or reply_message.content.lower().startswith("what is the time") or reply_message.content.lower().startswith("what is the time now"):
