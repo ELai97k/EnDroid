@@ -226,7 +226,7 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.send("My name is Endroid, I am an android. I am also a bot. ELai made me.")
 
                 # time
-                if reply_message.content.lower().replace("'", "").strip().startswith("whats the time") or reply_message.content.lower().replace("'", "").strip().startswith("whats the time now") or reply_message.content.lower().startswith("what time is it") or reply_message.content.lower().startswith("what time is it now") or reply_message.content.lower().startswith("what is the time") or reply_message.content.lower().startswith("what is the time now"):
+                if reply_message.content.lower().startswith("what's the time") or reply_message.content.lower().startswith("whats the time") or reply_message.content.lower().startswith("what is the time"):
                     timestamp = datetime.now()
                     gmt = pytz.timezone('Asia/Singapore')
                     embed = discord.Embed (
