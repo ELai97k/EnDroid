@@ -111,6 +111,11 @@ class Auto_Responses(commands.Cog):
             await message.channel.trigger_typing()
             await message.channel.send("jumm")
 
+        # I thought you did
+        if "did not" in message.content.lower() or "didn't" in message.content.lower():
+            await message.channel.trigger_typing()
+            await message.channel.send("I thought you did.")
+
         # dead chat embed
         if message.content.lower().startswith("dead chat"):
             embed = discord.Embed (
@@ -218,7 +223,7 @@ class Auto_Responses(commands.Cog):
                 # tell me about yourself
                 if reply_message.content.lower().startswith("tell me about yourself"):
                     await reply_message.channel.trigger_typing()
-                    await reply_message.channel.send("My name is Endroid and I am a Discord bot created by someone named ELai.\nI was programmed using Python's discord.py\nI am sometimes random and funny\nI am also rather boring, socially awkward and a piece of shit")
+                    await reply_message.channel.send("My name is Endroid, I am an android. I am also a bot. ELai made me.")
 
                 # time
                 if reply_message.content.lower().replace("'", "").strip().startswith("whats the time") or reply_message.content.lower().replace("'", "").strip().startswith("whats the time now") or reply_message.content.lower().startswith("what time is it") or reply_message.content.lower().startswith("what time is it now") or reply_message.content.lower().startswith("what is the time") or reply_message.content.lower().startswith("what is the time now"):
@@ -286,31 +291,6 @@ class Auto_Responses(commands.Cog):
                         if trigger in reply_message.content.lower().startswith("ur"):
                             await message.channel.trigger_typing()
                             return await reply_message.channel.send(response)
-
-        # e
-        if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189 and message.author.id != 973407928654651392:
-            await asyncio.sleep(20)
-            e_responses = [
-                "what's going on here?",
-                "wdym",
-                "I see",
-                "Oh",
-                "yes",
-                "no",
-                "What?",
-                "Who?",
-                "Why?",
-                "When?",
-                "How?",
-                "ah",
-                "ok",
-                "Okay",
-                "Yeah I know",
-                "I don't get it",
-                "omg"
-            ]
-            await message.channel.send(f'{random.choice(e_responses)}')
-            print("e")
 
         # turn that frown upside down
         if ":(" in message.content:

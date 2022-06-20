@@ -20,6 +20,7 @@ class Bot_Statuses(commands.Cog):
             "The Stanley Parable Ultra Deluxe",
             "The Stanley Parable 2",
             "The Stanley Parable 3: Offline Tuesday",
+            "The Stanley Parable 4: Attack On Co-workers",
             "Hearthstone",
             "Forza Horizon 1",
             "Forza Horizon 2",

@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import asyncio
 
 class Stanley(commands.Cog):
     def __init__(self, client):
@@ -53,50 +52,13 @@ class Stanley(commands.Cog):
         await ctx.send(embed=embed)
         print("The Stanley Parable")
 
-    # change bot status
+    # bucket command
     @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def stanley_status(self, ctx):
+    async def bucket(self, ctx):
         if ctx.author == self.client.user:
             return
 
-        embed = discord.Embed (
-            title = "Operation Successful!",
-            description = "Bot status has been updated successfully and your changes were saved!",
-            color=0x198C19
-        )
-        await ctx.send(embed=embed)
-        print("Bot status changed successfully!")
-
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Demonstration"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Ultra Deluxe"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 2"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 3: Offline Tuesday"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Demonstration"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Ultra Deluxe"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 2"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 3: Offline Tuesday"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Demonstration"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable Ultra Deluxe"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 2"))
-        await asyncio.sleep(999)
-        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="The Stanley Parable 3: Offline Tuesday"))
+        await ctx.send(":bucket:")
 
 
 def setup(client):

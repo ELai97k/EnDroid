@@ -15,6 +15,17 @@ def get_prefix(client, message):
     
   return prefixes[str(message.guild.id)]
 
+def get_prefix(client=None, message=None):
+  with open('prefixes.json', 'r') as f:
+    prefixes = json.load(f)
+
+  try:
+    prefix = str(message.guild.id)
+    return prefixes[prefix]
+
+  except AttributeError:
+    return ['defaultPrefix']
+
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
 
@@ -47,6 +58,7 @@ async def on_guild_remove(guild):
   with open("prefixes.json", "w") as f:
     json.dump(prefixes, f, indent=4)
 
+
 # change prefix command
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -72,13 +84,22 @@ async def changeprefix(ctx, prefix):
       inline=False)
       
   await ctx.send(embed=embed)
-
+    
 
 # on message event
 @client.event
 async def on_message(message):
   if message.author == client.user:
     return
+
+  # current prefix command
+  if message.content.lower().startswith("what is the current prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix"):
+    with open('prefixes.json', 'r') as f:
+      prefixes = json.load(f)
+      prefix = prefixes[str(message.guild.id)]
+
+      await message.channel.trigger_typing()
+      await message.channel.send(f"The current prefix is set to `{prefix}`")
   
   # shut up bot
   if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower():
