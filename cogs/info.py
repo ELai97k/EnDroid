@@ -45,11 +45,15 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="responses", 
-        value="Displays an embed that shows what the bot auto respond to.",
+        value="Displays a list of words / phrases / sentences the bot auto respond to.",
         inline=False)
 
         embed.add_field(name="reminder", 
         value="Get the bot to set a reminder for you and be pinged when it's due.",
+        inline=False)
+
+        embed.add_field(name="musichelp", 
+        value="Displays list of music bot commands.",
         inline=False)
 
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
