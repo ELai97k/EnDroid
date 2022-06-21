@@ -1,0 +1,19 @@
+{"intents": [
+    {"tags": "greetings",
+        "patterns": ["hello", "hi", "hey", "hey yo", "heys", "hello there", "hi there"],
+        "responses": ["Hello", "Hi there", "Hi", "Hey", "Hello there", "Anyone there?", "I see you", "Can I help you?"],
+        "context_set": ""
+    },
+
+    {"tags": "goodbye",
+        "patterns": ["bye", "goodbye", "see ya", "cya", "ttyl", "talk to you later", "see you later"],
+        "responses": ["Okay bye!", "Buh bye!", "Bye!", "See ya!"],
+        "context_set": ""
+    },
+    
+    {"tags": "feeling",
+        "patterns": ["how are you", "how are you doing"],
+        "responses": ["I'm good, thank you.", "I'm okay", "I am okay, thank you.", "All right I guess", "I'm good.", "I'm all right, thanks."],
+        "context_set": ""
+    }
+]}
