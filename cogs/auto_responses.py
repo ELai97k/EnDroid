@@ -112,7 +112,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.send("jumm")
 
         # I thought you did
-        if "did not" in message.content.lower() or "didn't" in message.content.lower():
+        if "did not" in message.content.lower() or "didn't" in message.content.lower() or "didnt" in message.content.lower():
             await message.channel.trigger_typing()
             await message.channel.send("I thought you did.")
 
@@ -140,14 +140,23 @@ class Auto_Responses(commands.Cog):
         # bot ping
         if self.client.user.mention in message.content.lower().split():
             ping_responses = [
+                "Why me?",
                 "Why ping me?",
+                "You mentioned me?",
                 "You called?",
                 "I see what you're trying to do, you can't break me that easily!",
                 "What are you doing?",
                 "Are you sure about that?",
                 "No",
                 "Yes",
-                "You mentioned me?"
+                "What",
+                "What you want",
+                "What do you want",
+                "I can't assist you",
+                "I can't help you at this moment",
+                "Go away",
+                "Go bother someone else",
+                "Don't disturb me!"
             ]
             await message.channel.trigger_typing()
             await message.channel.send(f"{random.choice(ping_responses)}")
@@ -271,6 +280,7 @@ class Auto_Responses(commands.Cog):
                     responses = {
                         "useless":"how dare you!",
                         "dumb":"evrywan dum",
+                        "dum":"evrywan dum",
                         "a dumb bot":"Why was I born?",
                         "crazy":"maybe ¯\_(ツ)_/¯",
                         "weird":"everyone is weird, don't pretend you're not!",
@@ -289,6 +299,7 @@ class Auto_Responses(commands.Cog):
                     responses = {
                         "useless":"how dare you!",
                         "dumb":"evrywan dum",
+                        "dum":"evrywan dum",
                         "a dumb bot":"Why was I born?",
                         "crazy":"maybe ¯\_(ツ)_/¯",
                         "weird":"everyone is weird, don't pretend you're not!",
