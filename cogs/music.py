@@ -301,6 +301,7 @@ class Music(commands.Cog):
 
         ctx.voice_state.voice = await destination.connect()
         await ctx.message.add_reaction('✅')
+        print("Music bot is now in a voice channel")
 
 
     # make music bot join voice channel
@@ -315,6 +316,7 @@ class Music(commands.Cog):
 
         ctx.voice_state.voice = await destination.connect()
         await ctx.message.add_reaction('✅')
+        print("Music bot is now in a voice channel")
 
 
     # make the music bot leave voice channel
@@ -328,6 +330,7 @@ class Music(commands.Cog):
         await ctx.voice_state.stop()
         del self.voice_states[ctx.guild.id]
         await ctx.message.add_reaction('✅')
+        print("Music bot left a voice channel")
 
 
     # play a song using Youtube URL or song name and artist name
