@@ -252,8 +252,9 @@ class Auto_Responses(commands.Cog):
                         title = "Current date and time in GMT +08:00",
                         color=0xc7ecf7
                     )
-                    embed.add_field(name="Time", value=timestamp.astimezone(gmt).strftime("%I:%M %p"), inline=False)
                     embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a %d %b %Y"), inline=False)
+                    embed.add_field(name="Time", value=timestamp.astimezone(gmt).strftime("%I:%M %p"), inline=False)
+                    
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send(embed=embed)
 
