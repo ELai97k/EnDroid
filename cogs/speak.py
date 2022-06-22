@@ -17,8 +17,8 @@ class Say(commands.Cog):
             await ctx.send("What do you want me to say?")
             await ctx.message.delete()
 
-        else: # general channel ID = 762317365970468877
-            await self.client.get_channel(768537268452851754).send(f"{message}")
+        else:
+            await self.client.get_channel(762317365970468877).send(f"{message}")
             await ctx.message.delete()
 
 
