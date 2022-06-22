@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import pytz
-import datetime
+from datetime import datetime
 
 class Time(commands.Cog):
     def __init__(self, client):
