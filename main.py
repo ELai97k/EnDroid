@@ -51,7 +51,7 @@ async def on_message(message):
   if message.author == client.user:
     return
 
-  # chatbot messages here
+  # chatbot responses here
   if message.content.lower().startswith("ebot"):
     response = chatbot.request(message.content.lower()[10:])
     await message.channel.trigger_typing()
