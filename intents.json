@@ -6,56 +6,74 @@
             "patterns": ["hi", "hello", "hey", "heys", "hi there", "hello there", "hey there", "greetings", "whats up", "what's up", "hey yo", "yo"],
             "responses": ["Hi!", "Hello!", "Hey", "Heys", "Hi there!", "Hello there!", "Hey there!", "Greetings", "What's up?", "Hey yo!", "Yo!", "I see you!", "Ooh, someone's here?"]
         },
+
         {
             "tag": "feelings",
             "patterns": ["how are you", "how are you doing", "how art thou", "how are you feeling", "how are you feeling now", "how are you feeling right now"],
             "responses": ["Feeling good!", "Not doing good.", "I'm okay, thanks.", "I'm fine, thank you.", "I'm doing all right.", "I am fine, thank you.", "I am good, thank you.", "I am okay, thanks.", "I am all right."]
         },
-        {
-            "tag": "docbot",
-            "patterns": ["do you know docbot", "do you know about docbot", "have you heard of docbot", "who is docbot"],
-            "responses": ["Oh yes, I know DocBot!", "Yes I know about DocBot.", "I heard that DocBot is the son of ItsDaDoc and his girlfriend Megan.", "DocBot is a Discord bot from ItsDaDoc's server, now named DaDocville at the moment.", "I find DocBot to be kind of fickle and sensitive.", "DocBot is a Discord bot created and programmed by ItsDaDoc. DocBot is described as ItsDaDoc's son. He can be quite sensitive and fickle, but he also seems to have a very high pain tolerance."]
-        },
+        
         {
             "tag": "daydreamer",
-            "patterns": ["do you know daydreamer", "do you know about daydreamer", "have you heard of daydreamer", "who is daydreamer"],
-            "responses": ["Yes, of course I know Daydreamer.", "Yes I know Daydreamer. He's a jolly good fellow!", "I thought you know Daydreamer.", "I know Daydreamer. We're bot buddies.", "Daydreamer is another Discord bot created and programmed by ELai.", "Daydreamer is the first Discord bot made by ELai. Apparently my code is based on Daydreamer's code as well, except for some features exclusive to me only."]
+            "patterns": ["do you know daydreamer", "do you know about daydreamer", "have you heard of daydreamer"],
+            "responses": ["Yes, of course I know Daydreamer.", "Yes I know Daydreamer. He's a jolly good fellow!", "I thought you know Daydreamer.", "I know Daydreamer. We're bot buddies."]
         },
+
         {
             "tag": "what",
             "patterns": ["what are you doing now", "what are you doing right now", "whatcha doin", "whatcha doing", "what'cha doin", "what'cha doing", "what are you doing right now", "what you doing"],
             "responses": ["I am idling around right now.", "Responding to you", "Chatting with you", "Aren't we talking right now?", "Awaiting commands and queries.", "I am playing video games.", "I am maintaining my programming right now in Visual Studio Code.", "I am watching you and others in this server right here, right now."]
         },
+
         {
             "tag": "name",
             "patterns": ["what is your name", "whats your name", "what's your name", "do you have a name", "who are you"],
             "responses": ["My name is EnDroid, I was created by ELai.", "I am EnDroid, a Discord bot created by ELai.", "My name is EnDroid, I'm a Discord programmed by ELai.", "My name is EnDroid and I am a Discord bot created and programmed by ELai.", "Your name is an anime movie created by Makoto Shinkai. It came out on December 8, 2016."]
         },
+
         {
             "tag": "elai",
-            "patterns": ["do you know elai", "you know elai", "do you know about elai", "who is elai"],
-            "responses": ["Of course I know ELai!", "Yes I know ELai.", "Yes of course I know about ELai!", "Yes of course I know ELai!", "ELai is my creator.", "ELai is a multimedia designer, Discord bot programmer, small Youtuber and gamer."]
+            "patterns": ["do you know elai", "you know elai", "do you know about elai"],
+            "responses": ["Of course I know ELai!", "Yes I know ELai.", "Yes of course I know about ELai!", "Yes of course I know ELai!"]
         },
+
         {
             "tag": "bot",
             "patterns": ["what can you do", "what are your skills", "what are your features", "what are your bot features", "what is your purpose"],
             "responses": ["I can chat with you and others, answer your questions, make polls and play music in voice channels.", "I can auto respond to certain words, phrases, or sentences.\nI have an 8ball function, you can ask me anything.\nI can play music in a voice, just give me a Youtube URL or song name and artist name.\nI can create polls for you and others to react and vote.", "I am a general multi-purpose bot with music commands and other misc and fun commands."]
         },
+
         {
             "tag": "talk",
-            "patterns": ["talk to me", "can you tell me something", "can you talk to me"],
+            "patterns": ["talk to me", "can you tell me something", "can you talk to me", "can you say something", "what can you say right now"],
             "responses": ["Aren't we talking right now?", "What do you want to talk about?", "idk what to talk about", "idk what to say", "I'm already responding to you, so therefore we are talking right now.", "I can't think of anything to say...", "I can't think of what to talk about...", "I dunno what to say", "I don't know what to say", "Nothing to say", "Nothing to say at the moment", "Nothing to say at this point in time"]
         },
+
         {
             "tag": "weakness",
             "patterns": ["what is your weakness", "whats your weakness", "what are your weaknesses"],
             "responses": ["Water, bugs and glitches.", "Water, earth, fire, air.", "I have many weaknessess I'd rather not share.", "I have many weaknessess I'd rather not say.", "I have many other weaknessess that I'd rather not share.", "I have many other weaknessess that I'd rather not say."]
         },
+
         {
             "tag": "think",
             "patterns": ["what do you think of me", "what do you think of others", "what do you think about me", "what do you think about others", "what do you think about the others"],
             "responses": ["I think everyone is great!", "I think you're great!", "I don't think anyone is good.", "idk what to say", "I think everyone's all right", "I think they are okay", "I think everyone is okay", "I think you're good", "I think you're all right.", "I dunno what to say", "I don't know what to say", "I dunno what to think at the moment.", "I don't know what to think at the moment.", "I don't know what to think of at this moment."]
         },
+
+        {
+            "tag": "who is elai",
+            "patterns": ["who is elai"],
+            "responses": ["ELai is my creator.", "ELai is a multimedia designer, Discord bot programmer, small Youtuber and gamer.", "ELai is my programmer.", "ELai created me.", "ELai created me and a few other Discord bots."]
+        },
+
+        {
+            "tag": "who is daydreamer",
+            "patterns": ["who is daydreamer"],
+            "responses": ["Daydreamer is another Discord bot created and programmed by ELai.", "Daydreamer is the first Discord bot made by ELai. Apparently my code is based on Daydreamer's code as well, except for some features exclusive to me only.", "Daydreamer is a sunny Discord bot that likes to daydream all day long.", "Daydreamer is a sun bot. He is the 'sun' of ELai."]
+        },
+
+
         {
             "tag": "goodbyes",
             "patterns": ["goodbye", "bye", "bye bye", "buh bye", "bai", "bai bai", "see you", "see you later", "see ya", "see ya later", "talk to you later", "talk to you again", "cya", "ttyl", "aight bye", "gotta go", "gotta go bye", "gtg", "see you later alligator", "see ya later alligator"],
