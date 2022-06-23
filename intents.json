@@ -8,13 +8,13 @@
         },
         {
             "tag": "feelings",
-            "patterns": ["how are you", "how are you doing", "how art thou", "how are you feeling"],
-            "responses": ["Feeling good!", "Not doing good.", "I'm okay, thanks.", "I'm fine, thank you.", "I'm doing all right."]
+            "patterns": ["how are you", "how are you doing", "how art thou", "how are you feeling", "how are you feeling now", "how are you feeling right now"],
+            "responses": ["Feeling good!", "Not doing good.", "I'm okay, thanks.", "I'm fine, thank you.", "I'm doing all right.", "I am fine, thank you.", "I am good, thank you.", "I am okay, thanks.", "I am all right."]
         },
         {
             "tag": "docbot",
             "patterns": ["do you know docbot", "do you know about docbot", "have you heard of docbot"],
-            "responses": ["Oh yes, I know DocBot!", "Yes I know about DocBot.", "I heard that DocBot is the son of ItsDaDoc and his girlfriend Megan.", "DocBot is from ItsDaDoc's server, now named DaDocville.", "I find DocBot to be kind of fickle and sensitive."]
+            "responses": ["Oh yes, I know DocBot!", "Yes I know about DocBot.", "I heard that DocBot is the son of ItsDaDoc and his girlfriend Megan.", "DocBot is a Discord bot from ItsDaDoc's server, now named DaDocville at the moment.", "I find DocBot to be kind of fickle and sensitive.", "DocBot is a Discord bot created and programmed by ItsDaDoc. DocBot is described as ItsDaDoc's son. He can be quite sensitive and fickle, but he also seems to have a very high pain tolerance."]
         },
         {
             "tag": "daydreamer",
@@ -28,18 +28,18 @@
         },
         {
             "tag": "name",
-            "patterns": ["what is your name", "whats your name", "what's your name", "do you have a name"],
-            "responses": ["My name is EnDroid, I was created by ELai.", "I am EnDroid, a Discord bot created by ELai.", "Your name is an anime movie created by Makoto Shinkai. It came out on December 8, 2016."]
+            "patterns": ["what is your name", "whats your name", "what's your name", "do you have a name", "who are you"],
+            "responses": ["My name is EnDroid, I was created by ELai.", "I am EnDroid, a Discord bot created by ELai.", "My name is EnDroid, I'm a Discord programmed by ELai.", "My name is EnDroid and I am a Discord bot created and programmed by ELai.", "Your name is an anime movie created by Makoto Shinkai. It came out on December 8, 2016."]
         },
         {
-            "tag": "",
-            "patterns": [""],
-            "responses": [""]
+            "tag": "elai",
+            "patterns": ["do you know elai", "you know elai", "do you know about elai", "who is elai"],
+            "responses": ["Of course I know ELai!", "Yes I know ELai.", "Yes of course I know about ELai!", "Yes of course I know ELai!", "ELai is my creator.", "ELai is a multimedia designer, Discord bot programmer, small Youtuber and gamer."]
         },
         {
-            "tag": "",
-            "patterns": [""],
-            "responses": [""]
+            "tag": "goodbyes",
+            "patterns": ["goodbye", "bye", "bye bye", "buh bye", "bai", "bai bai", "see you", "see you later", "see ya", "see ya later", "talk to you later", "talk to you again", "cya", "ttyl", "aight bye", "gotta go", "gotta go bye", "gtg", "see you later alligator", "see ya later alligator"],
+            "responses": ["Goodbye!", "Bye bye!", "Bye!", "See ya later alligator", "See you again!", "See you later!", "Okay, see you!", "See you later alligator!", "Okay see you later", "Okay take care", "Hope to see you again", "Hope to see you around soon.", "Hope to see you around again soon.", "See you again soon", "Take care!"]
         }
     ]
 }
