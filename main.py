@@ -4,7 +4,6 @@ import os
 import asyncio
 import json
 
-from dotenv import load_dotenv
 from neuralintents import GenericAssistant
 
 intents = discord.Intents.default().all()
@@ -36,8 +35,6 @@ chatbot = GenericAssistant("intents.json")
 chatbot.train_model()
 chatbot.save_model()
 
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
 
 # cogs
 for filename in os.listdir("./cogs"):
@@ -53,7 +50,7 @@ async def on_message(message):
 
   # chatbot responses here
   if message.content.lower().startswith("ebot"):
-    response = chatbot.request(message.content.lower()[10:])
+    response = chatbot.request(message.content.lower()[2:])
     await message.channel.trigger_typing()
     await message.channel.send(response)
   
