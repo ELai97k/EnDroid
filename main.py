@@ -32,7 +32,9 @@ def get_prefix(client=None, message=None):
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
 # chatbot setup
-chatbot = GenericAssistant()
+chatbot = GenericAssistant("intents.json")
+chatbot.train_model()
+chatbot.save_model()
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
@@ -51,7 +53,9 @@ async def on_message(message):
 
   # chatbot messages here
   if message.content.lower().startswith("ebot"):
-    pass
+    response = chatbot.request(message.content.lower()[10:])
+    await message.channel.trigger_typing()
+    await message.channel.send(response)
   
   # shut up bot
   if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower():
