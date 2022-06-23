@@ -12,6 +12,31 @@
             "responses": ["Feeling good!", "Not doing good.", "I'm okay, thanks.", "I'm fine, thank you.", "I'm doing all right."]
         },
         {
+            "tag": "docbot",
+            "patterns": ["do you know docbot", "do you know about docbot", "have you heard of docbot"],
+            "responses": ["Oh yes, I know DocBot!", "Yes I know about DocBot.", "I heard that DocBot is the son of ItsDaDoc and his girlfriend Megan.", "DocBot is from ItsDaDoc's server, now named DaDocville.", "I find DocBot to be kind of fickle and sensitive."]
+        },
+        {
+            "tag": "daydreamer",
+            "patterns": ["do you know daydreamer", "do you know about daydreamer", "have you heard of daydreamer"],
+            "responses": ["Yes, of course I know Daydreamer.", "Yes I know Daydreamer. He's a jolly good fellow!", "I thought you know Daydreamer.", "I know Daydreamer. We're bot buddies.", "I don't just know of Daydreamer, I already knew him since I was created."]
+        },
+        {
+            "tag": "what",
+            "patterns": ["what can you do", "what are you doing now", "what are you doing right now", "whatcha doin", "whatcha doing", "what'cha doin", "what'cha doing", "what are you doing right now", "what you doing"],
+            "responses": ["I can chat with you and others, answer your questions, make polls and play music in voice channels.", "I am idling around right now.", "Awaiting for responses or queries.", "I am playing video games.", "I am maintaining my programming right now in Visual Studio Code.", "I am watching you and others in this server right here, right now."]
+        },
+        {
+            "tag": "name",
+            "patterns": ["what is your name", "whats your name", "what's your name", "do you have a name"],
+            "responses": ["My name is EnDroid, I was created by ELai.", "I am EnDroid, a Discord bot created by ELai.", "Your name is an anime movie created by Makoto Shinkai. It came out on December 8, 2016."]
+        },
+        {
+            "tag": "",
+            "patterns": [""],
+            "responses": [""]
+        },
+        {
             "tag": "",
             "patterns": [""],
             "responses": [""]
