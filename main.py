@@ -4,6 +4,9 @@ import os
 import asyncio
 import json
 
+from dotenv import load_dotenv
+from neuralintents import GenericAssistant
+
 intents = discord.Intents.default().all()
 intents.members = True
 
@@ -28,6 +31,11 @@ def get_prefix(client=None, message=None):
 
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
+# chatbot setup
+chatbot = GenericAssistant()
+
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 
 # cogs
 for filename in os.listdir("./cogs"):
@@ -40,6 +48,10 @@ for filename in os.listdir("./cogs"):
 async def on_message(message):
   if message.author == client.user:
     return
+
+  # chatbot messages here
+  if message.content.lower().startswith("ebot"):
+    pass
   
   # shut up bot
   if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower():

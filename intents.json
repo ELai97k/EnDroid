@@ -1,0 +1,20 @@
+{
+    "intents": 
+    [
+        {
+            "tag": "greetings",
+            "patterns": ["hi", "hello", "hey", "heys", "hi there", "hello there", "hey there", "greetings", "whats up", "what's up", "hey yo", "yo"],
+            "responses": ["Hi!", "Hello!", "Hey", "Heys", "Hi there!", "Hello there!", "Hey there!", "Greetings", "What's up?", "Hey yo!", "Yo!", "I see you!", "Ooh, someone's here?"]
+        },
+        {
+            "tag": "feelings",
+            "patterns": ["how are you", "how are you doing", "how art thou", "how are you feeling"],
+            "responses": ["Feeling good!", "Not doing good.", "I'm okay, thanks.", "I'm fine, thank you.", "I'm doing all right."]
+        },
+        {
+            "tag": "",
+            "patterns": [""],
+            "responses": [""]
+        }
+    ]
+}
