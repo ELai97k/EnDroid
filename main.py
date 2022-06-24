@@ -4,7 +4,6 @@ import os
 import asyncio
 import json
 
-from neuralintents import GenericAssistant
 
 intents = discord.Intents.default().all()
 intents.members = True
@@ -30,11 +29,6 @@ def get_prefix(client=None, message=None):
 
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
-# chatbot setup
-chatbot = GenericAssistant("intents.json")
-chatbot.train_model()
-chatbot.save_model()
-
 
 # cogs
 for filename in os.listdir("./cogs"):
@@ -47,12 +41,6 @@ for filename in os.listdir("./cogs"):
 async def on_message(message):
   if message.author == client.user:
     return
-
-  # chatbot responses here
-  if message.content.lower().startswith("ebot"):
-    response = chatbot.request(message.content.lower()[2:])
-    await message.channel.trigger_typing()
-    await message.channel.send(response)
   
   # shut up bot
   if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower():
