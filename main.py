@@ -41,6 +41,8 @@ for filename in os.listdir("./cogs"):
 async def on_message(message):
   if message.author == client.user:
     return
+  if message.author.bot:
+    return
   
   # shut up bot
   if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower():
