@@ -14,6 +14,8 @@ class Auto_Responses(commands.Cog):
     async def on_message(self, message):
         if message.author == self.client.user:
             return
+        if message.author.bot:
+            return
 
         # test
         if message.content.lower().startswith("test"):
@@ -213,34 +215,119 @@ class Auto_Responses(commands.Cog):
 
         # hey endroid
         if message.content.lower().startswith("hey endroid"):
+            greetings = [
+                "hey yo",
+                "hey yo!",
+                "Hey yo",
+                "Hey yo!",
+                "Hello!",
+                "hello",
+                "Hi!",
+                "hi",
+                "Hey!",
+                "hey",
+                "Heys.",
+                "heys",
+                "Hello there!",
+                "hello there",
+                "Hi there!",
+                "hi there",
+                "Hey there!",
+                "hey there"
+                "Yes?",
+                "Yo!",
+                "What's up",
+                "What you want",
+                "What do you want",
+                "Greetings",
+                "Greetungs, user.",
+                "Greetings, human."
+            ]
             await message.channel.trigger_typing()
-            await message.channel.send("hey yo")
+            await message.channel.send(f'{random.choice(greetings)}')
 
-            # if no reply within 30 secs
+            # if no reply within 60 secs
             try:
-                reply_message = await self.client.wait_for('message', timeout=30.0)
+                reply_message = await self.client.wait_for('message', timeout=60.0)
             except asyncio.TimeoutError:
                 await reply_message.channel.trigger_typing()
-                await reply_message.channel.send("why won't you reply me?")
+                await reply_message.channel.send("Why did you call me if you're not going to say anything??")
 
             # how are you
             else:
-                if reply_message.content.lower().startswith("how are you"):
-                    feelings =[
+                if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are you feeling"):
+                    feelings = [
                         "I'm okay, thank you.",
                         "i'm fine, thank you.",
                         "Not good",
                         "Go away",
                         "Not okay",
                         "I'm good!",
+                        "I'm feeling good",
                         "I am not okay",
-                        "Go bother someone else"
+                        "Go bother someone else",
+                        "Don't disturb me",
+                        "I am doing okay",
+                        "I am doing good",
+                        "I feel good",
+                        "I'm all right",
+                        "I am doing all right",
+                        "I'm all right, thank you.",
+                        "I am doing fine, thank you.",
+                        "I'm not feeling so good",
+                        "I'm okay thanks"
                     ]
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send(f'{random.choice(feelings)}')
 
+                # features
+                if reply_message.content.lower().startswith("what can you do") or reply_message.content.lower().startswith("what is your purpose") or reply_message.content.lower().startswith("what are your features") or reply_message.content.lower().startswith("what are your functions") or reply_message.content.lower().startswith("what are your skills"):
+                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.send("I can chat with you and others in this server, answer questions with the 8ball function, make polls, set reminders and play music in a voice channel.")
+
+                # what are you doing right now
+                if reply_message.content.lower().startswith("what are you doing right now") or reply_message.content.lower().startswith("what are you doing now") or reply_message.content.lower().startswith("what are you doing") or reply_message.content.lower().startswith("what you doing") or reply_message.content.lower().startswith("whatcha doin") or reply_message.content.lower().startswith("whatcha doing") or reply_message.content.lower().startswith("what'cha doin") or reply_message.content.lower().startswith("what'cha doing") or reply_message.content.lower().startswith("what are you doing currently") or reply_message.content.lower().startswith("what are you currently doing"):
+                    doing = [
+                        "I am responding to you right now",
+                        "I am maintaining my programming in Visual Studio Code right now",
+                        "Talking to you",
+                        "Chatting with you",
+                        "Responding to you",
+                        "Awaiting commands or queries",
+                        "I'm playing video games",
+                        "I am just idling around",
+                        "Today I just don't feel like doing anything",
+                        "Watching you",
+                        "Watching this server",
+                        "I am watching you and this server right here right now"
+                    ]
+                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.send(f'{random.choice(doing)}')
+
+                # talk to me
+                if reply_message.content.lower().startswith("talk to me") or reply_message.content.lower().startswith("talk to me pls") or reply_message.content.lower().startswith("pls talk to me") or reply_message.content.lower().startswith("can you talk to me") or reply_message.content.lower().startswith("can you pls talk to me") or reply_message.content.lower().startswith("can ypu talk to me pls"):
+                    talk = [
+                        "Aren't we talking right now?",
+                        "I'm already responding to you, so therefore we are already talking right now.",
+                        "idk what to talk about",
+                        "idk what to say",
+                        "I dunno what to talk about",
+                        "I dunno what to say",
+                        "I don't know what to talk about",
+                        "I don't know what to say",
+                        "We are already talking right now",
+                        "Dunno what to say",
+                        "No",
+                        "Yes",
+                        "sure",
+                        "maybe",
+                        "whatever"
+                    ]
+                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.send(f'{random.choice(talk)}')
+
                 # tell me about yourself
-                if reply_message.content.lower().startswith("tell me about yourself"):
+                if reply_message.content.lower().startswith("tell me about yourself") or reply_message.content.lower().startswith("who are you"):
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send("My name is Endroid, I am an android. I am also a bot. ELai made me.")
 
