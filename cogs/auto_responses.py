@@ -38,6 +38,11 @@ class Auto_Responses(commands.Cog):
             await message.channel.send("F")
             print("F")
 
+        if message.content == "f":
+            await message.channel.trigger_typing()
+            await message.channel.send("F")
+            print("F")
+
         # bruh
         if "bruh" in message.content.lower():
             await message.channel.trigger_typing()
@@ -427,7 +432,7 @@ class Auto_Responses(commands.Cog):
                 # reply with "):"
                 if "):" in reply_message.content:
                     await reply_message.channel.trigger_typing()
-                    await reply_message.channel.send("listen here you piece of shit")
+                    await reply_message.channel.send("listen here you piece of shit!")
 
                 # reply with "(:"
                 if "(:" in reply_message.content:
