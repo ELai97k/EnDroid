@@ -405,6 +405,29 @@ class Auto_Responses(commands.Cog):
                         if trigger in reply_message.content.lower().startswith("ur"):
                             await message.channel.trigger_typing()
                             return await reply_message.channel.send(response)
+                            
+        # e
+        if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189 and message.author.id != 973407928654651392:
+            await asyncio.sleep(20)
+            e_responses = [
+                "what's going on here?",
+                "wdym",
+                "I see",
+                "Oh",
+                "yes",
+                "no",
+                "What?",
+                "Who?",
+                "Why?",
+                "When?",
+                "How?",
+                "ah",
+                "ok",
+                "Okay",
+                "I don't get it"
+            ]
+            await message.channel.send(f'{random.choice(e_responses)}')
+            print("e")
 
         # turn that frown upside down
         if ":(" in message.content:
@@ -433,11 +456,6 @@ class Auto_Responses(commands.Cog):
                 if "):" in reply_message.content:
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send("listen here you piece of shit!")
-
-                # reply with "(:"
-                if "(:" in reply_message.content:
-                    await reply_message.channel.trigger_typing()
-                    await reply_message.channel.send(":)")
 
 
 def setup(client):
