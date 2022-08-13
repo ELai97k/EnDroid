@@ -414,7 +414,7 @@ class Music(commands.Cog):
 
 
     # skip the song
-    @commands.command(name='skip')
+    @commands.command(name='skip', aliases=['next'])
     async def _skip(self, ctx: commands.Context):
         """Vote to skip a song. The requester can automatically skip.
         3 skip votes are needed for the song to be skipped.
@@ -544,7 +544,7 @@ class Music(commands.Cog):
             inline=False
         )
         embed.add_field (
-            name="skip",
+            name="skip / next",
             value="Skip the song",
             inline=False
         )
