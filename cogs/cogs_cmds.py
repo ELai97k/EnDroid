@@ -8,7 +8,7 @@ class Cogs_cmds(commands.Cog):
 
     # load cogs
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_role("Moderators")
     async def load(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -23,7 +23,7 @@ class Cogs_cmds(commands.Cog):
 
     # unload cogs
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_role("Moderators")
     async def unload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -38,7 +38,7 @@ class Cogs_cmds(commands.Cog):
 
     # reload cogs
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_role("Moderators")
     async def reload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
