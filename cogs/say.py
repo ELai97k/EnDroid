@@ -8,7 +8,7 @@ class Say(commands.Cog):
 
     # say command
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_role("Moderators")
     async def say(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
