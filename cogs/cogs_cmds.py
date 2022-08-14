@@ -17,6 +17,7 @@ class Cogs_cmds(commands.Cog):
             description = f"`{extension}` has been loaded successfully and your changes were saved.",
             color=0x198C19
         )
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.load_extension(f'cogs.{extension}')
         print("Loading cogs...")
@@ -32,6 +33,7 @@ class Cogs_cmds(commands.Cog):
             description = f"`{extension}` has been unloaded successfully and your changes were saved.",
             color=0x198C19
         )
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
         print("Unloading cogs...")
@@ -47,6 +49,7 @@ class Cogs_cmds(commands.Cog):
             description = f"`{extension}` has been reloaded successfully and your changes were saved.",
             color=0x198C19
         )
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
         self.client.load_extension(f"cogs.{extension}")
