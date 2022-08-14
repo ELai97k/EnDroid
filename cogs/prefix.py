@@ -36,7 +36,7 @@ class Prefix(commands.Cog):
         with open("prefixes.json", "w") as f:
             json.dump(prefixes, f, indent=4)
 
-    # remove prefix and guild id from json file
+    # remove prefix and guild id from json file when bot leaves server
     @commands.Cog.listener()
     async def on_guild_remove(self, guild):
         with open("prefixes.json", "r") as f:
