@@ -25,7 +25,9 @@ class Bot_Statuses(commands.Cog):
             "Sine Mora EX",
             "Splitgate",
             "Among Us",
-            "Tech Support: Error Unknown"
+            "Tech Support: Error Unknown",
+            "The Sims 3",
+            "Minecraft"
         ]
 
         await self.client.change_presence (
