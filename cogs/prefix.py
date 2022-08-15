@@ -84,7 +84,7 @@ class Prefix(commands.Cog):
         if message.author == self.client.user:
             return
 
-        if message.content.lower().startswith("what is the current prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix"):
+        if message.content.lower().startswith("what is the current prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix") or message.content.lower().startswith("current prefix"):
             with open('prefixes.json', 'r') as f:
                 prefixes = json.load(f)
                 prefix = prefixes[str(message.guild.id)]
