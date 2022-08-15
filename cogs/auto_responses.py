@@ -38,11 +38,6 @@ class Auto_Responses(commands.Cog):
             await message.channel.send("F")
             print("F")
 
-        if message.content == "f":
-            await message.channel.trigger_typing()
-            await message.channel.send("F")
-            print("F")
-
         # bruh
         if "bruh" in message.content.lower():
             await message.channel.trigger_typing()
@@ -77,11 +72,6 @@ class Auto_Responses(commands.Cog):
         if "stupid bot" in message.content.lower():
             await message.channel.trigger_typing()
             await message.channel.send("what is my purpose?")
-
-        # ¯\_(ツ)_/¯
-        if "¯\_(ツ)_/¯" in message.content:
-            await message.channel.trigger_typing()
-            await message.channel.send("¯\_(ツ)_/¯")
 
         # hello bot(s)
         if message.content.lower().startswith("hello bot") or message.content.lower().startswith("hello bots"):
@@ -162,7 +152,7 @@ class Auto_Responses(commands.Cog):
                 "I can't assist you",
                 "I can't help you at this moment",
                 "Go away",
-                "Go bother someone else",
+                "Go bother someone else!",
                 "Don't disturb me!"
             ]
             await message.channel.trigger_typing()
