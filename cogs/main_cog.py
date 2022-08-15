@@ -6,10 +6,6 @@ class Main_Cog(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # bot login
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print(f"{self.client.user} logged in successfully!")
 
     # welcome embed
     @commands.Cog.listener()
