@@ -35,6 +35,11 @@ for filename in os.listdir("./cogs"):
   if filename.endswith(".py"):
     client.load_extension(f'cogs.{filename [:-3]}')
     
+# on ready event
+@client.event
+async def on_ready():
+  # bot login
+  print(f"{client.user} logged in successfully!")
 
 # on message event
 @client.event
