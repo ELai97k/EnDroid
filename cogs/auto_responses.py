@@ -191,7 +191,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.send("Hi " + message.content.lower().replace("i am", "").strip() + ", I'm Endroid!")
 
         # I'm responses
-        if message.content.lower().replace("'", "").strip().startswith("im"):
+        if message.content.lower().replace("'", "").strip().startswith("im") or message.content.lower().replace("'", "").strip().startswith("i'm"):
             responses = {
                 "elai":"Are you sure about that?",
                 "endroid":"You're not Endroid, I'm Endroid!",
@@ -359,7 +359,7 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.send(embed=embed)
 
                 # you're responses
-                if reply_message.content.lower().replace("'", "").strip().startswith("youre"):
+                if reply_message.content.lower().replace("'", "").strip().startswith("youre") or reply_message.content.lower().replace("'", "").strip().startswith("you're"):
                     responses = {
                         "useless":"how dare you!",
                         "dumb":"evrywan dum",
