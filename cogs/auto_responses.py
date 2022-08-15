@@ -182,8 +182,7 @@ class Auto_Responses(commands.Cog):
                 "stupid":"Yeah, I know.",
                 "a fucking dumbass":"yes you are indeed",
                 "a dumbass":"yeah you are",
-                "dumb":"lol",
-                "dum":"yes"
+                "dum":"lol yes"
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("'", "").replace("i am", "").strip():
@@ -202,8 +201,7 @@ class Auto_Responses(commands.Cog):
                 "stupid":"Yeah, I know.",
                 "a fucking dumbass":"yes you are indeed",
                 "a dumbass":"yeah you are",
-                "dumb":"lol",
-                "dum":"yes"
+                "dum":"lol yes"
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("'", "").replace("im", "").strip():
