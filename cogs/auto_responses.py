@@ -228,7 +228,7 @@ class Auto_Responses(commands.Cog):
                 "Hi there!",
                 "hi there",
                 "Hey there!",
-                "hey there"
+                "hey there",
                 "Yes?",
                 "Yo!",
                 "What's up",
