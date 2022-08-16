@@ -15,7 +15,6 @@ class Say(commands.Cog):
 
         if message == None:
             await ctx.send("What do you want me to say?")
-            await ctx.message.delete()
 
         else:
             await self.client.get_channel(911112792646508627).send(f"{message}")
