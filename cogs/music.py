@@ -491,24 +491,10 @@ class Music(commands.Cog):
         await ctx.message.add_reaction('✅')
 
 
-    # repeat the currently playing song
-    @commands.command(name='loop')
-    async def _loop(self, ctx: commands.Context):
-        """Loops the currently playing song.
-        Invoke this command again to unloop the song.
-        """
-
-        if not ctx.voice_state.is_playing:
-            return await ctx.send('Nothing being played at the moment.')
-
-        # Inverse boolean value to loop and unloop.
-        ctx.voice_state.loop = not ctx.voice_state.loop
-        await ctx.message.add_reaction('✅')
-
-
     # embed info for music bot
     @commands.command(name='musichelp')
     async def _musichelp(self, ctx):
+        """Music bot commands"""
         embed = discord.Embed (
             title="List of Music Bot Commands",
             color=discord.Color.blurple()
@@ -566,11 +552,6 @@ class Music(commands.Cog):
         embed.add_field (
             name="remove",
             value="Remove a song from the queue",
-            inline=False
-        )
-        embed.add_field (
-            name="loop",
-            value="Repeats the currently playing song",
             inline=False
         )
         embed.add_field (
