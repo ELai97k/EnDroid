@@ -48,7 +48,7 @@ class Info(commands.Cog):
         value="Displays a list of words / phrases / sentences the bot auto respond to.",
         inline=False)
 
-        embed.add_field(name="reminder", 
+        embed.add_field(name="remind", 
         value="Get the bot to set a reminder for you and be pinged when it's due.",
         inline=False)
 
