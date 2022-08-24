@@ -4,7 +4,7 @@ import asyncio
 
 class Remindme(commands.Cog):
     """Reminder command 2 (input the time first, then your reminder text)"""
-    def __iniy__(self, client):
+    def __init__(self, client):
         self.client = client
 
     # remind me command
@@ -45,7 +45,7 @@ class Remindme(commands.Cog):
                 await asyncio.sleep(seconds)
                 await ctx.send(f"Hey {user.mention}, you asked me to remind you about `{reminder}` `{counter}` ago.")
                 return
-                
+
 
 def setup(client):
     client.add_cog(Remindme(client))
