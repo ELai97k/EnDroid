@@ -29,10 +29,11 @@ class Bot_Statuses(commands.Cog):
             "The Sims 3",
             "Minecraft"
         ]
-
-        await self.client.change_presence (
-            activity=discord.Activity (
-            type=discord.ActivityType.playing, name=f'{random.choice(status)}'))
+        await self.client.change_presence(
+            activity = discord.Activity (
+                type = discord.ActivityType.playing, name = f'{random.choice(status)}'
+            )
+        )
 
 
 def setup(client):
