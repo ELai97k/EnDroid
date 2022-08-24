@@ -40,6 +40,11 @@ for filename in os.listdir("./cogs"):
 async def on_ready():
   # bot login
   print(f"{client.user} logged in successfully!")
+  await client.change_presence(
+    activity = discord.Activity (
+      type = discord.ActivityType.playing, name = "Visual Studio Code"
+    )
+  )
 
 # on message event
 @client.event
