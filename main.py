@@ -48,6 +48,7 @@ async def on_ready():
     )
   )
 
+
 # on message event
 @client.event
 async def on_message(message):
