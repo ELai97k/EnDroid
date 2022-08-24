@@ -7,8 +7,8 @@ class Remind(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # remind command
-    @commands.command(pass_context=True, aliases=["remindme"])
+    # remind / reminder command
+    @commands.command(pass_context=True, aliases=["reminder"])
     async def remind(self, ctx, reminder=None, *times):
         user = ctx.author
         if user == self.client.user:
@@ -46,9 +46,9 @@ class Remind(commands.Cog):
                 await ctx.send(f"Hey {user.mention}, you asked me to remind you about `{reminder}` `{counter}` ago.")
                 return
     
-    # reminder command
-    @commands.command(pass_context=True, aliases=["remindme"])
-    async def reminder(self, ctx, *times, reminder=None):
+    # remind me command
+    @commands.command(pass_context=True)
+    async def remindme(self, ctx, *times, reminder=None):
         user = ctx.author
         if user == self.client.user:
             return
