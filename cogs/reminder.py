@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 
 class Remind(commands.Cog):
-    """Reminder command"""
+    """Reminder command (input message first, then the time)"""
     def __init__(self, client):
         self.client = client
 
