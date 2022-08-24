@@ -31,7 +31,7 @@ class Prefix(commands.Cog):
             prefixes = json.load(f)
 
         # default prefix
-        prefixes[str(guild.id)] = "?/"
+        prefixes[str(guild.id)] = "?"
 
         with open("prefixes.json", "w") as f:
             json.dump(prefixes, f, indent=4)
