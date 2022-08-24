@@ -9,13 +9,14 @@ class Remind(commands.Cog):
 
     # reminder command
     @commands.command(pass_context=True)
-    async def remind(self, ctx, *times, reminder=None):
+    async def remind(self, ctx, reminder=None, *times):
         user = ctx.author
         if user == self.client.user:
             return
 
         for time in times:
             seconds = 0
+
             # minutes
             if time.lower().endswith("m"):
                 seconds += int(time[:-1]) * 60
@@ -38,7 +39,7 @@ class Remind(commands.Cog):
             if reminder is None:
                 await ctx.send("Please tell me what to remind you.")
             if seconds == 0 or seconds > 2592000:
-                await ctx.send("Please specify a proper time:\n`m` for minutes\n`h` for hours\n`d` for days")
+                await ctx.send("Please input a reminder before you input the time in:\n`m` (minutes)\n`h` (hours)\n`d` (days).")
             else:
                 await ctx.send(f"Okay {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
                 await asyncio.sleep(seconds)
