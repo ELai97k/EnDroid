@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Cogs_cmds(commands.Cog):
-    """Commands for load, unload, and reload cogs"""
+    """Commands for loading, unloading, and reloading cogs."""
     def __init__(self, client):
         self.client = client
 
@@ -20,7 +20,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.load_extension(f'cogs.{extension}')
-        print("Loading cogs...")
+        print(f'cogs.{extension}')
 
     # unload cogs
     @commands.command()
@@ -36,7 +36,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
-        print("Unloading cogs...")
+        print(f'cogs.{extension}')
 
     # reload cogs
     @commands.command()
@@ -53,7 +53,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
         self.client.load_extension(f"cogs.{extension}")
-        print("Reloading cogs...")
+        print(f'cogs.{extension}')
 
 
 def setup(client):
