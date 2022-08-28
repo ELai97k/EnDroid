@@ -20,7 +20,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.load_extension(f'cogs.{extension}')
-        print(f'cogs.{extension}')
+        print(f'Loding {extension}')
 
     # unload cogs
     @commands.command()
@@ -36,7 +36,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
-        print(f'cogs.{extension}')
+        print(f'Unloading {extension}')
 
     # reload cogs
     @commands.command()
@@ -53,7 +53,7 @@ class Cogs_cmds(commands.Cog):
         await ctx.send(embed=embed)
         self.client.unload_extension(f'cogs.{extension}')
         self.client.load_extension(f"cogs.{extension}")
-        print(f'cogs.{extension}')
+        print(f'Reloading {extension}')
 
 
 def setup(client):
