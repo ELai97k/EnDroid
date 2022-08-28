@@ -39,7 +39,7 @@ class Reminder(commands.Cog):
             if reminder is None:
                 await ctx.send("Please tell me what to remind you.")
             if seconds == 0 or seconds > 2592000:
-                await ctx.send("Please input a reminder before you input the time in:\nm (minutes),\nh (hours),\nd (days).")
+                await ctx.send("Please input a reminder before you input the time in:\nm (minutes),\nh (hours),                                  \nd (days).")
             else:
                 await ctx.send(f"Okay {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
                 await asyncio.sleep(seconds)
