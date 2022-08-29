@@ -11,6 +11,9 @@ class Ping(commands.Cog):
     async def ping(self, ctx):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         await ctx.channel.trigger_typing()
         await ctx.send(f"🏓pong! Latency is {round (self.client.latency * 1000)} ms.")
         print("ping pong bot latency revealed")
