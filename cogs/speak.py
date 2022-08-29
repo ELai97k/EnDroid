@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
-class Say(commands.Cog):
+class Speak(commands.Cog):
     """Control the bot to say anything"""
     def __init__(self, client):
         self.client = client
@@ -18,9 +18,10 @@ class Say(commands.Cog):
 
         if message == None:
             await ctx.send("What do you want me to say?")
-            await ctx.message.delete()
 
-        else: # 786558766942257194
+        else:
+            # Chill n Vibe channel 786558766942257194
+            # G Bar general channel 762317365970468877
             await self.client.get_channel(762317365970468877).send(f"{message}")
             await ctx.message.delete()
 
@@ -30,4 +31,4 @@ class Say(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 def setup(client):
-    client.add_cog(Say(client))
+    client.add_cog(Speak(client))
