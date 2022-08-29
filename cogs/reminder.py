@@ -13,6 +13,8 @@ class Reminder(commands.Cog):
         user = ctx.author
         if user == self.client.user:
             return
+        if user.bot:
+            return
 
         for time in times:
             seconds = 0
