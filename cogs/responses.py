@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 
-class Respond_Embed(commands.Cog):
+class Responses(commands.Cog):
+    """Embed that shows what messages the bot auto respond to."""
     def __init__(self, client):
         self.client = client
 
@@ -17,4 +18,4 @@ class Respond_Embed(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Respond_Embed(client))
+    client.add_cog(Responses(client))
