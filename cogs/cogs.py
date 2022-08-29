@@ -12,6 +12,9 @@ class Cogs(commands.Cog):
     async def load(self, ctx, extension):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         embed = discord.Embed (
             title = "Operation Successful!",
             description = f"`{extension}` has been loaded successfully and your changes were saved.",
@@ -28,6 +31,9 @@ class Cogs(commands.Cog):
     async def unload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         embed = discord.Embed (
             title = "Operation Successful!",
             description = f"`{extension}` has been unloaded successfully and your changes were saved.",
@@ -44,6 +50,9 @@ class Cogs(commands.Cog):
     async def reload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         embed = discord.Embed (
             title = "Operation Successful!",
             description = f"`{extension}` has been reloaded successfully and your changes were saved.",
