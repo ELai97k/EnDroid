@@ -11,6 +11,9 @@ class Test(commands.Cog):
     async def test(self, ctx):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         await ctx.channel.trigger_typing()
         await ctx.send("This is a test command")
         print("This is a test command and it works!")
