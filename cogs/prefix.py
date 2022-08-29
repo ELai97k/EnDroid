@@ -71,7 +71,7 @@ class Prefix(commands.Cog):
         )
         embed.add_field(
             name="Default prefix",
-            value="?/",
+            value="?",
             inline=False
         )
         embed.add_field(
