@@ -361,19 +361,22 @@ class Auto_Responses(commands.Cog):
                 # you're / ur responses
                 if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur"):
                     responses = {
-                        "stupid":"Humans are stupid too!!",
-                        "dumb":"How dare you!",
-                        "dum":"Isn't everyone always dumb?",
-                        "a dumbass":"Fuck off!",
+                        "stupid":"Humans are stupid too!",
+                        "dumb":"Isn't everyone always dumb?",
+                        "dum":"Evrywan dum",
+                        "a dumbass":"How dare you!",
                         "useless":"Why are we still here? Just to suffer?",
-                        "not helpful":"I'll gladly take my leave!",
-                        "not helping":"I was never asked to help anyway!"
+                        "not helpful":"Wahtever",
+                        "not helping":"I was never asked to help anyway!",
+                        "a good bot":"Thank you!",
+                        "a clever bot":"Yes, I know!",
+                        "a cleverbot":"Haha I see what you did there.",
+                        "a smart bot":"But what if I'm not?"
                     }
                     for trigger, response in list(responses.items()):
                         if trigger in reply_message.content.lower():
                             await reply_message.channel.trigger_typing()
                             await reply_message.channel.send(response)
-
 
         # turn that frown upside down
         if ":(" in message.content:
