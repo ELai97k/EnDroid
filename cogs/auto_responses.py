@@ -358,45 +358,21 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send(embed=embed)
 
-                # you're responses
-                if reply_message.content.lower().replace("'", "").strip().startswith("youre") or reply_message.content.lower().replace("'", "").strip().startswith("you're"):
+                # you're / ur responses
+                if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur"):
                     responses = {
-                        "useless":"how dare you!",
-                        "dumb":"evrywan dum",
-                        "dum":"evrywan dum",
-                        "a dumb bot":"Why was I born?",
-                        "crazy":"maybe ¯\_(ツ)_/¯",
-                        "weird":"everyone is weird, don't pretend you're not!",
-                        "good bot":"thank you!",
-                        "smart bot":"Yes!",
-                        "idiot":"why must you insult me?",
-                        "annoying":"Why are we still here? Just to suffer?"
+                        "stupid":"What then is my purpose?",
+                        "dumb":"How dare you!",
+                        "a dumbass":"I'll burn you!",
+                        "useless":"Why must you hurt me in this way?",
+                        "not helpful":"Then why should I still exist?",
+                        "not helping":"Why are we still here? Just to suffer?"
                     }
                     for trigger, response in list(responses.items()):
-                        if trigger in reply_message.content.lower().replace("'", "").replace("youre", "").strip():
-                            await message.channel.trigger_typing()
-                            return await reply_message.channel.send(response)
+                        if trigger in reply_message.content.lower():
+                            await reply_message.channel.trigger_typing()
+                            await reply_message.channel.send(response)
 
-                # ur responses
-                if reply_message.content.lower().startswith("ur"):
-                    responses = {
-                        "useless":"how dare you!",
-                        "dumb":"evrywan dum",
-                        "dum":"evrywan dum",
-                        "a dumb bot":"Why was I born?",
-                        "crazy":"maybe ¯\_(ツ)_/¯",
-                        "weird":"everyone is weird, don't pretend you're not!",
-                        "good bot":"thank you!",
-                        "smart bot":"Yes!",
-                        "idiot":"why must you insult me?",
-                        "annoying":"Why are we still here? Just to suffer?"
-                    }
-                    for trigger, response in list(responses.items()):
-                        if trigger in reply_message.content.lower().startswith("ur"):
-                            await message.channel.trigger_typing()
-                            return await reply_message.channel.send(response)
-                            
-       
 
         # turn that frown upside down
         if ":(" in message.content:
