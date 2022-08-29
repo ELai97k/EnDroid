@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Main_Cog(commands.Cog):
-    """This is a main cog for bot's login and status and sending welcome and goodbye message embeds for new members"""
+    """Main cog for sending welcome and goodbye message embeds."""
     def __init__(self, client):
         self.client = client
 
