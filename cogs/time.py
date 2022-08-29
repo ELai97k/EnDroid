@@ -4,6 +4,7 @@ import pytz
 from datetime import datetime
 
 class Time(commands.Cog):
+    """Displays timezone in GMT +8"""
     def __init__(self, client):
         self.client = client
 
@@ -12,7 +13,9 @@ class Time(commands.Cog):
     async def time_gmt(self, ctx):
         if ctx.author == self.client.user:
             return
-        
+        if ctx.author.bot:
+            return
+
         timestamp = datetime.now()
         gmt = pytz.timezone('Asia/Singapore')
         gmt_embed = discord.Embed (
