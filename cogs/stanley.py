@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 class Stanley(commands.Cog):
+    """Fun misc commands based on The Stanley Parable"""
     def __init__(self, client):
         self.client = client
 
@@ -9,6 +10,8 @@ class Stanley(commands.Cog):
     @commands.command()
     async def eight(self, ctx):
         if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
             return
 
         embed = discord.Embed (
@@ -21,10 +24,13 @@ class Stanley(commands.Cog):
         await ctx.send(embed=embed)
         print("eight")
 
+
     # Stanley command
     @commands.command()
     async def stanley(self, ctx):
         if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
             return
 
         embed = discord.Embed (
@@ -42,6 +48,8 @@ class Stanley(commands.Cog):
     async def employee427(self, ctx):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
 
         embed = discord.Embed (
             title = "The Stanley Parable",
@@ -52,12 +60,14 @@ class Stanley(commands.Cog):
         await ctx.send(embed=embed)
         print("The Stanley Parable")
 
+
     # bucket command
     @commands.command()
     async def bucket(self, ctx):
         if ctx.author == self.client.user:
             return
-
+        if ctx.author.bot:
+            return
         await ctx.send(":bucket:")
 
 
