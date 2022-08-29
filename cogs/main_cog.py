@@ -19,6 +19,7 @@ class Main_Cog(commands.Cog):
             embed.set_footer(text='Thank you for joining us! We hope you enjoy your stay.')
             await self.client.get_channel(918831456187461652).send(embed=embed)
             
+            # auto role on join
             role = discord.utils.get(member.guild.roles, name="Unverified")
             await member.add_roles(role)
             print(f'{member} has joined the server!')
