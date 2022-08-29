@@ -361,12 +361,13 @@ class Auto_Responses(commands.Cog):
                 # you're / ur responses
                 if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur"):
                     responses = {
-                        "stupid":"What then is my purpose?",
+                        "stupid":"Humans are stupid too!!",
                         "dumb":"How dare you!",
-                        "a dumbass":"I'll burn you!",
-                        "useless":"Why must you hurt me in this way?",
-                        "not helpful":"Then why should I still exist?",
-                        "not helping":"Why are we still here? Just to suffer?"
+                        "dum":"Isn't everyone always dumb?",
+                        "a dumbass":"Fuck off!",
+                        "useless":"Why are we still here? Just to suffer?",
+                        "not helpful":"I'll gladly take my leave!",
+                        "not helping":"I was never asked to help anyway!"
                     }
                     for trigger, response in list(responses.items()):
                         if trigger in reply_message.content.lower():
