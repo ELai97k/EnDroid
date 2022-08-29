@@ -12,6 +12,8 @@ class Say(commands.Cog):
     async def speak(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
 
         if message == None:
             await ctx.send("What do you want me to say?")
