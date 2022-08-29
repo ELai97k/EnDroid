@@ -52,6 +52,11 @@ class Prefix(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def changeprefix(self, ctx, prefix):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+
         with open("prefixes.json", "r") as f:
             prefixes = json.load(f)
 
