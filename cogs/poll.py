@@ -12,6 +12,9 @@ class Poll(commands.Cog):
     async def poll(self, ctx, question, *options: str):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
+
         if len(options) <= 1:
             await ctx.send('You need at least more than one option to make a poll!')
             return
