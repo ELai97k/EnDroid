@@ -11,6 +11,8 @@ class Info(commands.Cog):
     async def info(self, ctx):
         if ctx.author == self.client.user:
             return
+        if ctx.author.bot:
+            return
 
         embed = discord.Embed (
             title = "Bot's List of Commands",
