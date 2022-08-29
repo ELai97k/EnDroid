@@ -378,7 +378,6 @@ class Auto_Responses(commands.Cog):
                             await reply_message.channel.trigger_typing()
                             await reply_message.channel.send(response)
 
-
         # turn that frown upside down
         if ":(" in message.content:
             await message.channel.trigger_typing()
