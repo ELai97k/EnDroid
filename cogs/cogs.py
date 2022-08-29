@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Cogs_cmds(commands.Cog):
+class Cogs(commands.Cog):
     """Commands for loading, unloading, and reloading cogs."""
     def __init__(self, client):
         self.client = client
@@ -57,4 +57,4 @@ class Cogs_cmds(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Cogs_cmds(client))
+    client.add_cog(Cogs(client))
