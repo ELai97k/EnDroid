@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands import has_permissions, MissingPermissions
 
 class Say(commands.Cog):
     """Control the bot to say anything"""
@@ -8,7 +9,7 @@ class Say(commands.Cog):
 
     # say command
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @has_permissions(administrator=True)
     async def speak(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
@@ -23,6 +24,10 @@ class Say(commands.Cog):
             await self.client.get_channel(762317365970468877).send(f"{message}")
             await ctx.message.delete()
 
+    @speak.error
+    async def speak_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
 def setup(client):
     client.add_cog(Say(client))
