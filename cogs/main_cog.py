@@ -23,7 +23,7 @@ class Main_Cog(commands.Cog):
             role = discord.utils.get(member.guild.roles, name="Unverified")
             await member.add_roles(role)
             print(f'{member} has joined the server!')
-    
+
 
     # goodbye embed
     @commands.Cog.listener()
