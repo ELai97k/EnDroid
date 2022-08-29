@@ -12,7 +12,9 @@ class EightBall(commands.Cog):
     async def ask(self, ctx):
         if ctx.author == self.client.user:
             return
-        
+        if ctx.author.bot:
+            return
+
         eight_ball = [
             "Yes",
             "No",
