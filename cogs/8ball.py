@@ -44,7 +44,6 @@ class EightBall(commands.Cog):
         ]
         await ctx.channel.trigger_typing()
         await ctx.send(f'{random.choice(eight_ball)}')
-        print("8ball brrr")
 
 
 def setup(client):
