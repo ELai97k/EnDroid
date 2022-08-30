@@ -1,5 +1,4 @@
 import discord
-import asyncio
 from discord.ext import commands
 
 class Stanley(commands.Cog):
@@ -23,8 +22,7 @@ class Stanley(commands.Cog):
         embed.add_field(name="Eight", value="<:eight_8:976069765506424932>")
         embed.set_footer(text="EIGHT")
         await ctx.send(embed=embed)
-        await asyncio.sleep(0.5)
-        await ctx.send(file=discord.File("r", "C:\Users\laien\Desktop\discord bot\EnDroid Discord Bot\mp3\EIGHT.mp3"))
+        await ctx.send(file=discord.File(r'C:\Users\laien\Desktop\discord bot\EnDroid Discord Bot\mp3\EIGHT.mp3'))
         print("eight")
 
 
