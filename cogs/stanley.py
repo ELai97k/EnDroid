@@ -24,7 +24,7 @@ class Stanley(commands.Cog):
         embed.set_footer(text="EIGHT")
         await ctx.send(embed=embed)
         await asyncio.sleep(0.5)
-        await ctx.send(file.discordFile("r", "C:\Users\laien\Desktop\discord bot\EnDroid Discord Bot"))
+        await ctx.send(file.discordFile("r", "C:\Users\laien\Desktop\discord bot\EnDroid Discord Bot\mp3\EIGHT.mp3"))
         print("eight")
 
 
