@@ -7,23 +7,13 @@ import json
 intents = discord.Intents.default().all()
 intents.members = True
 
-# setting up prefixes.json as json file
+# setting up prefixes.json in json file
 def get_prefix(client, message):
   with open("prefixes.json", "r") as f:
     prefixes = json.load(f)
     
   return prefixes[str(message.guild.id)]
 
-def get_prefix(client=None, message=None):
-  with open('prefixes.json', 'r') as f:
-    prefixes = json.load(f)
-
-  try:
-    prefix = str(message.guild.id)
-    return prefixes[prefix]
-
-  except AttributeError:
-    return ['defaultPrefix']
 
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
@@ -46,6 +36,30 @@ async def on_ready():
       type = discord.ActivityType.playing, name = "Visual Studio Code"
     )
   )
+
+
+# add default prefix and guild id to json file when bot joins server
+@client.event
+async def on_guild_join(guild):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  # default prefix
+  prefixes[str(guild.id)] = "?"
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent=4)
+
+# remove prefix and guild id from json file when bot leaves server
+@client.event
+async def on_guild_remove(guild):
+  with open("prefixes.json", "r") as f:
+    prefixes = json.load(f)
+
+  prefixes.pop(str(guild.id))
+
+  with open("prefixes.json", "w") as f:
+    json.dump(prefixes, f, indent=4)
 
 
 # on message event
