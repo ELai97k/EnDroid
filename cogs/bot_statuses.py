@@ -27,7 +27,10 @@ class Bot_Statuses(commands.Cog):
             "Among Us",
             "Tech Support: Error Unknown",
             "The Sims 3",
-            "Minecraft"
+            "Minecraft",
+            "Splatoon 3",
+            "Fall Guys",
+            "Fortnite"
         ]
         await self.client.change_presence(
             activity = discord.Activity (
