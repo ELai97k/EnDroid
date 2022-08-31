@@ -18,19 +18,19 @@ class Bot_Statuses(commands.Cog):
             "The Stanley Parable 2013",
             "The Stanley Parable: Ultra Deluxe",
             "The Stanley Parable 2",
-            "The Stanley Parable 8",
             "Eight Game",
             "Nintendo Switch Sports",
             "Sine Mora",
             "Sine Mora EX",
             "Splitgate",
             "Among Us",
-            "Tech Support: Error Unknown",
             "The Sims 3",
+            "The Sims 4",
             "Minecraft",
             "Splatoon 3",
             "Fall Guys",
-            "Fortnite"
+            "Fortnite",
+            "Borderlands 3"
         ]
         await self.client.change_presence(
             activity = discord.Activity (
