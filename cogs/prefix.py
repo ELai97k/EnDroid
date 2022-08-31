@@ -3,51 +3,10 @@ from discord.ext import commands
 import json
 
 class Prefix(commands.Cog):
-    """Set up bot's default prefix when joining server and commands for changing bot prefix"""
+    """Commands for changing bot prefix"""
     def __init__(self, client):
         self.client = client
 
-    # setting up prefixes.json as json file
-    def get_prefix(client, message):
-        with open("prefixes.json", "r") as f:
-            prefixes = json.load(f)
-        return prefixes[str(message.guild.id)]
-
-    def get_prefix(client=None, message=None):
-        with open('prefixes.json', 'r') as f:
-            prefixes = json.load(f)
-
-        try:
-            prefix = str(message.guild.id)
-            return prefixes[prefix]
-        except AttributeError:
-            return ['defaultPrefix']
-
-
-    # add default prefix and guild id to json file when bot joins server
-    @commands.Cog.listener()
-    async def on_guild_join(self, guild):
-        with open("prefixes.json", "r") as f:
-            prefixes = json.load(f)
-
-        # default prefix
-        prefixes[str(guild.id)] = "?"
-
-        with open("prefixes.json", "w") as f:
-            json.dump(prefixes, f, indent=4)
-
-    # remove prefix and guild id from json file when bot leaves server
-    @commands.Cog.listener()
-    async def on_guild_remove(self, guild):
-        with open("prefixes.json", "r") as f:
-            prefixes = json.load(f)
-
-        prefixes.pop(str(guild.id))
-
-        with open("prefixes.json", "w") as f:
-            json.dump(prefixes, f, indent=4)
-
-    
     # change prefix command
     @commands.command()
     @commands.has_permissions(administrator=True)
@@ -84,18 +43,22 @@ class Prefix(commands.Cog):
 
     
     # current prefix command
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.client.user:
+    @commands.command()
+    async def currentprefix(self, ctx, prefix):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
             return
 
-        if message.content.lower().startswith("what is the current prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix") or message.content.lower().startswith("current prefix"):
-            with open('prefixes.json', 'r') as f:
-                prefixes = json.load(f)
-                prefix = prefixes[str(message.guild.id)]
+        with open("prefixes.json", "r") as f:
+            prefixes = json.load(f)
 
-            await message.channel.trigger_typing()
-            await message.channel.send(f"The current prefix is set to `{prefix}`")
+        prefixes[str(ctx.guild.id)] = prefix
+
+        with open("prefixes.json", "w") as f:
+            json.dump(prefixes, f, indent=4)
+
+        await ctx.send(f"The current prefix is {prefix}")
 
 
 def setup(client):
