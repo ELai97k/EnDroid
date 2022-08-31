@@ -10,7 +10,7 @@ class Say(commands.Cog):
     # say command
     @commands.command()
     @has_permissions(administrator=True)
-    async def say(self, ctx, *, message=None):
+    async def say(self, ctx, message=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
