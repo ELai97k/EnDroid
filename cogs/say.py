@@ -10,7 +10,7 @@ class Say(commands.Cog):
     # say command
     @commands.command()
     @has_permissions(administrator=True)
-    async def say(self, ctx, message=None):
+    async def say(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -20,7 +20,7 @@ class Say(commands.Cog):
             await ctx.send("What do you want me to say?")
 
         else:
-            await self.client.get_channel(911112792646508627).send(f"{message}")
+            await self.client.get_channel(1010841256294875218).send(f"{message}")
             await ctx.message.delete()
 
     @say.error
