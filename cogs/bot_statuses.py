@@ -14,8 +14,6 @@ class Bot_Statuses(commands.Cog):
         status = [
             "Biomutant",
             "The Stanley Parable Demonstration",
-            "The Stanley Parable HD Remix",
-            "The Stanley Parable 2013",
             "The Stanley Parable: Ultra Deluxe",
             "The Stanley Parable 2",
             "Eight Game",
