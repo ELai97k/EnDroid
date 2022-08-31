@@ -17,10 +17,6 @@ class g_bar(commands.Cog):
             embed.set_footer(text='Thank you for joining us! We hope you enjoy your stay.')
             await self.client.get_channel(762317365970468877).send(embed=embed)
 
-            role = discord.utils.get(member.guild.roles, name="COCK")
-            await member.add_roles(role)
-            print(f'{member} has joined the Gay Bar!')
-
 
     # Gay Bar goodbye embed
     @commands.Cog.listener()
@@ -32,7 +28,6 @@ class g_bar(commands.Cog):
                 color=0x1e377f
             )
         await self.client.get_channel(762317365970468877).send(embed=embed)
-        print(f'{member} has left the Gay Bar!')
 
 
 def setup(client):
