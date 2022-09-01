@@ -60,6 +60,12 @@ class Triggers(commands.Cog):
             ]
             for bad_word in bad_list:
                 if bad_word in message.content.lower():
+                    with open('reports.json', 'r') as f:
+                        swear_data = json.load(f)
+                    swear_data[str(message.author.id)]
+                    with open('reports.json', 'w') as f:
+                        json.dump(swear_data, f)
+                        
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
@@ -68,12 +74,6 @@ class Triggers(commands.Cog):
                     )
                     embed.set_footer(text="If you think that this was a mistake, pls DM or ping the Admin or Mods for further discussion")
                     embed.timestamp = datetime.datetime.utcnow()
-                    
-                    with open('reports.json', 'r') as f:
-                        swear_data = json.load(f)
-                    swear_data[str(message.author.id)]
-                    with open('reports.json', 'w') as f:
-                        json.dump(swear_data, f)
 
                     await message.channel.send(embed=embed)
                     await message.delete()
