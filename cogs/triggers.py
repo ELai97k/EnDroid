@@ -74,11 +74,10 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
-                    
-                    swear_data.append(bad_word)
+
                     with open("reports.json", "w+") as f:
                         json.dump(swear_data, f)
-                    print("User swear word added to reports.json file")
+                    print("User swear word added to reports.json")
 
 
 def setup(client):
