@@ -1,6 +1,13 @@
 import discord
 from discord.ext import commands
 import datetime
+import json
+with open('reports.json', encoding='utf-8') as f:
+  try:
+    report = json.load(f)
+  except ValueError:
+    report = {}
+    report['users'] = []
 
 
 class Triggers(commands.Cog):
@@ -53,6 +60,8 @@ class Triggers(commands.Cog):
             ]
             for bad_word in bad_list:
                 if bad_word in message.content.lower():
+                    with open("reports.json", "r") as f:
+                        swear_data = json.load(f)
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
@@ -65,6 +74,11 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
+                    
+                    swear_data.append(bad_word)
+                    with open("reports.json", "w+") as f:
+                        json.dump(swear_data, f)
+                    print("User swear word added to reports.json file")
 
 
 def setup(client):
