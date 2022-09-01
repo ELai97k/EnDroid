@@ -27,12 +27,6 @@ class Warnings(commands.Cog):
         if ctx.author.bot:
             return
 
-        # if user is not mentioned
-        if not user:
-            await ctx.send("Who needs a warning?")
-            return
-
-        # if reason is not provided after mentioning a user
         if not reason:
             await ctx.send("Please provide a reason for warning.")
             return
