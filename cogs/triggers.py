@@ -61,7 +61,7 @@ class Triggers(commands.Cog):
             for bad_word in bad_list:
                 if bad_word in message.content.lower():
                     with open("reports.json", "r") as f:
-                        swear_data = json.load(f)
+                        bad_word = json.load(f)
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
@@ -76,7 +76,7 @@ class Triggers(commands.Cog):
                     print(f"{message.author} has been given a warning!")
 
                     with open("reports.json", "w+") as f:
-                        json.dump(swear_data, f)
+                        json.dump(bad_word, f)
                     print("User swear word added to reports.json")
 
 
