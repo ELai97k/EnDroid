@@ -3,7 +3,7 @@ from discord.ext import commands
 import datetime
 import json
 
-with open('reports.json', encoding='utf-8') as f:
+with open('reports.json', 'r') as f:
   try:
     report = json.load(f)
   except ValueError:
