@@ -33,7 +33,7 @@ class Triggers(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message(self, message, user:discord.User):
         if message.author == self.client.user:
             return
 
@@ -72,9 +72,9 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     bad_word = ' '.join(bad_word)
-                    for message.author in report['users']:
-                        if message.author['name'] == message.author.name:
-                            message.author['reasons'].append(bad_word)
+                    for current_user in report['users']:
+                        if current_user['name'] == message.author.name:
+                            current_user['reasons'].append(bad_word)
                             break
                     else:
                         report['users'].append({
