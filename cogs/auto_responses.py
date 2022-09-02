@@ -252,7 +252,7 @@ class Auto_Responses(commands.Cog):
             else:
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are you doing"):
                     feelings = [
-                        "I'm okay, thank you.",
+                        "I'm okay, thanks.",
                         "i'm fine, thank you.",
                         "Not good",
                         "Go away",
@@ -279,6 +279,11 @@ class Auto_Responses(commands.Cog):
                 if reply_message.content.lower().startswith("what can you do") or reply_message.content.lower().startswith("what are your features") or reply_message.content.lower().startswith("what are your functions"):
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send("I can chat with you and others in this server, answer questions with the 8ball function, make polls, set reminders and play music in a voice channel.")
+
+                # tell me about yourself
+                if reply_message.content.lower().startswith("tell me about yourself") or reply_message.content.lower().startswith("who are you") or reply_message.content.lower().startswith("what are you"):
+                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.send("My name is Endroid, I'm an android. I am also a bot. ELai made me. My other siblings are Jmmib and Daydreamer.")
 
                 # what are you doing right now
                 if reply_message.content.lower().startswith("what are you doing right now") or reply_message.content.lower().startswith("what are you doing now") or reply_message.content.lower().startswith("what are you doing") or reply_message.content.lower().startswith("what you doing") or reply_message.content.lower().startswith("whatcha doin") or reply_message.content.lower().startswith("whatcha doing") or reply_message.content.lower().startswith("what'cha doin") or reply_message.content.lower().startswith("what'cha doing") or reply_message.content.lower().startswith("what are you doing currently") or reply_message.content.lower().startswith("what are you currently doing"):
@@ -308,8 +313,6 @@ class Auto_Responses(commands.Cog):
                         "idk what to say",
                         "I dunno what to talk about",
                         "I dunno what to say",
-                        "I don't know what to talk about",
-                        "I don't know what to say",
                         "We are already talking right now",
                         "Dunno what to say",
                         "No",
@@ -320,11 +323,6 @@ class Auto_Responses(commands.Cog):
                     ]
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send(f'{random.choice(talk)}')
-
-                # tell me about yourself
-                if reply_message.content.lower().startswith("tell me about yourself") or reply_message.content.lower().startswith("who are you"):
-                    await reply_message.channel.trigger_typing()
-                    await reply_message.channel.send("My name is Endroid, I am an android. I am also a bot. ELai made me.")
 
                 # time
                 if reply_message.content.lower().startswith("what's the time") or reply_message.content.lower().startswith("whats the time") or reply_message.content.lower().startswith("what is the time") or reply_message.content.lower().startswith("what time is it"):
