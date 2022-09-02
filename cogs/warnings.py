@@ -42,7 +42,7 @@ class Warnings(commands.Cog):
                 'reasons': [reason, ]
             })
         with open('reports.json','w+') as f:
-            json.dump(report,f)
+            json.dump(report, f)
         
         # embed
         embed = discord.Embed (
