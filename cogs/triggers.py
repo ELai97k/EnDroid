@@ -71,6 +71,16 @@ class Triggers(commands.Cog):
 
                     await message.channel.send(embed=embed)
                     await message.delete()
+                    bad_word = ' '.join(bad_word)
+                    for message.author in report['users']:
+                        if message.author['name'] == message.author.name:
+                            message.author['reasons'].append(bad_word)
+                            break
+                    else:
+                        report['users'].append({
+                            'name': message.author.name,
+                            'swears': [bad_word]
+                        })
                     with open('reports.json', 'w+') as f:
                         json.dump(report, f, indent=4)
                     print(f"{message.author} has been given a warning!")
