@@ -3,7 +3,7 @@ from discord.ext import commands
 import datetime
 
 class Triggers(commands.Cog):
-    """Bad words filters"""
+    """Bot filter for bad words"""
     def __init__(self, client):
         self.client = client
 
