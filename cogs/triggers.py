@@ -28,9 +28,6 @@ class Triggers(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        with open('swears.json', 'r') as f:
-            message = json.load(f)
-            
         if message.author == self.client.user:
             return
 
