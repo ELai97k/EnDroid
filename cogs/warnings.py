@@ -13,7 +13,7 @@ with open('reports.json', encoding='utf-8') as f:
 
 
 class Warnings(commands.Cog):
-    """Warnings for members and warn command"""
+    """Trigger warnings for members"""
     def __init__(self, client):
         self.client = client
 
@@ -61,7 +61,7 @@ class Warnings(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-    # warnings command
+    # warnings for members
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     async def warnings(self, ctx, user:discord.User):
