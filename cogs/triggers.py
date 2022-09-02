@@ -75,7 +75,7 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     with open('reports.json', 'w+') as f:
-                        json.dump(users, bad_word, f, indent=4)
+                        json.dump(users, bad_word, f, indent=5)
                     print(f"{message.author} has been given a warning!")
 
 
