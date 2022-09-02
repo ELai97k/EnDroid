@@ -33,7 +33,7 @@ class Triggers(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message, user:discord.User):
+    async def on_message(self, message):
         if message.author == self.client.user:
             return
 
@@ -71,19 +71,8 @@ class Triggers(commands.Cog):
 
                     await message.channel.send(embed=embed)
                     await message.delete()
-                    bad_word = ' '.join(bad_word)
-                    for current_user in report['users']:
-                        if current_user['name'] == user.name:
-                            current_user['reasons'].append(bad_word)
-                            break
-                        else:
-                            report['users'].append({
-                                'name': user.name,
-                                'reasons': [bad_word]
-                            })
-                        with open('reports.json','w+') as f:
-                            json.dump(report, f)
-
+                    with open('reports.json', 'w+') as f:
+                        json.dump(message.author.name, bad_word, f)
                     print(f"{message.author} has been given a warning!")
 
 
