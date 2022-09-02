@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 class Role_Reaction(commands.Cog):
+    """Reaction roles"""
     def __init__(self, client):
         self.client = client
     
