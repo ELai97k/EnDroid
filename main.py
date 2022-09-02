@@ -1,8 +1,9 @@
 import discord
-from discord.ext import commands
 import os
 import asyncio
 import json
+from discord.ext import commands
+
 
 intents = discord.Intents.default().all()
 intents.members = True
