@@ -37,6 +37,10 @@ class Triggers(commands.Cog):
         if message.author == self.client.user:
             return
 
+        with open('reports.json', 'r') as f:
+            users = json.laod(f)
+        users[str(message.author.name)]['response'] = str(message)
+
         # bad words
         if not message.author.bot:
             bad_list = [
@@ -72,7 +76,7 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     with open('reports.json', 'w') as f:
-                        json.dump(bad_word, f)
+                        json.dump(users, bad_word, f)
                     print(f"{message.author} has been given a warning!")
 
 
