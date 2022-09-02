@@ -276,7 +276,7 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.send(f'{random.choice(feelings)}')
 
                 # features
-                if reply_message.content.lower().startswith("what can you do") or reply_message.content.lower().startswith("what is your purpose") or reply_message.content.lower().startswith("what are your features") or reply_message.content.lower().startswith("what are your functions") or reply_message.content.lower().startswith("what are your skills"):
+                if reply_message.content.lower().startswith("what can you do") or reply_message.content.lower().startswith("what are your features") or reply_message.content.lower().startswith("what are your functions"):
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send("I can chat with you and others in this server, answer questions with the 8ball function, make polls, set reminders and play music in a voice channel.")
 
