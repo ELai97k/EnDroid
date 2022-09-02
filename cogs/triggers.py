@@ -28,11 +28,11 @@ class Triggers(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == self.client.user:
-            return
-        
         with open('swears.json', 'r') as f:
             message = json.load(f)
+            
+        if message.author == self.client.user:
+            return
 
         # bad words
         if not message.author.bot:
