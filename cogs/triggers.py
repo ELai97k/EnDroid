@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands
 import datetime
-import json
-
 
 class Triggers(commands.Cog):
     """Bad words filters"""
@@ -65,8 +63,6 @@ class Triggers(commands.Cog):
 
                     await message.channel.send(embed=embed)
                     await message.delete()
-                    with open('swears.json', 'w+') as f:
-                        json.dump(bad_word, f, indent=4)
                     print(f"{message.author} has been given a warning!")
 
 
