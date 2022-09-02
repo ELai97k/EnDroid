@@ -2,7 +2,6 @@ import discord
 import random
 from discord.ext import commands, tasks
 
-
 class Bot_Statuses(commands.Cog):
     def __init__(self, client):
         self.client = client
