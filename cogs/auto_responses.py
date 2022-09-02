@@ -250,7 +250,7 @@ class Auto_Responses(commands.Cog):
 
             # how are you
             else:
-                if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are you feeling"):
+                if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are you doing"):
                     feelings = [
                         "I'm okay, thank you.",
                         "i'm fine, thank you.",
