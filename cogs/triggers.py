@@ -73,16 +73,17 @@ class Triggers(commands.Cog):
                     await message.delete()
                     bad_word = ' '.join(bad_word)
                     for current_user in report['users']:
-                        if current_user['name'] == message.author.name:
+                        if current_user['name'] == user.name:
                             current_user['reasons'].append(bad_word)
                             break
-                    else:
-                        report['users'].append({
-                            'name': message.author.name,
-                            'swears': [bad_word]
-                        })
-                    with open('reports.json', 'w+') as f:
-                        json.dump(report, f, indent=4)
+                        else:
+                            report['users'].append({
+                                'name': user.name,
+                                'reasons': [bad_word]
+                            })
+                        with open('reports.json','w+') as f:
+                            json.dump(report, f)
+
                     print(f"{message.author} has been given a warning!")
 
 
