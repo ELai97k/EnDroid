@@ -1,6 +1,13 @@
 import discord
 from discord.ext import commands
 import datetime
+import json
+with open('reports.json', encoding='utf-8') as f:
+  try:
+    report = json.load(f)
+  except ValueError:
+    report = {}
+    report['users'] = []
 
 
 class Triggers(commands.Cog):
@@ -64,6 +71,8 @@ class Triggers(commands.Cog):
 
                     await message.channel.send(embed=embed)
                     await message.delete()
+                    with open('reports.json', 'w+') as f:
+                        json.dump(report, f, indent=4)
                     print(f"{message.author} has been given a warning!")
 
 
