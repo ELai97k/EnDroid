@@ -6,7 +6,6 @@ class Bot(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
