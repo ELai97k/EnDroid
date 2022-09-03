@@ -339,7 +339,7 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.send(embed=embed)
 
                 # Isaac Asimov Robot Laws
-                if reply_message.content.lower().startswith("tell me about robot laws") or reply_message.content.lower().startswith("tell me about the robot laws") or reply_message.content.lower().startswith("what are the robot laws") or reply_message.content.lower().startswith("what are the laws of robotics") or reply_message.content.lower().startswith("is there a robot law") or reply_message.content.lower().startswith("are there robot laws") or reply_message.content.lower().startswith("is there a law of robotics") or reply_message.content.lower().startswith("are there laws of robotics"):
+                if reply_message.content.lower().startswith("tell me about robot laws") or reply_message.content.lower().startswith("tell me about the robot laws") or reply_message.content.lower().startswith("what are the robot laws") or reply_message.content.lower().startswith("what are the laws of robotics"):
                     embed = discord.Embed (
                         title="The Three Laws of Robotics",
                         color=0xc7ecf7
