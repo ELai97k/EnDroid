@@ -55,7 +55,7 @@ class HeyPrompts(commands.Cog):
 
         # you're / ur responses
         embed.add_field(name="you're / ur responses",
-        value="",
+        value="stupid, dumb, dum, a dumbass, useless, not helpful, not helping, a good bot, a clever bot, a cleverbot, a smart bot",
         inline=False)
 
         await ctx.send(embed=embed)
