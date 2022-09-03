@@ -47,7 +47,7 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="responses", 
-        value="Displays a list of words / phrases / sentences the bot auto respond to.",
+        value="Displays a list of words / phrases / sentences the bot will auto respond to.",
         inline=False)
 
         embed.add_field(name="remind / reminder / remindme", 
