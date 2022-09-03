@@ -44,7 +44,7 @@ class HeyPrompts(commands.Cog):
         inline=False)
         
         # time
-        embed.add_field(name="Ask Endroid about the time. (In GMT+8)",
+        embed.add_field(name="Ask Endroid about the time. (in GMT+8)",
         value="**Prompts:** 'whats the time', 'whats the time now', 'what's the time', 'what's the time now', 'what is the time', 'what is the time now', 'what time is it'",
         inline=False)
 
