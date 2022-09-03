@@ -16,7 +16,7 @@ class Responses(commands.Cog):
 
         embed = discord.Embed (
             title = "Endroid will automatically respond to the following messages:",
-            description = "`I'm\nI am\nF\nTell me a joke\n:(\nTell me something\nI have no friends\nPog\nPoggers\nPogchamp\nPing\nBruh\nHello Endroid\nHi Endroid\nInput\nStupid bot\nDead chat\nTeleport bread\nHey Endroid`",
+            description = "I'm\nI am\nF\nTell me a joke\n:(\nTell me something\nI have no friends\nPog\nPoggers\nPogchamp\nPing\nBruh\nHello Endroid\nHi Endroid\nInput\nStupid bot\nDead chat\nTeleport bread\nHey Endroid",
             color=0xc7ecf7
         )
         await ctx.send(embed=embed)
