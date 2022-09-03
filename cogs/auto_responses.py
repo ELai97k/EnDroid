@@ -338,7 +338,7 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.trigger_typing()
                     await reply_message.channel.send(embed=embed)
 
-                # Isaac Asimov Robot Laws
+                # Isaac Asimov's Laws of Robotics
                 if reply_message.content.lower().startswith("tell me about robot laws") or reply_message.content.lower().startswith("tell me about the robot laws") or reply_message.content.lower().startswith("what are the robot laws") or reply_message.content.lower().startswith("what are the laws of robotics"):
                     embed = discord.Embed (
                         title="The Three Laws of Robotics",
