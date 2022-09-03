@@ -9,7 +9,8 @@ class Speak(commands.Cog):
 
     # say command
     @commands.command()
-    @has_permissions(administrator=True)
+    @commands.has_role("Moderators")
+    @has_permissions(manage_messages=True)
     async def speak(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
