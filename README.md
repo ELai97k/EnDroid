@@ -3,7 +3,7 @@
 
  Endroid can also filter out and delete inappropriate words in messages, has role reactions, and can send welcome and goodbye embeds.
 
-# Other functions include:
+ Other functions include:
  Making polls
  Playing music
  Set reminders
