@@ -4,4 +4,4 @@
 
 # Endroid also has role reactions, and can automatically delete inappropriate words in text messages.
 
-# Other functions include making polls, 8ball command, playing music, setting reminders, and other misc commands.
+# Other functions include making polls, playing music, setting reminders, 8ball command and other misc commands.
