@@ -1,9 +1,7 @@
 # What is Endroid?
 
-# Endroid is a Discord bot programmed using discord.py
+# Endroid is a general, multi-purpose Discord bot with auto-response and auto-moderation functions.
 
-# Endroid is a general, multi-purpose bot with some fun commands and auto-responses.
+# Endroid also has role reactions, and can automatically delete inappropriate words in text messages.
 
-# Endroid can make polls, has an 8ball function, play music and set reminders.
-
-# Endroid also has auto moderation functions, role reactions, and bad word filters.
+# Other functions include making polls, 8ball command, playing music, setting reminders, and other misc commands.
