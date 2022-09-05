@@ -25,7 +25,7 @@ class Triggers(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message(self, *, message:str):
         if message.author == self.client.user:
             return
 
