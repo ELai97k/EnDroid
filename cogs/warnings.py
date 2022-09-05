@@ -29,7 +29,6 @@ class Warnings(commands.Cog):
 
         if not reason:
             await ctx.send("Please provide a reason for warning.")
-            return
 
         reason = ' '.join(reason)
         for current_user in report['users']:
