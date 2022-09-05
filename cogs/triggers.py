@@ -34,7 +34,7 @@ class Triggers(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message, user=discord.User):
+    async def on_message(self, message, users, user=discord.User):
         with open("reports.json", "r") as f:
             report = json.load(f)
 
@@ -77,8 +77,8 @@ class Triggers(commands.Cog):
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
         
-        if not str(user.name) in report:
-            report[str(user.name)] = {"name": "", "swears": bad_word}
+        if not str(user.name) in users:
+            users[str(user.name)]={"name": message.author, "swears": message.content}
 
         with open('reports.json','w+') as f:
             json.dump(report, f)
