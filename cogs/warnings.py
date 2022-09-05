@@ -12,8 +12,6 @@ with open('reports.json', encoding='utf-8') as f:
     report['users'] = []
 
 
-# pls relaod this cog everytime a user gets a warning
-# or when editing the reports.json file
 class Warnings(commands.Cog):
     """Trigger warnings for members"""
     def __init__(self, client):
@@ -38,15 +36,14 @@ class Warnings(commands.Cog):
             if current_user['name'] == user.name:
                 current_user['reasons'].append(reason)
                 break
-            else:
-                report['users'].append({
-                    'name': user.name,
-                    'reasons': [reason,]
-                })
-
-            with open('reports.json','w+') as f:
-                json.dump(report, f)
-
+        else:
+            report['users'].append({
+                'name': user.name,
+                'reasons': [reason, ]
+            })
+        with open('reports.json','w+') as f:
+            json.dump(report, f)
+        
         # embed
         embed = discord.Embed (
             title=f"**⚠ WARNING for {user.name}!**",
@@ -64,7 +61,7 @@ class Warnings(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-    # warnings report for members
+    # warnings for members
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     async def warnings(self, ctx, user:discord.User):
@@ -75,16 +72,25 @@ class Warnings(commands.Cog):
 
         for current_user in report['users']:
             if user.name == current_user['name']:
-                await ctx.send(f"{user.name} has been reported {len(current_user['reasons'])} times : {','.join(current_user['reasons'])}")
+
+                # embed
+                embed = discord.Embed (
+                    title = f"Warning Report for {user.name}",
+                    description = f"{user.name} has been reported {len(current_user['reasons'])} times.",
+                    color=discord.Color.dark_red()
+                )
+                embed.add_field (
+                    name = "Reasons",
+                    value = f"{','.join(current_user['reasons'])}"
+                )
+                await ctx.send(embed=embed)
                 break
-            else:
-                await ctx.send(f"{user.name} has never been reported")  
+        else:
+            await ctx.trigger_typing()
+            await ctx.send(f"{user.name} has never been reported.")
 
-    @warnings.error
-    async def warnings_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("You do not have permission to use this command!")
-
+# pls relaod this cog everytime a user gets a warning
+# or when editing the reports.json file
 
 def setup(client):
     client.add_cog(Warnings(client))
