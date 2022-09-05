@@ -89,5 +89,6 @@ class Warns(commands.Cog):
                 await ctx.trigger_typing()
                 await ctx.send(f"{user.name} has never been reported.")
 
+
 def setup(client):
     client.add_cog(Warns(client))
