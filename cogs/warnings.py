@@ -89,7 +89,6 @@ class Warnings(commands.Cog):
             await ctx.trigger_typing()
             await ctx.send(f"{user.name} has never been reported.")
 
-# NOTE to self
 # pls relaod this cog everytime a user gets a warning
 # or when editing the reports.json file
 
