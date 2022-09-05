@@ -2,15 +2,6 @@ import discord
 import datetime
 from discord.ext import commands
 
-import json
-import json
-with open('reports.json', encoding='utf-8') as f:
-  try:
-    report = json.load(f)
-  except ValueError:
-    report = {}
-    report['users'] = []
-
 class Triggers(commands.Cog):
     """Bot filter for bad words"""
     def __init__(self, client):
@@ -34,10 +25,7 @@ class Triggers(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message, users, user=discord.User):
-        with open("reports.json", "r") as f:
-            report = json.load(f)
-
+    async def on_message(self, message):
         if message.author == self.client.user:
             return
 
@@ -76,12 +64,6 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
-        
-        if not str(user.name) in users:
-            users[str(user.name)]={"name": message.author, "swears": message.content}
-
-        with open('reports.json','w+') as f:
-            json.dump(report, f)
 
 
 def setup(client):
