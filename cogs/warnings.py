@@ -1,9 +1,9 @@
 import discord
+import datetime
+import json
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
-import datetime
 
-import json
 with open('reports.json', encoding='utf-8') as f:
   try:
     report = json.load(f)
@@ -11,12 +11,11 @@ with open('reports.json', encoding='utf-8') as f:
     report = {}
     report['users'] = []
 
-
-class Warnings(commands.Cog):
-    """Trigger warnings for members"""
+    
+class Warns(commands.Cog):
     def __init__(self, client):
         self.client = client
-
+    
     # warn command
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
@@ -36,11 +35,12 @@ class Warnings(commands.Cog):
             if current_user['name'] == user.name:
                 current_user['reasons'].append(reason)
                 break
-        else:
-            report['users'].append({
-                'name': user.name,
-                'reasons': [reason, ]
-            })
+            else:
+                report['users'].append({
+                    'name': user.name,
+                    'reasons': [reason, ]
+                })
+                
         with open('reports.json','w+') as f:
             json.dump(report, f)
         
@@ -85,12 +85,9 @@ class Warnings(commands.Cog):
                 )
                 await ctx.send(embed=embed)
                 break
-        else:
-            await ctx.trigger_typing()
-            await ctx.send(f"{user.name} has never been reported.")
-
-# pls relaod this cog everytime a user gets a warning
-# or when editing the reports.json file
+            else:
+                await ctx.trigger_typing()
+                await ctx.send(f"{user.name} has never been reported.")
 
 def setup(client):
-    client.add_cog(Warnings(client))
+    client.add_cog(Warns(client))
