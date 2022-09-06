@@ -21,7 +21,7 @@ class Warnings(commands.Cog):
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warn(self, ctx, user:discord.User, *reason:str):
+    async def warn(self, ctx, user:discord.User, reason=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -42,7 +42,7 @@ class Warnings(commands.Cog):
                 'reasons': [reason, ]
             })
         with open('reports.json','w+') as f:
-            json.dump(report,f)
+            json.dump(report, f)
         
         # embed
         embed = discord.Embed (
