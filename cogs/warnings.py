@@ -27,7 +27,6 @@ class Warnings(commands.Cog):
             await ctx.send("Pls provide a reason for warning.")
             return
         
-        reason = ' '.join(reason)
         embed = discord.Embed (
             title = f"WARNING for {user.name}",
             description = "You have broken one of the rules of this server. If you receive too many warnings, you will be **kicked or banned**.",
