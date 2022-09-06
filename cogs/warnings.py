@@ -21,7 +21,7 @@ class Warnings(commands.Cog):
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warn(self, ctx, user:discord.User, reason=None):
+    async def warn(self, ctx, user:discord.User, *reason:str):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
