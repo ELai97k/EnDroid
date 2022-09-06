@@ -64,6 +64,7 @@ class Warnings(commands.Cog):
     # warnings command
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
+    @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
     async def warnings(self, ctx, user:discord.User):
         if ctx.author == self.client.user:
             return
