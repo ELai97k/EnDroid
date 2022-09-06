@@ -40,16 +40,17 @@ class Warnings(commands.Cog):
             if current_user['name'] == user.name:
                 current_user['reasons'].append(reason)
                 break
-        else:
-            report['users'].append({
-                'name': user.name,
-                'reasons': [reason, ]
-            })
+            else:
+                report['users'].append({
+                    'name': user.name,
+                    'reasons': [reason, ]
+                })
         
         with open('warns.json', 'w+') as f:
             json.dump(report, f)
         await ctx.send(embed=embed)
         print(f"{user.name} has been given a warning!")
+
 
 def setup(client):
     client.add_cog(Warnings(client))
