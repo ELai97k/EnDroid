@@ -10,7 +10,7 @@ class Warnings(commands.Cog):
     @commands.command(pass_context=True)
     @commands.has_role("Moderators")
     @commands.has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warn(self, ctx, user:discord.User, *reason:str):
+    async def warn(self, ctx, *, user:discord.User, reason=None):
         with open('warns.json', encoding='utf-8') as f:
             try:
                 report = json.load(f)
