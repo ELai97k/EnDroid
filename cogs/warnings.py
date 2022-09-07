@@ -47,7 +47,7 @@ class Warnings(commands.Cog):
         # embed
         embed = discord.Embed (
             title=f"**⚠ WARNING for {user.name}!**",
-            description="You have broken one of Da Rules and your warning has been added to the user database. If you accumulate too many warnings, you will be either **kicked or banned**.",
+            description="You have broken one of Da Rules and your warning has been recorded. If you receive too many warnings, you will be either **kicked or banned**.",
             color=discord.Color.dark_red()
         )
         embed.set_footer(text="If you think this was a mistake, ping Admin or Mods for further discussion.")
