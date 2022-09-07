@@ -4,7 +4,13 @@ from discord.ext.commands import has_permissions, MissingPermissions
 import datetime
 
 import json
-
+with open('warns.json', encoding='utf-8') as f:
+  try:
+    warns = json.load(f)
+  except ValueError:
+    warns = {}
+    warns['users'] = []
+    
 async def update_data(users, user):
     if not f'{user.name}' in users:
         users[f'{user.name}'] = {}
