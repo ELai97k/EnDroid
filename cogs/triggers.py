@@ -55,7 +55,7 @@ class Triggers(commands.Cog):
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
-                        description="You have broken one of Da Rules in this server. If you receive too many warnings, you will be either **kicked or banned**.",
+                        description="You have broken **Rule 6**. Your warning has been recorded.",
                         color=discord.Color.dark_orange()
                     )
                     embed.set_footer(text="If you think that this was a mistake, pls DM or ping the Admin or Mods for further discussion")
