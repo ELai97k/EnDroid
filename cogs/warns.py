@@ -4,20 +4,12 @@ from discord.ext.commands import has_permissions, MissingPermissions
 import datetime
 
 import json
-with open('warns.json', encoding='utf-8') as f:
+with open('reports.json', encoding='utf-8') as f:
   try:
-    warns = json.load(f)
+    report = json.load(f)
   except ValueError:
-    warns = {}
-    warns['users'] = []
-    
-async def update_data(users, user):
-    if not f'{user.name}' in users:
-        users[f'{user.name}'] = {}
-        users[f'{user.name}']['warns'] = 0
-
-async def add_warns(users, user, warns):
-    users[f'{user.name}']['warns'] += warns
+    report = {}
+    report['users'] = []
 
 
 class Warnings(commands.Cog):
@@ -25,86 +17,77 @@ class Warnings(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context=True)
+    # warn command
+    @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warn(self, ctx, user: discord.Member):
+    async def warn(self, ctx, user:discord.User, *reason:str):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
 
-        with open('warns.json', 'r') as f:
-            users = json.load(f)
+        if not reason:
+            await ctx.send("Please provide a reason for warning.")
+            return
+
+        reason = ' '.join(reason)
+        for current_user in report['users']:
+            if current_user['name'] == user.name:
+                current_user['reasons'].append(reason)
+                break
+        else:
+            report['users'].append({
+                'name': user.name,
+                'reasons': [reason, ]
+            })
+        with open('reports.json','w+') as f:
+            json.dump(report, f)
         
-        await update_data(users, user)
-        await add_warns(users, user, 1)
-
-        with open('warns.json', 'w') as f:
-            json.dump(users, f, sort_keys=True, ensure_ascii=False, indent=4)
-
+        # embed
         embed = discord.Embed (
-            title = f"**⚠ WARNING for {user.name}!**",
-            description = "You have broken one of Da Rules and your warning has been added to the user database. If you receive too many warnings, you will be either **kicked or banned**.",
-            color = discord.Color.dark_red()
+            title=f"**⚠ WARNING for {user.name}!**",
+            description="You have broken one of Da Rules and your warning has been added to the user database. If you accumulate too many warnings, you will be either **kicked or banned**.",
+            color=discord.Color.dark_red()
         )
         embed.set_footer(text="If you think this was a mistake, ping Admin or Mods for further discussion.")
         embed.timestamp = datetime.datetime.utcnow()
         await ctx.send(embed=embed)
         print(f"{user.name} has been given a warning!")
 
+    @warn.error
+    async def warn_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
-    @commands.command(pass_context=True)
+
+    # warnings command
+    @commands.command(pass_context = True)
     @commands.has_role("Moderators")
-    @has_permissions(manage_roles=True)
-    async def remove_warn(self, ctx, user: discord.Member, amount: int=None):
+    @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
+    async def warnings(self, ctx, user:discord.User):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
 
-        with open('warns.json', 'r') as f:
-            users = json.load(f)
+        for current_user in report['users']:
+            if user.name == current_user['name']:
 
-        amount = amount or 1
-
-        await update_data(users, user)
-        await add_warns(users, user, -amount)
-
-        if users[f'{user.name}']['warns'] <= 0:
-            with open('warns.json', 'w') as f:
-                del users[f'{user.name}']['warns']
-                del users[f'{user.name}']
-                f.write(json.dumps(users, indent=4))
-            return
-
+                # embed
+                embed = discord.Embed (
+                    title = f"Warning Report for {user.name}",
+                    description = f"{user.name} has been reported {len(current_user['reasons'])} times.",
+                    color=discord.Color.dark_red()
+                )
+                embed.add_field (
+                    name = "Reasons",
+                    value = f"{','.join(current_user['reasons'])}"
+                )
+                await ctx.send(embed=embed)
+                break
         else:
-            with open('warns.json', 'w') as f:
-                json.dump(users, f, sort_keys=True, ensure_ascii=False, indent=4)
-            await ctx.send(f'Removed {amount} warnings for {user.name}.')
-            return
-
-
-    @commands.command(pass_context=True)
-    @commands.has_role("Moderators")
-    @has_permissions(manage_roles=True)
-    async def warnings(self, ctx, user: discord.Member=None):
-        user = user or ctx.author
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
-
-        try:
-            with open('warns.json', 'r') as f:
-                users = json.load(f)
-
-            warns = users[f'{user.name}']['warns']
-
-            await ctx.send(f'{user.name} has {warns} warnings.')
-        
-        except:
-            await ctx.send(f"{user.name} doesn't have any warnings.")
+            await ctx.send(f"{user.name} has never been reported.")
 
 
 def setup(client):
