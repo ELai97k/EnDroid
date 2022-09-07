@@ -2,15 +2,6 @@ import discord
 import datetime
 from discord.ext import commands
 
-import json
-with open('reports.json', encoding='utf-8') as f:
-  try:
-    report = json.load(f)
-  except ValueError:
-    report = {}
-    report['users'] = []
-
-
 class Triggers(commands.Cog):
     """Bot filter for bad words"""
     def __init__(self, client):
@@ -61,14 +52,6 @@ class Triggers(commands.Cog):
             ]
             for bad_word in bad_list:
                 if bad_word in message.content.lower():
-                    with open('reports.json', 'r') as f:
-                        report = json.load(f)
-                    
-                    report['users'].append({
-                        'name': message.author,
-                        'swears': [message]
-                    })
-                    
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
@@ -80,9 +63,6 @@ class Triggers(commands.Cog):
 
                     await message.channel.send(embed=embed)
                     await message.delete()
-                    with open('reports.json','w+') as f:
-                        json.dump(report, f)
-
                     print(f"{message.author} has been given a warning!")
 
 
