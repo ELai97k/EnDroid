@@ -55,7 +55,7 @@ class Triggers(commands.Cog):
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
-                        description="You have broken **Rule 6**. Your warning has been recorded.",
+                        description="You have broken **Rule #6**. Your warning has been recorded.",
                         color=discord.Color.dark_orange()
                     )
                     embed.set_footer(text="If you think that this was a mistake, ping the Admin or Mods for further discussion.")
