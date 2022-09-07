@@ -68,6 +68,7 @@ class Triggers(commands.Cog):
                         'name': message.author,
                         'swears': [message]
                     })
+                    
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
