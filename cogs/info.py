@@ -59,7 +59,11 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="heyprompts",
-        value="Command for displaying list of options when you type 'hey endroid'",
+        value="Command for displaying list of options when you type 'hey endroid'.",
+        inline=False)
+
+        embed.add_field(name="version",
+        value="Python version for the bot.",
         inline=False)
 
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
