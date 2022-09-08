@@ -66,6 +66,10 @@ class Info(commands.Cog):
         value="Python version for the bot.",
         inline=False)
 
+        embed.add_field(name="userinfo",
+        value="Command to fetch user info.",
+        inline=False)
+
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
 
         await ctx.send(embed=embed)
