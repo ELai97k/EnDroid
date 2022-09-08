@@ -11,6 +11,7 @@ class Version(commands.Cog):
         version = "Python version: 3.10.7"
         await ctx.send(version)
 
+
     @commands.command()
     async def botver(self, ctx):
         embed = discord.Embed (
@@ -19,6 +20,7 @@ class Version(commands.Cog):
             color=0xc7ecf7
         )
         await ctx.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(Version(client))
