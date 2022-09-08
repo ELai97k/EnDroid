@@ -29,8 +29,8 @@ async def on_ready():
     print(f"{client.user} logged in successfully!")
 
     # bot default status
-    await client.change_presence(
-        activity = discord.Activity(
+    await client.change_presence (
+        activity = discord.Activity (
             type = discord.ActivityType.playing, name = "Visual Studio Code"
         )
     )
