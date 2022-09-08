@@ -7,7 +7,7 @@ class Version(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def version(self, ctx, version):
+    async def version(self, ctx):
         version = "Python version: 3.10.7"
         await ctx.send(version)
 
