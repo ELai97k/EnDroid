@@ -6,14 +6,13 @@ class Version(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(aliases=["botver", "botversion"])
     async def version(self, ctx):
-        version = "Python version: 3.10.7"
-        await ctx.send(version)
-
-
-    @commands.command()
-    async def botver(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+            
         embed = discord.Embed (
             title = "Current version",
             description = "```python-3.10.7```",
