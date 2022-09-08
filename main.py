@@ -4,10 +4,7 @@ import asyncio
 import json
 from discord.ext import commands
 
-intents = discord.Intents.all()
-intents.members = True
-intents.guild_messages = True
-intents.messages = True
+intents = discord.Intents.default().all()
 
 # setting up prefixes.json in json file
 def get_prefix(client, message):
