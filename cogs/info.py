@@ -62,7 +62,7 @@ class Info(commands.Cog):
         value="Command for displaying list of options when you type 'hey endroid'.",
         inline=False)
 
-        embed.add_field(name="version",
+        embed.add_field(name="version / botver",
         value="Python version for the bot.",
         inline=False)
 
