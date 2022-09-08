@@ -329,10 +329,10 @@ class Auto_Responses(commands.Cog):
                     timestamp = datetime.now()
                     gmt = pytz.timezone('Asia/Singapore')
                     embed = discord.Embed (
-                        title = "Current date and time in GMT +08:00",
+                        title = "Current date and time in GMT+8",
                         color=0xc7ecf7
                     )
-                    embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a %d %b %Y"), inline=False)
+                    embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a, %d %b, %Y"), inline=False)
                     embed.add_field(name="Time", value=timestamp.astimezone(gmt).strftime("%I:%M %p"), inline=False)
                     
                     await reply_message.channel.trigger_typing()
