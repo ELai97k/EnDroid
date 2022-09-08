@@ -15,7 +15,7 @@ class Version(commands.Cog):
     @commands.command()
     async def botver(self, ctx):
         embed = discord.Embed (
-            title = "Python version",
+            title = "Current version",
             description = "```python-3.10.7```",
             color=0xc7ecf7
         )
