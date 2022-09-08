@@ -1,0 +1,2 @@
+# Endroid Discord bot
+ 
