@@ -4,7 +4,7 @@ import asyncio
 import json
 from discord.ext import commands
 
-intents = discord.Intents.default().all()
+intents = discord.Intents.all()
 intents.members = True
 
 # setting up prefixes.json in json file
