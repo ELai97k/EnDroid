@@ -5,7 +5,7 @@ class g_bar(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # Gay Bar welcome embed
+    # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if member.guild.name == "Gay Bar 3.0":
@@ -18,7 +18,7 @@ class g_bar(commands.Cog):
             await self.client.get_channel(762317365970468877).send(embed=embed)
 
 
-    # Gay Bar goodbye embed
+    # goodbye embed
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         if member.guild.name == "Gay Bar 3.0":
