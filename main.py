@@ -5,6 +5,7 @@ import json
 from discord.ext import commands
 
 intents = discord.Intents.default().all()
+intents.members = True
 
 # setting up prefixes.json in json file
 def get_prefix(client, message):
