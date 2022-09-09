@@ -8,7 +8,7 @@ class Reminder(commands.Cog):
         self.client = client
 
     # remind / reminder command
-    @commands.command(pass_context=True, aliases=["reminder", "remindme"])
+    @commands.command(pass_context=True)
     async def remind(self, ctx, reminder=None, *times):
         user = ctx.author
         if user == self.client.user:
