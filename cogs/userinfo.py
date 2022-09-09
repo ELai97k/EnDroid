@@ -38,6 +38,7 @@ class UserInfo(commands.Cog):
         # server join position
         #members = sorted(ctx.guild.members, key=lambda m: m.joined_at)
 
+        # user info embed
         embed = discord.Embed (
             title = f"{user.name}'s Info",
             color=0xc7ecf7
