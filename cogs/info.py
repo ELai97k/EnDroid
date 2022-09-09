@@ -6,7 +6,7 @@ class Info(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # default help command custom mod
+    # alternate help command
     @commands.command()
     async def info(self, ctx):
         if ctx.author == self.client.user:
