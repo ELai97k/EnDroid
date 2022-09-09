@@ -40,7 +40,8 @@ class ReactionRoles(commands.Cog):
                 print("Member not found")
         else:
             print("Role not found")
-          
+
+
     # reaction remove to lose "Verified" role
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
