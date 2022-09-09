@@ -1,10 +1,12 @@
 # Endroid Discord bot
  Endroid is a general, multi-purpose bot with auto-response, auto-moderation, and a variety of commands.
 
- The auto-moderation function is limited to word filters. This means that the bot will automatically delete imappropriate words and send a warning embed to the user. See the triggers.py file in the cogs folder for more info.
+ The auto-moderation function is limited to word filter. This means that the bot will automatically delete imappropriate words and send a warning embed to the user. See the triggers.py file in the cogs folder for more info.
 
 # Bot functions and commands
  - welcome and goodbye embeds
+ - kick and ban users
+ - bad word filter
  - 8ball
  - play music
  - create polls
