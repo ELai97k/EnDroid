@@ -22,7 +22,6 @@ class Stanley(commands.Cog):
         embed.add_field(name="Eight", value="<:eight_8:976069765506424932>")
         embed.set_footer(text="EIGHT")
         await ctx.send(embed=embed)
-        await ctx.send(file=discord.File(r'C:\Users\laien\Desktop\discord bot\EnDroid Discord Bot\audio\EIGHT.mp3'))
         print("eight")
 
 
