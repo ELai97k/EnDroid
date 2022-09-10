@@ -3,7 +3,7 @@ import os
 import asyncio
 import json
 from discord.ext import commands
-# import customhelpcommand.py from cogs folder
+# import customhelp.py from cogs folder
 from cogs.customhelpcommand import CustomHelpCommand
 
 intents = discord.Intents.default().all()
