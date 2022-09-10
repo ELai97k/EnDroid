@@ -8,7 +8,7 @@ class EightBall(commands.Cog):
         self.client = client
 
     # 8ball command (prefix + ask)
-    @commands.command()
+    @commands.command(help="Ask the bot anything with the 8ball function.")
     async def ask(self, ctx):
         if ctx.author == self.client.user:
             return
