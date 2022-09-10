@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Info(commands.Cog):
-    """Custom help command"""
+    """Alternate help command for the bot."""
     def __init__(self, client):
         self.client = client
 
