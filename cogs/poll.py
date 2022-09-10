@@ -3,12 +3,12 @@ from discord.ext import commands
 import datetime
 
 class Poll(commands.Cog):
-    """Command for making polls"""
+    """Poll function."""
     def __init__(self, client):
         self.client = client
 
     # poll command
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, help="Command to create polls.")
     async def poll(self, ctx, question, *options: str):
         if ctx.author == self.client.user:
             return
