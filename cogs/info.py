@@ -7,7 +7,7 @@ class Info(commands.Cog):
         self.client = client
 
     # alternate help command
-    @commands.command()
+    @commands.command(help="This is the bot's custom help embed.")
     async def info(self, ctx):
         if ctx.author == self.client.user:
             return
