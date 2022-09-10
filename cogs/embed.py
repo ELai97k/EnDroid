@@ -7,7 +7,7 @@ class Embed(commands.Cog):
         self.client = client
 
     # test embed
-    @commands.command()
+    @commands.command(help="Command for a test embed.")
     async def embed(self, ctx):
         if ctx.author == self.client.user:
             return
