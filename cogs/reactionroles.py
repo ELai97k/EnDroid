@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class ReactionRoles(commands.Cog):
-    """Reaction roles"""
+    """Reaction roles."""
     def __init__(self, client):
         self.client = client
     
