@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Embed(commands.Cog):
-    """This is a test embed"""
+    """This is a test embed."""
     def __init__(self, client):
         self.client = client
 
