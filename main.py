@@ -3,8 +3,6 @@ import os
 import asyncio
 import json
 from discord.ext import commands
-# import customhelp.py from cogs folder
-from cogs.customhelpcommand import CustomHelpCommand
 
 intents = discord.Intents.default().all()
 intents.members=True
@@ -15,10 +13,7 @@ def get_prefix(client, message):
         prefixes = json.load(f)
     return prefixes[str(message.guild.id)]
 
-client = commands.Bot(command_prefix=get_prefix, 
-case_insensitive=True, 
-intents=intents, 
-help_command=CustomHelpCommand())
+client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
 
 # cogs
