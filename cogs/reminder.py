@@ -3,12 +3,12 @@ from discord.ext import commands
 import asyncio
 
 class Reminder(commands.Cog):
-    """Reminder function"""
+    """Get the bot to send reminders and be pinged when it's due."""
     def __init__(self, client):
         self.client = client
 
     # remind / reminder command
-    @commands.command(pass_context=True, help="Reminder command (input reminder text first then the time).")
+    @commands.command(pass_context=True, help="Reminder command (input reminder text first then the time)")
     async def remind(self, ctx, reminder=None, *times):
         user = ctx.author
         if user == self.client.user:
