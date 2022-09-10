@@ -7,7 +7,7 @@ class HeyPrompts(commands.Cog):
         self.client = client
 
     # embed
-    @commands.command()
+    @commands.command(help="Command embed to find out what you can input when you trigger 'hey endroid' in message.")
     async def heyprompts(self, ctx):
         if ctx.author == self.client.user:
             return
