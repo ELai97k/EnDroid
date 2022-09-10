@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class HeyPrompts(commands.Cog):
-    """'hey endroid' prompts and responses"""
+    """hey endroid prompts and responses"""
     def __init__(self, client):
         self.client = client
 
