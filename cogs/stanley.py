@@ -2,12 +2,12 @@ import discord
 from discord.ext import commands
 
 class Stanley(commands.Cog):
-    """Fun misc commands based on The Stanley Parable"""
+    """Fun misc commands based on The Stanley Parable."""
     def __init__(self, client):
         self.client = client
 
     # eight command
-    @commands.command()
+    @commands.command(help="8")
     async def eight(self, ctx):
         if ctx.author == self.client.user:
             return
@@ -26,7 +26,7 @@ class Stanley(commands.Cog):
 
 
     # Stanley command
-    @commands.command(aliases=["employee427", "stanleyparable"])
+    @commands.command(aliases=["employee427", "stanleyparable", "thestanleyparable"], help="This is a Discord message embed about the hit video game called The Stanley Parable.")
     async def stanley(self, ctx):
         if ctx.author == self.client.user:
             return
@@ -44,7 +44,7 @@ class Stanley(commands.Cog):
 
 
     # bucket command
-    @commands.command()
+    @commands.command(help="Call on the bucket and you will never be alone again.")
     async def bucket(self, ctx):
         if ctx.author == self.client.user:
             return
