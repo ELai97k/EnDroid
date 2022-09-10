@@ -2,12 +2,12 @@ import discord
 from discord.ext import commands
 
 class Responses(commands.Cog):
-    """Embed that shows what messages the bot auto respond to."""
+    """Embed for bot's auto-response function."""
     def __init__(self, client):
         self.client = client
 
     # embed showing bot's auto responses
-    @commands.command()
+    @commands.command(help="Embed that shows what messages the bot will auto-respond to.")
     async def responses(self, ctx):
         if ctx.author == self.client.user:
             return
