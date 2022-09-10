@@ -3,7 +3,7 @@ from discord.ext import commands
 import random
 
 class EightBall(commands.Cog):
-    """8ball command"""
+    """8ball function."""
     def __init__(self, client):
         self.client = client
 
