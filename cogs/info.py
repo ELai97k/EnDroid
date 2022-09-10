@@ -19,7 +19,7 @@ class Info(commands.Cog):
             color=0xc7ecf7
         )
         embed.add_field(name="info", 
-        value="Alternate help command that you're looking at right now.",
+        value="Custom help command that you're looking at right now.",
         inline=False)
 
         embed.add_field(name="help", 
