@@ -3,12 +3,12 @@ from discord.ext import commands
 import json
 
 class Prefix(commands.Cog):
-    """Bot prefix cog"""
+    """Command for changing bot prefix"""
     def __init__(self, client):
         self.client = client
 
     # change prefix command
-    @commands.command(help="Command for changing the bot's prefix.")
+    @commands.command()
     @commands.has_permissions(administrator=True)
     async def changeprefix(self, ctx, prefix):
         if ctx.author == self.client.user:
