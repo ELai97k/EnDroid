@@ -3,12 +3,12 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
 class Admin(commands.Cog):
-    """Kick and ban command for admin and mods"""
+    """Kick and ban commands for admin and mods."""
     def __init__(self, client):
         self.client = client
 
     # kick command
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, help="Kick a member out of the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True)
     async def kick(self, ctx, member:discord.Member, *, reason=None):
@@ -42,7 +42,7 @@ class Admin(commands.Cog):
 
 
     # ban command
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, help="Ban a member from the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, ban_members=True)
     async def ban(self, ctx, member:discord.Member, *, reason=None):
