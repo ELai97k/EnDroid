@@ -3,12 +3,12 @@ import datetime
 from discord.ext import commands
 
 class Triggers(commands.Cog):
-    """Bot filter for bad words"""
+    """Bot filter for bad words."""
     def __init__(self, client):
         self.client = client
 
     # trigger words
-    @commands.command()
+    @commands.command(help="Command that displays a list of bad words.")
     async def triggers(self, ctx):
         if ctx.author == self.client.user:
             return
