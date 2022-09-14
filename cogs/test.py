@@ -15,7 +15,7 @@ class Test(commands.Cog):
             return
 
         await ctx.channel.trigger_typing()
-        await ctx.send("This is a test command")
+        await ctx.send("This is a test command.")
         print("This is a test command and it works!")
 
 
