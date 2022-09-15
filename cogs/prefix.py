@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 
 class Prefix(commands.Cog):
-    """Bot prefix cog."""
+    """Cog for the bot's prefixes."""
     def __init__(self, client):
         self.client = client
 
