@@ -75,5 +75,5 @@ class Info(commands.Cog):
         await ctx.send(embed=embed)
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Info(client))
