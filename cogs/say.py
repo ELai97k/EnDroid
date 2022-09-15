@@ -55,5 +55,5 @@ class Say(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Say(client))
