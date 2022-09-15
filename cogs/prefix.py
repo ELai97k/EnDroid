@@ -42,5 +42,5 @@ class Prefix(commands.Cog):
         await ctx.guild.me.edit(nick=f"[{prefix}] Endroid")
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(Prefix(client))
