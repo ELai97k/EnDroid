@@ -19,5 +19,5 @@ class Test(commands.Cog):
         print("This is a test command and it works!")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Test(client))
