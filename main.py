@@ -17,9 +17,16 @@ client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=
 
 
 # cogs
-for filename in os.listdir("./cogs"):
-    if filename.endswith(".py"):
-        client.load_extension(f'cogs.{filename [:-3]}')
+async def load_extensions():
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            await client.load_extension(f'cogs.{filename [:-3]}')
+
+async def main():
+    async with client():
+        await load_extensions()
+        await client.start("TOKEN")
+asyncio.run(main())
 
 
 # on ready event
@@ -34,6 +41,7 @@ async def on_ready():
             type = discord.ActivityType.playing, name = "Visual Studio Code"
         )
     )
+
 
 # add default prefix and guild id to json file when bot joins server
 @client.event
