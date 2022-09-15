@@ -19,5 +19,5 @@ class Ping(commands.Cog):
         print("ping pong bot latency revealed")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Ping(client))
