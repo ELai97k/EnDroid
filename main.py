@@ -122,4 +122,4 @@ async def autoresponse_on(ctx):
     print("Auto responses has been turned on")
 
 
-#client.run(os.getenv('TOKEN'))
+client.run(os.getenv('TOKEN'))
