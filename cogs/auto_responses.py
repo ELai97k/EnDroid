@@ -428,5 +428,5 @@ class Auto_Responses(commands.Cog):
                     await reply_message.channel.send("listen here you piece of shit!")
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(Auto_Responses(client))
