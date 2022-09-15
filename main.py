@@ -17,16 +17,9 @@ client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=
 
 
 # cogs
-async def load_extensions():
-    for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            await client.load_extension(f'cogs.{filename [:-3]}')
-
-async def main():
-    async with client:
-        await load_extensions()
-        await client.start("TOKEN")
-asyncio.run(main())
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py"):
+        client.load_extension(f'cogs.{filename [:-3]}')
 
 
 # on ready event
