@@ -46,5 +46,5 @@ class EightBall(commands.Cog):
         await ctx.send(f'{random.choice(eight_ball)}')
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(EightBall(client))
