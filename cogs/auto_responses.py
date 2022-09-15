@@ -16,6 +16,17 @@ class Auto_Responses(commands.Cog):
             return
         if message.author.bot:
             return
+        
+        # shut bot to turn off auto responses
+        if "shut up bot" in message.content.lower() or "shut up endroid" in message.content.lower() or "endroid shut up" in message.content.lower() or "bot shut up" in message.content.lower():
+            await message.channel.send("Okay :(")
+            # turn off this cog
+            self.client.unload_extension("cogs.auto_responses")
+            print("Auto Responses has been turned off")
+            await asyncio.sleep(999) # 16.5 mins
+            # turn on this cog
+            self.client.load_extension("cogs.auto_responses")
+            print("Auto Responses has been turned on")
 
         # test
         if message.content.lower().startswith("test"):
