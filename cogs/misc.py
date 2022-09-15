@@ -1,27 +1,10 @@
 import discord
-import asyncio
 from discord.ext import commands
 
 class Shut(commands.Cog):
+    """Commands for turning off / on the bot's auto-responses."""
     def __init__(self, client):
         self.client = client
-
-    # shut bot
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.client.user:
-            return
-        if message.author.bot:
-            return
-
-        if "shut up bot" in message.content.lower() or "shut up daydreamer" in message.content.lower() or "daydreamer shut up" in message.content.lower() or "bot shut up" in message.content.lower():
-            await message.channel.send("Okay :(")
-            self.client.unload_extension("cogs.auto_responses")
-            print("Auto Responses has been turned off")
-            await asyncio.sleep(999)
-            self.client.load_extension("cogs.auto_responses")
-            print("Auto Responses has been turned on")
-
 
     # auto responses off
     @commands.command(pass_context=True, help="Turn off bot's auto-responses.")
