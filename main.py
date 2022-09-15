@@ -1,8 +1,7 @@
 import discord
 import os
 import json
-import random
-from discord.ext import commands, tasks
+from discord.ext import commands
 
 intents = discord.Intents.default().all()
 intents.members=True
