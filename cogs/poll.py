@@ -1,6 +1,6 @@
 import discord
-from discord.ext import commands
 import datetime
+from discord.ext import commands
 
 class Poll(commands.Cog):
     """Poll function."""
