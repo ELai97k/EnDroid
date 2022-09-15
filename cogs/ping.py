@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Ping(commands.Cog):
-    """Bot ping cog."""
+    """Cog for ping command."""
     def __init__(self, client):
         self.client = client
 
