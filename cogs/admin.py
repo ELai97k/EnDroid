@@ -75,5 +75,5 @@ class Admin(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(Admin(client))
