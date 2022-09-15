@@ -42,5 +42,5 @@ class Poll(commands.Cog):
         await react_message.edit(embed=embed)
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Poll(client))
