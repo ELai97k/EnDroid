@@ -36,5 +36,5 @@ class Bot_Statuses(commands.Cog):
         )
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(Bot_Statuses(client))
