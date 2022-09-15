@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Bot(commands.Cog):
+class MainCog(commands.Cog):
     """Main cog for sending welcome and goodbye message embeds."""
     def __init__(self, client):
         self.client = client
@@ -37,4 +37,4 @@ class Bot(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Bot(client))
+    client.add_cog(MainCog(client))
