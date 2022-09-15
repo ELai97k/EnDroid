@@ -573,8 +573,8 @@ class Music(commands.Cog):
                 raise commands.CommandError('Bot is already in a voice channel.')
 
 
-bot = commands.Bot('music.', description='Endroid music bot.')
-bot.add_cog(Music(bot))
+#bot = commands.Bot('music.', description='Endroid music bot.')
+#bot.add_cog(Music(bot))
 
 async def setup(client):
     client.add_cog(Music(client))
