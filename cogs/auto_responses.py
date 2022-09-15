@@ -6,7 +6,7 @@ import pytz
 from datetime import datetime
 
 class Auto_Responses(commands.Cog):
-    """Bot auto responses"""
+    """Bot auto responses."""
     def __init__(self, client):
         self.client = client
 
