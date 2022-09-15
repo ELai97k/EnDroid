@@ -78,5 +78,5 @@ class ReactionRoles(commands.Cog):
             print("Role not found")
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(ReactionRoles(client))
