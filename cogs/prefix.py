@@ -31,7 +31,7 @@ class Prefix(commands.Cog):
             json.dump(prefixes, f, indent=4)
 
     # change prefix command
-    @commands.command(help="Command for changing the bot's prefix.")
+    @commands.command(aliases=["setprefix"], help="Command for changing the bot's prefix.")
     @commands.has_permissions(administrator=True)
     async def changeprefix(self, ctx, prefix):
         if ctx.author == self.client.user:
