@@ -30,5 +30,5 @@ class g_bar(commands.Cog):
         await self.client.get_channel(762317365970468877).send(embed=embed)
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(g_bar(client))
