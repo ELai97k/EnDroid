@@ -1,6 +1,6 @@
 import discord
-from discord.ext import commands
 import json
+from discord.ext import commands
 
 class Prefix(commands.Cog):
     """Cog for the bot's prefixes."""
