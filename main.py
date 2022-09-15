@@ -36,30 +36,6 @@ async def on_ready():
     )
 
 
-# add default prefix and guild id to json file when bot joins server
-@client.event
-async def on_guild_join(guild):
-    with open("prefixes.json", "r") as f:
-        prefixes = json.load(f)
-
-    # default prefix
-    prefixes[str(guild.id)] = "?"
-
-    with open("prefixes.json", "w") as f:
-        json.dump(prefixes, f, indent=4)
-
-# remove prefix and guild id from json file when bot leaves server
-@client.event
-async def on_guild_remove(guild):
-    with open("prefixes.json", "r") as f:
-        prefixes = json.load(f)
-
-    prefixes.pop(str(guild.id))
-
-    with open("prefixes.json", "w") as f:
-        json.dump(prefixes, f, indent=4)
-
-
 # on message event
 @client.event
 async def on_message(message):
