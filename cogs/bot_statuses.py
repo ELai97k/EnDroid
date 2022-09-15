@@ -7,7 +7,7 @@ class Bot_Statuses(commands.Cog):
         self.client = client
         self.random_status_loop.start()
 
-    # bot watching statuses
+    # bot statuses
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         status = [
