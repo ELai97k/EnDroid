@@ -53,5 +53,5 @@ class Stanley(commands.Cog):
         await ctx.send(":bucket:")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Stanley(client))
