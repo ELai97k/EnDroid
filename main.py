@@ -23,7 +23,7 @@ async def load_extensions():
             await client.load_extension(f'cogs.{filename [:-3]}')
 
 async def main():
-    async with client():
+    async with client:
         await load_extensions()
         await client.start("TOKEN")
 asyncio.run(main())
