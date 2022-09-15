@@ -1,6 +1,6 @@
 import discord
-from discord.ext import commands
 import asyncio
+from discord.ext import commands
 
 class Reminder(commands.Cog):
     """Get the bot to send reminders and be pinged when it's due."""
