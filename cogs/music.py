@@ -576,5 +576,5 @@ class Music(commands.Cog):
 bot = commands.Bot('music.', description='Endroid music bot.')
 bot.add_cog(Music(bot))
 
-def setup(client):
+async def setup(client):
     client.add_cog(Music(client))
