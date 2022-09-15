@@ -34,14 +34,14 @@ class Reminder(commands.Cog):
                 seconds += int(time[:-1]) * 60 * 60 * 24
                 counter = f"{seconds // 60 // 60 // 24} days"
 
-            command_prefix = "?"
+            command_prefix = "!"
             r_command = "remind"
             reminder = ctx.message.content.lower().replace(f"{command_prefix}", "").replace(f"{r_command}", "").replace(f"{time}", "").strip()
             
             if reminder is None:
                 await ctx.send("Please tell me what to remind you.")
             if seconds == 0 or seconds > 2592000:
-                await ctx.send("Please input a reminder before you input the time in:\nm (minutes),\nh (hours),                                  \nd (days).")
+                await ctx.send("Please input a reminder before you input the time in:\nm (minutes),\nh (hours),\nd (days).")
             else:
                 await ctx.send(f"Okay {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
                 await asyncio.sleep(seconds)
