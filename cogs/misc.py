@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Shut(commands.Cog):
+class Autoresponse(commands.Cog):
     """Commands for turning off / on the bot's auto-responses."""
     def __init__(self, client):
         self.client = client
@@ -43,4 +43,4 @@ class Shut(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Shut(client))
+    client.add_cog(Autoresponse(client))
