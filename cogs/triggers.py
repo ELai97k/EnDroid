@@ -66,5 +66,5 @@ class Triggers(commands.Cog):
                     print(f"{message.author} has been given a warning!")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Triggers(client))
