@@ -48,17 +48,17 @@ class Prefix(commands.Cog):
             json.dump(prefixes, f, indent=4)
 
         embed = discord.Embed (
-            title="The bot's default prefix has been changed",
+            title = "The bot's default prefix has been changed",
             color=0xc7ecf7
         )
         embed.add_field(
-            name="Default prefix",
-            value="?",
+            name = "Default prefix",
+            value = "!",
             inline=False
         )
         embed.add_field(
-            name="New prefix",
-            value=f"{prefix}",
+            name = "New prefix",
+            value = f"{prefix}",
             inline=False
         )
         await ctx.send(embed=embed)
