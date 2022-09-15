@@ -49,5 +49,5 @@ class Reminder(commands.Cog):
                 return
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Reminder(client))
