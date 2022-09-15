@@ -29,7 +29,7 @@ async def on_ready():
     # bot default status
     await client.change_presence (
         activity = discord.Activity (
-        type = discord.ActivityType.listening, name = "Sunshine Day"
+        type = discord.ActivityType.playing, name = "Visual Studio Code"
         )
     )
 
