@@ -36,5 +36,5 @@ class Bot(commands.Cog):
             print(f'{member} has left the server!')
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Bot(client))
