@@ -39,7 +39,7 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="poll", 
-        value="This command allows you to create and make polls so that everyone can vote.",
+        value="This command allows you to create and make polls for voting purposes.",
         inline=False)
 
         embed.add_field(name="test", 
