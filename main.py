@@ -14,7 +14,6 @@ def get_prefix(client, message):
 
 client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
 
-
 # cogs
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
