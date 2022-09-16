@@ -64,13 +64,8 @@ class Auto_Responses(commands.Cog):
             await message.channel.trigger_typing()
             await message.channel.send("F")
 
-        # say something
-        if message.content.lower().startswith("say something"):
-            await message.channel.trigger_typing()
-            await message.channel.send("something")
-
-        # tell me something
-        if message.content.lower().startswith("tell me something"):
+        # say something / tell me something
+        if message.content.lower().startswith("say something") or message.content.lower().startswith("tell me something"):
             await message.channel.trigger_typing()
             await message.channel.send("something")
 
