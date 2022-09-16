@@ -54,7 +54,7 @@ class HeyPrompts(commands.Cog):
         inline=False)
 
         # you're / ur responses
-        embed.add_field(name="you're / ur responses",
+        embed.add_field(name="hey endroid + you're / ur",
         value="stupid, dumb, dum, a dumbass, useless, not helpful, not helping, a good bot, a clever bot, a cleverbot, a smart bot",
         inline=False)
 
