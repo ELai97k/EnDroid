@@ -13,7 +13,7 @@ with open('reports.json', encoding='utf-8') as f:
 
 
 class Warnings(commands.Cog):
-    """Warnings for members and warn command"""
+    """Warnings for members and warn command."""
     def __init__(self, client):
         self.client = client
 
