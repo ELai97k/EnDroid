@@ -7,23 +7,6 @@ class Triggers(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # trigger words
-    @commands.command(help="Command that displays a list of bad words.")
-    async def triggers(self, ctx):
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
- 
-        embed = discord.Embed (
-            title = "Endroid will delete these censored words:",
-            description="||`Dick`\n`Cuck(s)`\n`Cock(s)`\n`Sex`\n`Nigga`\n`Nigger`\n`Negro`\n`Penis`\n`Vagina`\n`Nude`\n`Pronhub.com`\n`Brazzers.com`\n`Faggot`\n`Naked`\n`Cum`\n`Motherfucker`||",
-            color=discord.Color.dark_red()
-        )
-        embed.set_footer(text="You will be given a warning that will trigger Endroid's auto-moderation")
-        await ctx.send(embed=embed)
-
-
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.client.user:
@@ -64,6 +47,23 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
+
+
+    # trigger words
+    @commands.command(help="Command that displays a list of bad words.")
+    async def triggers(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+ 
+        embed = discord.Embed (
+            title = "Endroid will delete these censored words:",
+            description="||`Dick`\n`Cuck(s)`\n`Cock(s)`\n`Sex`\n`Nigga`\n`Nigger`\n`Negro`\n`Penis`\n`Vagina`\n`Nude`\n`Pronhub.com`\n`Brazzers.com`\n`Faggot`\n`Naked`\n`Cum`\n`Motherfucker`||",
+            color=discord.Color.dark_red()
+        )
+        embed.set_footer(text="You will be given a warning that will trigger Endroid's auto-moderation")
+        await ctx.send(embed=embed)
 
 
 def setup(client):
