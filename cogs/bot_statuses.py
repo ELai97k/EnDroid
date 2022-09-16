@@ -11,7 +11,6 @@ class Bot_Statuses(commands.Cog):
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         status = [
-            "Stack Overflow",
             "Discord",
             "Biomutant",
             "The Stanley Parable Demonstration",
@@ -26,7 +25,8 @@ class Bot_Statuses(commands.Cog):
             "The Sims 3",
             "The Sims 4",
             "Minecraft",
-            "Fall Guys"
+            "Fall Guys",
+            "Hearthstone"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
