@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
-class Say(commands.Cog):
+class Echo(commands.Cog):
     """Control the bot to say anything."""
     def __init__(self, client):
         self.client = client
@@ -55,4 +55,4 @@ class Say(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Say(client))
+    client.add_cog(Echo(client))
