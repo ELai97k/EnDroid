@@ -31,7 +31,7 @@ class Say(commands.Cog):
 
 
     # speak command for moderators
-    @commands.command(help="Make the bot say your message input.")
+    @commands.command(help="Make the bot speak your message input.")
     @commands.has_role("Moderators")
     @has_permissions(manage_messages=True)
     async def speak(self, ctx, *, message=None):
