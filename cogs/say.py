@@ -44,7 +44,6 @@ class Say(commands.Cog):
             await ctx.send("What do you want me to say?")
 
         else:
-            # main server general channel 1010841256294875218
             # G Bar general channel 762317365970468877
             await self.client.get_channel(762317365970468877).send(f"{message}")
             await ctx.message.delete()
