@@ -23,7 +23,6 @@ class MainCog(commands.Cog):
             await member.add_roles(role)
             print(f'{member} has joined the server!')
 
-
     # goodbye embed
     @commands.Cog.listener()
     async def on_member_remove(self, member):
