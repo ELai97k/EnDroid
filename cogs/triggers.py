@@ -11,9 +11,11 @@ class Triggers(commands.Cog):
     async def on_message(self, message):
         if message.author == self.client.user:
             return
+        if message.author.bot:
+            return
 
         # bad words
-        if not message.author.bot:
+        if message.author.guild.name == "ELai's Server":
             bad_list = [
                 "dick",
                 "cuck",
