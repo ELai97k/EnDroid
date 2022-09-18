@@ -65,16 +65,5 @@ class Prefix(commands.Cog):
         await ctx.guild.me.edit(nick=f"[{prefix}] Endroid")
 
 
-    # current prefix command
-    @commands.command(help="Check the current prefix of bot.")
-    async def currentprefix(self, ctx, prefix):
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
-        
-        await ctx.send(f"My current prefix is ```{prefix}```")
-
-
 def setup(client):
     client.add_cog(Prefix(client))
