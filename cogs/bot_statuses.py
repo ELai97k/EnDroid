@@ -7,30 +7,26 @@ class Bot_Statuses(commands.Cog):
         self.client = client
         self.random_status_loop.start()
 
-    # bot statuses
+    # bot statuses (will change from time to time)
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         status = [
-            "Discord",
-            "Biomutant",
-            "The Stanley Parable Demonstration",
-            "The Stanley Parable: Ultra Deluxe",
-            "The Stanley Parable 2",
-            "Nintendo Switch Sports",
-            "Splatoon 3",
-            "Sine Mora",
-            "Sine Mora EX",
-            "Splitgate",
-            "Among Us",
-            "The Sims 3",
-            "The Sims 4",
-            "Minecraft",
-            "Fall Guys",
-            "Hearthstone"
+            "Youtube",
+            "からめる",
+            "マタタビムービーラボ",
+            "Netflix",
+            "Spy x Family season 2",
+            "Mob Psycho 100 season 3",
+            "Oddballs",
+            "Wendell and Wild",
+            "Tekken: Bloodline",
+            "The Shaman King",
+            "The Rings of Power",
+            "The Grand Tour: A Scandi Flick"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
-                type = discord.ActivityType.playing, name = f'{random.choice(status)}'
+                type = discord.ActivityType.watching, name = f'{random.choice(status)}'
             )
         )
 
