@@ -1,6 +1,7 @@
 import discord
 import json
 from discord.ext import commands
+from discord.ext.commands import has_permissions, MissingPermissions
 
 class Prefix(commands.Cog):
     """Cog for the bot's prefixes."""
@@ -64,6 +65,11 @@ class Prefix(commands.Cog):
         )
         await ctx.send(embed=embed)
         await ctx.guild.me.edit(nick=f"[{prefix}] Endroid")
+
+    @changeprefix.error
+    async def changeprefix_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
 
 def setup(client):
