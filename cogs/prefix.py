@@ -8,7 +8,7 @@ class Prefix(commands.Cog):
         self.client = client
 
     # add default prefix and guild id to json file when bot joins server
-    @commands.command()
+    @commands.Cog.listener()
     async def on_guild_join(self, guild):
         with open("prefixes.json", "r") as f:
             prefixes = json.load(f)
@@ -20,7 +20,7 @@ class Prefix(commands.Cog):
             json.dump(prefixes, f, indent=4)
 
     # remove prefix and guild id from json file when bot leaves server
-    @commands.command()
+    @commands.Cog.listener()
     async def on_guild_remove(self, guild):
         with open("prefixes.json", "r") as f:
             prefixes = json.load(f)
@@ -29,6 +29,7 @@ class Prefix(commands.Cog):
 
         with open("prefixes.json", "w") as f:
             json.dump(prefixes, f, indent=4)
+
 
     # change prefix command
     @commands.command(aliases=["setprefix"], help="Command for changing the bot's prefix.")
