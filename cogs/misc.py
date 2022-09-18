@@ -44,6 +44,7 @@ class Misc(commands.Cog):
         )
         await ctx.send(embed=embed)
 
+
     # bot python version
     @commands.command(help="Command for the bot's current Python version.")
     async def version(self, ctx):
@@ -71,7 +72,6 @@ class Misc(commands.Cog):
             )
             embed.set_footer(text='Thank you for joining us! We hope you enjoy your stay.')
             await self.client.get_channel(762317365970468877).send(embed=embed)
-
 
     # goodbye embed
     @commands.Cog.listener()
