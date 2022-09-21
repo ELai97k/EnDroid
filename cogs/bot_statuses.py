@@ -12,15 +12,21 @@ class Bot_Statuses(commands.Cog):
     async def random_status_loop(self):
         status = [
             "Youtube",
-            "からめる",
+            "Matatabi Movie Labo",
             "マタタビムービーラボ",
+            "Spring of Birth",
+            "Midsummer Knight's Dream",
+            "Falling Down",
+            "Winter of Rebirth",
             "Netflix",
-            "Spy x Family season 2",
-            "Mob Psycho 100 season 3",
             "Oddballs",
             "Wendell and Wild",
             "Tekken: Bloodline",
             "The Shaman King",
+            "Nobody's Looking",
+            "Ninguém Tá Olhando",
+            "Spy x Family season 2",
+            "Mob Psycho 100 season 3",
             "The Rings of Power",
             "The Grand Tour: A Scandi Flick"
         ]
