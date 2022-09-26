@@ -72,5 +72,37 @@ class Prefix(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
+    # server prefix command
+    @commands.command(aliases=["currentprefix"], help="Command to fetch server prefix.")
+    async def serverprefix(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+
+        with open("prefixes.json", "r") as f:
+            prefixes = json.load(f)
+
+        prefix = prefixes[str(ctx.guild.id)]
+
+        await ctx.send(f"My server prefix is `{prefix}`")
+
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.author == self.client.user:
+            return
+        if message.author.bot:
+            return
+
+        if message.content.lower().startswith("whats the prefix") or message.content.lower().startswith("what's the prefix") or message.content.lower().startswith("what is the prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix") or message.content.lower().startswith("what is the current prefix"):
+            with open("prefixes.json", "r") as f:
+                prefixes = json.load(f)
+
+            prefix = prefixes[str(message.guild.id)]
+
+            await message.channel.send(f"My current prefix is `{prefix}`")
+
+
 def setup(client):
     client.add_cog(Prefix(client))
