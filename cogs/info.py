@@ -67,7 +67,11 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="userinfo",
-        value="Command to fetch user info.",
+        value="Command to fetch user information.",
+        inline=False)
+
+        embed.add_field(name="serverinfo",
+        value="Command to fetch server information.",
         inline=False)
 
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
