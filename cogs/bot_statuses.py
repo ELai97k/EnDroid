@@ -22,11 +22,12 @@ class Bot_Statuses(commands.Cog):
             "Oddballs",
             "Wendell and Wild",
             "Tekken: Bloodline",
-            "The Shaman King",
+            "The Shaman King 2021",
             "Nobody's Looking",
             "Ninguém Tá Olhando",
             "Spy x Family season 2",
             "Mob Psycho 100 season 3",
+            "My Hero Academia season 6",
             "The Rings of Power",
             "The Grand Tour: A Scandi Flick"
         ]
