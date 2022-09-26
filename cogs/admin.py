@@ -11,8 +11,8 @@ class Admin(commands.Cog):
     @commands.command(pass_context=True, help="Kick a member out of the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True)
-    async def kick(self, ctx, member:discord.Member, *, reason=None):
-        if member.guild_permissions.manage_roles:
+    async def kick(self, ctx, user:discord.User, *, reason=None):
+        if user.guild_permissions.manage_roles:
             embed = discord.Embed (
                 title = "Command Error!",
                 description = "Admin or Moderators cannot be kicked!",
@@ -23,7 +23,7 @@ class Admin(commands.Cog):
         else:
             embed = discord.Embed (
                 title = "Operation Successful!",
-                description = f"{member.name} has been kicked from this server.",
+                description = f"{user.name} has been kicked from this server.",
                 color=0x198C19
             )
             embed.add_field (
@@ -31,9 +31,9 @@ class Admin(commands.Cog):
                 value = f"{reason}",
                 inline=False
             )
-            await member.kick(reason=reason)
+            await user.kick(reason=reason)
             await ctx.send(embed=embed)
-            print(f"{member.name} has been kicked from the server.")
+            print(f"{user.name} has been kicked from the server.")
 
     @kick.error
     async def kick_error(self, ctx, error):
@@ -45,8 +45,8 @@ class Admin(commands.Cog):
     @commands.command(pass_context=True, help="Ban a member from the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, ban_members=True)
-    async def ban(self, ctx, member:discord.Member, *, reason=None):
-        if member.guild_permissions.manage_roles:
+    async def ban(self, ctx, user:discord.User, *, reason=None):
+        if user.guild_permissions.manage_roles:
             embed = discord.Embed (
                 title = "Command Error!",
                 description = "Admin or Moderators cannot be banned!",
@@ -57,7 +57,7 @@ class Admin(commands.Cog):
         else:
             embed = discord.Embed (
                 title = "Operation Successful!",
-                description = f"{member.name} has been banned from this server.",
+                description = f"{user.name} has been banned from this server.",
                 color=0x198C19
             )
             embed.add_field (
@@ -65,9 +65,9 @@ class Admin(commands.Cog):
                 value = f"{reason}",
                 inline=False
             )
-            await member.ban(reason=reason)
+            await user.ban(reason=reason)
             await ctx.send(embed=embed)
-            print(f"{member.name} has been banned from the server.")
+            print(f"{user.name} has been banned from the server.")
 
     @ban.error
     async def ban_error(self, ctx, error):
