@@ -1,9 +1,10 @@
 import discord
 import asyncio
+import json
 from discord.ext import commands
 
 class Reminder(commands.Cog):
-    """Get the bot to send reminders and be pinged when it's due."""
+    """Get the bot to set reminders and be pinged when it's due."""
     def __init__(self, client):
         self.client = client
 
@@ -15,6 +16,11 @@ class Reminder(commands.Cog):
             return
         if user.bot:
             return
+
+        with open("prefixes.json", "r") as f:
+            prefixes = json.load(f)
+
+        prefix = prefixes[str(ctx.guild.id)]
 
         for time in times:
             seconds = 0
@@ -34,7 +40,7 @@ class Reminder(commands.Cog):
                 seconds += int(time[:-1]) * 60 * 60 * 24
                 counter = f"{seconds // 60 // 60 // 24} days"
 
-            command_prefix = "!"
+            command_prefix = prefix
             r_command = "remind"
             reminder = ctx.message.content.lower().replace(f"{command_prefix}", "").replace(f"{r_command}", "").replace(f"{time}", "").strip()
             
