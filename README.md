@@ -12,7 +12,8 @@
  - set reminders
  - reaction roles
  - control the bot to say anything
- - fetch user info
+ - fetch user information
+ - fetch server information
  - turn on / off auto-responses
 
 ## Known issues for the music bot function
