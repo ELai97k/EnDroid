@@ -26,14 +26,10 @@ class Admin(commands.Cog):
                 description = f"{member.name} has been kicked from this server.",
                 color=0x198C19
             )
-            embed.add_field (
-                name = "Reason:",
-                value = f"{reason}",
-                inline=False
-            )
             await member.kick(reason=reason)
             await ctx.send(embed=embed)
             print(f"{member.name} has been kicked from the server.")
+            print(f"Reason: {reason}")
 
     @kick.error
     async def kick_error(self, ctx, error):
@@ -60,14 +56,10 @@ class Admin(commands.Cog):
                 description = f"{member.name} has been banned from this server.",
                 color=0x198C19
             )
-            embed.add_field (
-                name = "Reason:",
-                value = f"{reason}",
-                inline=False
-            )
             await member.ban(reason=reason)
             await ctx.send(embed=embed)
             print(f"{member.name} has been banned from the server.")
+            print(f"Reason: {reason}")
 
     @ban.error
     async def ban_error(self, ctx, error):
