@@ -14,7 +14,7 @@ class Admin(commands.Cog):
     async def kick(self, ctx, member:discord.Member, *, reason=None):
         if member.guild_permissions.manage_roles:
             embed = discord.Embed (
-                title = "Command Error!",
+                title = "Command Error",
                 description = "Admin or Moderators cannot be kicked!",
                 color = discord.Color.dark_red()
             )
@@ -22,7 +22,7 @@ class Admin(commands.Cog):
 
         else:
             embed = discord.Embed (
-                title = "Operation Successful!",
+                title = "Operation Successful",
                 description = f"{member.name} has been kicked from this server.",
                 color=0x198C19
             )
@@ -44,7 +44,7 @@ class Admin(commands.Cog):
     async def ban(self, ctx, member:discord.Member, *, reason=None):
         if member.guild_permissions.manage_roles:
             embed = discord.Embed (
-                title = "Command Error!",
+                title = "Command Error",
                 description = "Admin or Moderators cannot be banned!",
                 color = discord.Color.dark_red()
             )
@@ -52,7 +52,7 @@ class Admin(commands.Cog):
 
         else:
             embed = discord.Embed (
-                title = "Operation Successful!",
+                title = "Operation Successful",
                 description = f"{member.name} has been banned from this server.",
                 color=0x198C19
             )
