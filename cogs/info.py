@@ -74,6 +74,10 @@ class Info(commands.Cog):
         value="Command to fetch server information.",
         inline=False)
 
+        embed.add_field(name="serverprefix / currentprefix",
+        value="Command to fetch the bot's prefix.",
+        inline=False)
+
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
 
         await ctx.send(embed=embed)
