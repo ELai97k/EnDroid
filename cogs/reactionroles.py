@@ -11,7 +11,7 @@ class ReactionRoles(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         message_id = payload.message_id
 
-        if message_id == 1007914062560108555:
+        if message_id == 1025041977361833994:
             guild_id = payload.guild_id 
             guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
 
@@ -47,7 +47,7 @@ class ReactionRoles(commands.Cog):
     async def on_raw_reaction_remove(self, payload):
         message_id = payload.message_id
 
-        if message_id == 1007914062560108555:
+        if message_id == 1025041977361833994:
             guild_id = payload.guild_id
             guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
 
