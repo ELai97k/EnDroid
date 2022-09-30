@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands, tasks
 
-class Bot_Statuses(commands.Cog):
+class BotStatuses(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.random_status_loop.start()
@@ -39,4 +39,4 @@ class Bot_Statuses(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Bot_Statuses(client))
+    client.add_cog(BotStatuses(client))
