@@ -29,12 +29,12 @@ class ReactionRoles(commands.Cog):
             if verified_role is not None:
                 # add Verified role
                 await payload.member.add_roles(verified_role)
-                print(f"{verified_role} added to {member}")
+                print(f"{verified_role} role added to {member}")
 
             if unverified_role is not None:
                 # remove Unverified role
                 await payload.member.remove_roles(unverified_role)
-                print(f"{unverified_role} removed from {member}")
+                print(f"{unverified_role} role removed from {member}")
 
 
 def setup(client):
