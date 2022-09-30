@@ -490,6 +490,16 @@ class Music(commands.Cog):
         ctx.voice_state.songs.remove(index - 1)
         await ctx.message.add_reaction('✅')
 
+    @_join.before_invoke
+    @_play.before_invoke
+    async def ensure_voice_state(self, ctx: commands.Context):
+        if not ctx.author.voice or not ctx.author.voice.channel:
+            raise commands.CommandError('You are not connected to any voice channel.')
+
+        if ctx.voice_client:
+            if ctx.voice_client.channel != ctx.author.voice.channel:
+                raise commands.CommandError('Bot is already in a voice channel.')
+
 
     # embed info for music bot
     @commands.command(name='musichelp')
@@ -561,20 +571,6 @@ class Music(commands.Cog):
         )
         await ctx.send(embed=embed)
 
-
-    @_join.before_invoke
-    @_play.before_invoke
-    async def ensure_voice_state(self, ctx: commands.Context):
-        if not ctx.author.voice or not ctx.author.voice.channel:
-            raise commands.CommandError('You are not connected to any voice channel.')
-
-        if ctx.voice_client:
-            if ctx.voice_client.channel != ctx.author.voice.channel:
-                raise commands.CommandError('Bot is already in a voice channel.')
-
-
-bot = commands.Bot('music.', description='Endroid music bot.')
-bot.add_cog(Music(bot))
 
 def setup(client):
     client.add_cog(Music(client))
