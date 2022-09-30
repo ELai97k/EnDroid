@@ -78,6 +78,10 @@ class Info(commands.Cog):
         value="Command to fetch the bot's prefix.",
         inline=False)
 
+        embed.add_field(name="github",
+        value="Command to fetch the bot's GitHub page.",
+        inline=False)
+
         embed.set_footer(text="Bot functions listed here will be subject to future changes")
 
         await ctx.send(embed=embed)
