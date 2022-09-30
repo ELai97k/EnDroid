@@ -61,6 +61,17 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
+    # github page
+    @commands.commands(help="Shows the bot's GitHub page.")
+    async def github(self, ctx):
+        if ctx.authot == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        
+        await ctx.send("Here's my GitHub page:\nhttps://github.com/ELai97k/EnDroid")
+
+
     # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
