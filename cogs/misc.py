@@ -75,9 +75,9 @@ class Misc(commands.Cog):
     # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        if member.guild.name == "Gay Bar 3.0":
+        if member.guild.id == 762317365970468874:
             embed = discord.Embed (
-                title=f'Hello {member.name}, and welcome to **{member.guild.name}**!',
+                title=f'Hello {member.name}, and welcome to **{member.guild.id}**!',
                 description='Have a look at the rules at <#855777347730407434> and server info at <#855775497955180545>.',
                 color=0x198C19
             )
@@ -87,7 +87,7 @@ class Misc(commands.Cog):
     # goodbye embed
     @commands.Cog.listener()
     async def on_member_remove(self, member):
-        if member.guild.name == "Gay Bar 3.0":
+        if member.guild.id == 762317365970468874:
             embed = discord.Embed (
                 title=f'{member} has left the server!',
                 description="Sorry to see you go!",
