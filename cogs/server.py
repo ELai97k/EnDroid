@@ -23,14 +23,14 @@ class Server(commands.Cog):
         embed.add_field(name='👑 Owner:', value=f"{ctx.guild.owner.mention}", inline=False)
         embed.add_field(name='👥 Members:', value=f'{ctx.guild.member_count} Members', inline=False)
         embed.add_field(name='💬 Channels:', value=f'{len(ctx.guild.text_channels)} Text channels\n{len(ctx.guild.voice_channels)} Voice channels', inline=False)
-        embed.add_field(name='🌎 Region:', value=f'{ctx.guild.region}', inline=False)
+        embed.add_field(name='🌎 Region:', value='Southeast Asia', inline=False)
 
-        embed.set_thumbnail(url=ctx.author.avatar_url)
+        embed.set_thumbnail(url=ctx.author.avatar.url)
         embed.set_footer(text=f"Requested by {str(ctx.author)}")
         embed.timestamp = datetime.datetime.utcnow()
 
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Server(client))
+async def setup(client):
+    await client.add_cog(Server(client))
