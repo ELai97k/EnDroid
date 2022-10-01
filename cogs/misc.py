@@ -45,22 +45,6 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    # bot python version
-    @commands.command(help="Command for the bot's current Python version.")
-    async def version(self, ctx):
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
-            
-        embed = discord.Embed (
-            title = "Current version",
-            description = "```python-3.10.7```",
-            color=0xc7ecf7
-        )
-        await ctx.send(embed=embed)
-
-
     # github page
     @commands.command(help="Shows the bot's GitHub page.")
     async def github(self, ctx):
