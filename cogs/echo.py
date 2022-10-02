@@ -16,7 +16,7 @@ class Echo(commands.Cog):
         if ctx.author.bot:
             return
 
-        if message == None:
+        if message is None:
             await ctx.send("What do you want me to say?")
 
         else:
@@ -40,7 +40,7 @@ class Echo(commands.Cog):
         if ctx.author.bot:
             return
 
-        if message == None:
+        if message is None:
             await ctx.send("What do you want me to say?")
 
         else:
