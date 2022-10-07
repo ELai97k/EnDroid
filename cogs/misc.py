@@ -82,3 +82,6 @@ class Misc(commands.Cog):
 
 def setup(client):
     client.add_cog(Misc(client))
+
+def teardown(client):
+    client.remove_cog(Misc(client))
