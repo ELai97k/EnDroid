@@ -44,3 +44,6 @@ class Poll(commands.Cog):
 
 def setup(client):
     client.add_cog(Poll(client))
+
+def teardown(client):
+    client.remove_cog(Poll(client))
