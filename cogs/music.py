@@ -574,3 +574,6 @@ class Music(commands.Cog):
 
 def setup(client):
     client.add_cog(Music(client))
+
+def teardown(client):
+    client.remove_cog(Music(client))
