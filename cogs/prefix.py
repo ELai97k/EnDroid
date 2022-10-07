@@ -106,3 +106,6 @@ class Prefix(commands.Cog):
 
 def setup(client):
     client.add_cog(Prefix(client))
+
+def teardown(client):
+    client.remove_cog(Prefix(client))
