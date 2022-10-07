@@ -39,3 +39,6 @@ class ReactionRoles(commands.Cog):
 
 def setup(client):
     client.add_cog(ReactionRoles(client))
+
+def teardown(client):
+    client.remove_cog(ReactionRoles(client))
