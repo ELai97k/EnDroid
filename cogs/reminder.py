@@ -57,3 +57,6 @@ class Reminder(commands.Cog):
 
 def setup(client):
     client.add_cog(Reminder(client))
+
+def teardown(client):
+    client.remove_cog(Reminder(client))
