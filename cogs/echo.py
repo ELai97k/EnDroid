@@ -56,3 +56,6 @@ class Echo(commands.Cog):
 
 def setup(client):
     client.add_cog(Echo(client))
+
+def teardown(client):
+    client.remove_cog(Echo(client))
