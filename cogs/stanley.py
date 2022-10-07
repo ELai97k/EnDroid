@@ -55,3 +55,6 @@ class Stanley(commands.Cog):
 
 def setup(client):
     client.add_cog(Stanley(client))
+
+def teardown(client):
+    client.remove_cog(Stanley(client))
