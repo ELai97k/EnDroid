@@ -40,3 +40,6 @@ class BotStatuses(commands.Cog):
 
 def setup(client):
     client.add_cog(BotStatuses(client))
+
+def teardown(client):
+    client.remove_cog(BotStatuses(client))
