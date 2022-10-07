@@ -179,7 +179,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.send(f'{random.choice(pog_responses)}')
 
         # I am responses
-        if message.content.lower().replace("'", "").strip().startswith("i am"):
+        if message.content.lower().replace("'", "").strip() == "i am":
             responses = {
                 "elai":"Are you sure about that?",
                 "endroid":"You're not Endroid, I'm Endroid!",
@@ -196,8 +196,8 @@ class Auto_Responses(commands.Cog):
             await message.channel.trigger_typing()
             await message.channel.send("Hi " + message.content.lower().replace("i am", "").strip() + ", I'm Endroid!")
 
-        # I'm responses
-        if message.content.lower().replace("'", "").strip().startswith("im") or message.content.lower().replace("'", "").strip().startswith("i'm"):
+        # I'm / im responses
+        if message.content.lower().replace("'", "").strip() == "im" or message.content.lower().replace("'", "").strip() == "i'm":
             responses = {
                 "elai":"Are you sure about that?",
                 "endroid":"You're not Endroid, I'm Endroid!",
