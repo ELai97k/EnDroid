@@ -436,3 +436,6 @@ class Auto_Responses(commands.Cog):
 
 def setup(client):
     client.add_cog(Auto_Responses(client))
+
+def teardown(client):
+    client.remove_cog(Auto_Responses(client))
