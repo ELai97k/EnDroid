@@ -70,3 +70,6 @@ class Triggers(commands.Cog):
 
 def setup(client):
     client.add_cog(Triggers(client))
+
+def teardown(client):
+    client.remove_cog(Triggers(client))
