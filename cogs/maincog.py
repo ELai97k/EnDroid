@@ -38,3 +38,6 @@ class MainCog(commands.Cog):
 
 def setup(client):
     client.add_cog(MainCog(client))
+
+def teardown(client):
+    client.remove_cog(MainCog(client))
