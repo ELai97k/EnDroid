@@ -116,3 +116,6 @@ class Autoresponse(commands.Cog):
 
 def setup(client):
     client.add_cog(Autoresponse(client))
+
+def teardown(client):
+    client.remove_cog(Autoresponse(client))
