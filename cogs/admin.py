@@ -11,7 +11,7 @@ class Admin(commands.Cog):
     @commands.command(pass_context=True, help="Kick a member out of the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True)
-    async def kick(self, ctx, member:discord.Member, *, reason=None):
+    async def kick(self, ctx, *, member:discord.Member, reason=None):
         if member.guild_permissions.manage_roles:
             embed = discord.Embed (
                 title = "Command Error",
@@ -41,7 +41,7 @@ class Admin(commands.Cog):
     @commands.command(pass_context=True, help="Ban a member from the server.")
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, ban_members=True)
-    async def ban(self, ctx, member:discord.Member, *, reason=None):
+    async def ban(self, ctx, *, member:discord.Member, reason=None):
         if member.guild_permissions.manage_roles:
             embed = discord.Embed (
                 title = "Command Error",
@@ -69,3 +69,6 @@ class Admin(commands.Cog):
 
 def setup(client):
     client.add_cog(Admin(client))
+
+def teardown(client):
+    client.remove_cog(Admin(client))
