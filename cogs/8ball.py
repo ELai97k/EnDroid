@@ -48,3 +48,6 @@ class EightBall(commands.Cog):
 
 def setup(client):
     client.add_cog(EightBall(client))
+
+def teardown(client):
+    client.remove_cog(EightBall(client))
