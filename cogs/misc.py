@@ -61,7 +61,7 @@ class Misc(commands.Cog):
     async def on_member_join(self, member):
         if member.guild.name == "Gay Bar 3.0":
             embed = discord.Embed (
-                title=f'Hello {member.name}, and welcome to **{member.guild.id}**!',
+                title=f'Hello {member.name}, and welcome to **{member.guild.name}**!',
                 description='Have a look at the rules at <#855777347730407434> and server info at <#855775497955180545>.',
                 color=0x198C19
             )
