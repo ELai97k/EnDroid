@@ -9,7 +9,7 @@ class MainCog(commands.Cog):
     # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        if member.guild.id == 911112792646508624:
+        if member.guild.name == "ELai's Server":
             embed = discord.Embed (
                 title = f'Hello {member.name}, and welcome to **{member.guild.name}**!',
                 description = 'Pls be sure to read the rules at <#911130413756461126> and get verified at <#958915454401912863>. After getting verified, you will be able to unlock the rest of the server.',
@@ -29,7 +29,7 @@ class MainCog(commands.Cog):
         if member.guild.id == 911112792646508624:
             embed = discord.Embed (
                 title = f'{member} has left the server!',
-                description = "Sorry to see you go!",
+                description = "Sorry to see you go.",
                 color=0x1e377f
             )
             await self.client.get_channel(918831456187461652).send(embed=embed)
