@@ -179,7 +179,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.send(f'{random.choice(pog_responses)}')
 
         # I am responses
-        if message.content.lower().replace("'", "").strip().startswith("i am"):
+        if message.content.lower().startswith("i am"):
             responses = {
                 "elai":"Are you sure about that?",
                 "endroid":"You're not Endroid, I'm Endroid!",
@@ -190,7 +190,7 @@ class Auto_Responses(commands.Cog):
                 "a dumbass":"yeah you are"
             }
             for trigger, response in list(responses.items()):
-                if trigger in message.content.lower().replace("'", "").replace("i am", "").strip():
+                if trigger in message.content.lower().replace("i am", "").strip():
                     await message.channel.trigger_typing()
                     return await message.channel.send(response)
             await message.channel.trigger_typing()
