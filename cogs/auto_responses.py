@@ -208,7 +208,7 @@ class Auto_Responses(commands.Cog):
                 "a dumbass":"yeah you are"
             }
             for trigger, response in list(responses.items()):
-                if trigger in message.content.lower().replace("'", "").replace("im", "").replace("i'm", "").strip():
+                if trigger in message.content.lower().replace("'", "").replace("im", "").strip():
                     await message.channel.trigger_typing()
                     return await message.channel.send(response)
             await message.channel.trigger_typing()
