@@ -381,6 +381,7 @@ class Auto_Responses(commands.Cog):
                         if trigger in reply_message.content.lower():
                             await reply_message.channel.trigger_typing()
                             await reply_message.channel.send(response)
+
         # e
         if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189 and message.author.id != 973407928654651392:
             await asyncio.sleep(60)
