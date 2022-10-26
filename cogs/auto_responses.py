@@ -16,7 +16,7 @@ class Auto_Responses(commands.Cog):
             return
         if message.author.bot:
             return
-        
+
         # shut bot to turn off auto responses
         if "shut up bot" in message.content.lower() or "bot shut up" in message.content.lower() or "shut up endroid" in message.content.lower() or "endroid shut up" in message.content.lower():
             await message.channel.send("Okay :(")
@@ -212,7 +212,7 @@ class Auto_Responses(commands.Cog):
                     await message.channel.trigger_typing()
                     return await message.channel.send(response)
             await message.channel.trigger_typing()
-            await message.channel.send("Hi " + message.content.lower().replace("im", "").strip() + ", I'm Endroid!")
+            await message.channel.send("Hi " + message.content.lower().replace("im", "").replace("i'm", "").strip() + ", I'm Endroid!")
 
         # hey endroid
         if message.content.lower().startswith("hey endroid"):
