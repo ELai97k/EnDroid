@@ -16,9 +16,9 @@ class EightBall(commands.Cog):
             return
 
         eight_ball = [
-            "Yes",
-            "No",
-            "Maybe",
+            "Yes.",
+            "No.",
+            "Maybe.",
             "I don't know.",
             "You may rely on it.",
             "Cannot tell you now.",
@@ -28,7 +28,7 @@ class EightBall(commands.Cog):
             "Outlook not so good.",
             "It is decidedly so.",
             "Most likely.",
-            "Very unlikely",
+            "Very unlikely.",
             "My reply is no.",
             "My reply is yes.",
             "Very doubtful.",
@@ -37,7 +37,7 @@ class EightBall(commands.Cog):
             "My sources say no.",
             "My sources say yes.",
             "Without a doubt.",
-            "Ask again later",
+            "Ask again later.",
             "Try again later.",
             "Reply hazy, try again later.",
             "As I see it, yes."
