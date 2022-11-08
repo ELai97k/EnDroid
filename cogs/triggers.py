@@ -40,10 +40,10 @@ class Triggers(commands.Cog):
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**⚠ WARNING for {message.author.name}!**",
-                        description="You have broken **Rule #6**. Your warning has been recorded.",
+                        description="You have broken one of Da Rules and your warning has been recorded.",
                         color=discord.Color.dark_red()
                     )
-                    embed.set_footer(text="If you think that this was a mistake, DM or ping the Admin or Mods for further discussion.")
+                    embed.set_footer(text="If you think this was a mistake, DM or ping Admin or Mods for further discussion.")
                     embed.timestamp = datetime.datetime.utcnow()
 
                     await message.channel.send(embed=embed)
