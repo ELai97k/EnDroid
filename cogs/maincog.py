@@ -35,6 +35,10 @@ class MainCog(commands.Cog):
             await self.client.get_channel(918831456187461652).send(embed=embed)
             print(f'{member} has left the server!')
 
+            # remove role on leave
+            role = discord.utils.get(member.guild.roles, name="Verified")
+            await member.remove_roles(role)
+
 
 def setup(client):
     client.add_cog(MainCog(client))
