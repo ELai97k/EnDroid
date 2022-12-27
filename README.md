@@ -1,7 +1,7 @@
 # EnDroid
  Endroid is a general, multi-purpose bot with auto-responses, auto-moderation, and a variety of functions and commands.
 
-## Bot functions and commands
+## Features
  - welcome and goodbye embeds
  - kick and ban users
  - bad word filter
