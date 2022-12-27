@@ -68,10 +68,7 @@ class Misc(commands.Cog):
             user = ctx.author
 
         embed = discord.Embed(color=discord.Color.blurple())
-        try:
-            embed.set_image(url=user.avatar.url)
-        except:
-            embed.set_image(url=str(user.display_avatar.url))
+        embed.set_image(url=user.avatar_url)
         await ctx.send(embed=embed)
 
 
