@@ -1,5 +1,4 @@
 import discord
-import datetime
 from discord.ext import commands
 
 class UserInfo(commands.Cog):
@@ -40,6 +39,12 @@ class UserInfo(commands.Cog):
             title = f"{user.name}'s Info",
             color=0xc7ecf7
         )
+        embed.set_author(name=str(user), icon_url=user.avatar.url)
+        try:
+            embed.set_thumbnail(url=user.avatar.url)
+        except:
+            embed.set_thumbnail(url=str(user.display_avatar.url))
+
         # server join date
         embed.add_field(name="Date joined:", value=user.joined_at.strftime(date_format), inline=False)
         
@@ -55,9 +60,6 @@ class UserInfo(commands.Cog):
         # member status
         embed.add_field(name="Status:", value=f"{statusemojis[status]} {statusnames[status]}", inline=False)
 
-        embed.set_thumbnail(url=user.avatar_url)
-        embed.set_footer(text=f"Requested by {str(ctx.author)}")
-        embed.timestamp = datetime.datetime.utcnow()
         await ctx.send(embed=embed)
 
 
