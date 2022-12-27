@@ -15,7 +15,7 @@ class Triggers(commands.Cog):
             return
 
         # bad words
-        if message.author.guild.name == "ELai's Server":
+        if message.author.guild.id == 911112792646508624: # Elai's server
             bad_list = [
                 "dick",
                 "cuck",
@@ -39,13 +39,10 @@ class Triggers(commands.Cog):
                 if bad_word in message.content.lower():
                     # trigger embed
                     embed = discord.Embed (
-                        title=f"**⚠ WARNING for {message.author.name}!**",
-                        description="You have broken one of Da Rules and your warning has been recorded.",
+                        title=f"**⚠ WARNING for `{message.author}`!**",
+                        description=f"{message.author.name}, you have broken one of Da Rules, and your warning has been recorded and added to your userdata. If you think that this was a mistake, DM or ping the Admin or Mods for further discussion.",
                         color=discord.Color.dark_red()
                     )
-                    embed.set_footer(text="If you think this was a mistake, DM or ping Admin or Mods for further discussion.")
-                    embed.timestamp = datetime.datetime.utcnow()
-
                     await message.channel.send(embed=embed)
                     await message.delete()
                     print(f"{message.author} has been given a warning!")
