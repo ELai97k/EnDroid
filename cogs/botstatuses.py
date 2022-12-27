@@ -11,21 +11,23 @@ class BotStatuses(commands.Cog):
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         status = [
-            "Youtube",
-            "Matatabi Movie Labo",
-            "マタタビムービーラボ",
-            "Netflix",
-            "Oddballs",
-            "Wendell and Wild",
-            "The Shaman King 2021",
-            "Nobody's Looking",
-            "Ninguém Tá Olhando",
-            "Spy x Family",
-            "Mob Psycho 100",
-            "My Hero Academia",
-            "Chainsaw Man",
-            "The Rings of Power",
-            "The Grand Tour: A Scandi Flick"
+            "myself",
+            "on Raspberry Pi 3",
+            "Forza Horizon 5",
+            "Persona 5 Royal",
+            "Xbox PC Game Pass",
+            "Ren'Py 8",
+            "Visual Studio Code",
+            "YouTube",
+            "GitHub",
+            "Spotify",
+            "SoundCloud",
+            "Discord",
+            "Minecraft",
+            "Hearthstone",
+            "Hagar's Ordeal",
+            "The Sims 3",
+            "Among Us Hide n Seek",
         ]
         await self.client.change_presence (
             activity = discord.Activity (
