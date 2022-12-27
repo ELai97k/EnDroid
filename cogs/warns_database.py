@@ -4,6 +4,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
 class Warns_Database(commands.Cog):
+    """Cog for warning system."""
     def __init__(self, client):
         self.client = client
 
