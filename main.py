@@ -1,6 +1,7 @@
 import discord
 import os
 import json
+import sqlite3
 from discord.ext import commands
 
 intents = discord.Intents.default().all()
@@ -80,6 +81,21 @@ async def on_ready():
         activity = discord.Activity (
         type = discord.ActivityType.playing, name = "Visual Studio Code"
         )
+    )
+
+    # sqlite3 db warnings
+    db = sqlite3.connect('warnings.sqlite')
+    cursor = db.cursor()
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS warns (
+            user_id INTERGER,
+            user_name TEXT
+            reason TEXT,
+            guild_id INTERGER,
+            guild_name TEXT
+        )
+        """
     )
 
 client.run(os.getenv('TOKEN'))
