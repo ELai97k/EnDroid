@@ -56,10 +56,29 @@ class Misc(commands.Cog):
         await ctx.send("Here's my GitHub page:\nhttps://github.com/ELai97k/EnDroid")
 
 
+    # user profile pics
+    @commands.command(pass_context=True, aliases=["profile", "userprofile", "userpfp"], help="Command to show user's profile picture (pfp)")
+    async def pfp(self, ctx, *, user:discord.Member=None):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+
+        if user is None:
+            user = ctx.author
+
+        embed = discord.Embed(color=discord.Color.blurple())
+        try:
+            embed.set_image(url=user.avatar.url)
+        except:
+            embed.set_image(url=str(user.display_avatar.url))
+        await ctx.send(embed=embed)
+
+
     # welcome embed
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        if member.guild.name == "Gay Bar 3.0":
+        if member.guild.id == 762317365970468874:
             embed = discord.Embed (
                 title=f'Hello {member.name}, and welcome to **{member.guild.name}**!',
                 description='Have a look at the rules at <#855777347730407434> and server info at <#855775497955180545>.',
