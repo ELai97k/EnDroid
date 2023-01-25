@@ -41,9 +41,9 @@ class Reminder(commands.Cog):
                 description = "Please input a reminder text first followed by duration of time.",
                 color=0xc7ecf7
             )
-            embed.add_field(name="Days", value="```d```")
-            embed.add_field(name="Hours", value="```h```")
-            embed.add_field(name="Minutes", value="```m```")
+            embed.add_field(name="Days", value="`d`")
+            embed.add_field(name="Hours", value="`h`")
+            embed.add_field(name="Minutes", value="`m`")
             embed.add_field(name="Minimum duration", value="```1 minute```")
             embed.add_field(name="Maximum duration", value="```7 days```")
 
@@ -57,10 +57,13 @@ class Reminder(commands.Cog):
 
         else:
             await ctx.send(f"Alright {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
+            print(f"{user} {reminder} {counter}")
             await asyncio.sleep(seconds)
             await ctx.send(f"Hi {user.mention}, you asked me to remind you about `{reminder}` `{counter}` ago.")
+            print(f"{user} {reminder} {counter}")
             return
         await ctx.send(embed=embed)
+        print(f"Unable to process reminder for {user}")
 
 
 def setup(client):
