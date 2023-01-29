@@ -13,21 +13,7 @@ class BotStatuses(commands.Cog):
         status = [
             "myself",
             "on Raspberry Pi 3",
-            "Forza Horizon 5",
-            "Persona 5 Royal",
-            "Xbox PC Game Pass",
-            "Ren'Py 8",
-            "Visual Studio Code",
-            "YouTube",
-            "GitHub",
-            "Spotify",
-            "SoundCloud",
-            "Discord",
-            "Minecraft",
-            "Hearthstone",
-            "Hagar's Ordeal",
-            "The Sims 3",
-            "Among Us Hide n Seek",
+            "I need new statuses!!"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
