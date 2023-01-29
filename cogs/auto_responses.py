@@ -187,7 +187,8 @@ class Auto_Responses(commands.Cog):
                 "bot":"You're not a bot! I'm a bot!",
                 "stupid":"Yeah, I know.",
                 "a fucking dumbass":"yes you are indeed",
-                "a dumbass":"yeah you are"
+                "a dumbass":"yeah you are",
+                "okay":"That's good."
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("i am", "").strip():
@@ -205,7 +206,8 @@ class Auto_Responses(commands.Cog):
                 "bot":"You're not a bot! I'm a bot!",
                 "stupid":"Yeah, I know.",
                 "a fucking dumbass":"yes you are indeed",
-                "a dumbass":"yeah you are"
+                "a dumbass":"yeah you are",
+                "okay":"That's good."
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("'", "").replace("im", "").strip():
@@ -256,17 +258,17 @@ class Auto_Responses(commands.Cog):
 
             else:
                 # you're / ur responses
-                if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur"):
+                if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("you are") or reply_message.content.lower().startswith("u are") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur") or reply_message.content.lower().startswith("u r") or reply_message.content.lower().startswith("your"):
                     responses = {
                         "stupid":"Humans are stupid too!",
-                        "dumb":"Isn't everyone always dumb?",
-                        "dum":"Evrywan dum",
-                        "a dumbass":"How dare you!",
+                        "dumb":"You're also dumb!",
+                        "dum":"How dare you!",
+                        "a dumbass":"Fuck you!",
+                        "a fucking dumbass":"Fuck off!",
                         "useless":"Why are we still here? Just to suffer?",
-                        "not helpful":"Wahtever",
-                        "not helping":"I was never asked to help anyway!",
+                        "not helpful":"You never asked for help anyway!",
                         "a good bot":"Thank you!",
-                        "a clever bot":"Yes, I know!",
+                        "a clever bot":"Okay cool!",
                         "a cleverbot":"Haha I see what you did there.",
                         "a smart bot":"But what if I'm not?"
                     }
