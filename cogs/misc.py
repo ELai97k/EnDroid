@@ -50,7 +50,7 @@ class Misc(commands.Cog):
     # github page
     @commands.command(help="Shows the bot's GitHub page.")
     async def github(self, ctx):
-        if ctx.authot == self.client.user:
+        if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
