@@ -12,12 +12,23 @@ class BotStatuses(commands.Cog):
     async def random_status_loop(self):
         status = [
             "myself",
-            "on Raspberry Pi 3",
-            "I need new statuses!!"
+            "Xbox PC Game Pass",
+            "Persona 5 Royal",
+            "Persona 4 Golden",
+            "Persona 3 Portable",
+            "Hi-Fi Rush",
+            "Forza Horizon 5"
+            "Pico Neo 3",
+            "Beat Saber",
+            "Discord",
+            "YouTube",
+            "Spotify",
+            "Ren'Py 8"
+            "Adobe Photoshop 2022"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
-                type = discord.ActivityType.watching, name = f'{random.choice(status)}'
+                type = discord.ActivityType.playing, name = f'{random.choice(status)}'
             )
         )
 
