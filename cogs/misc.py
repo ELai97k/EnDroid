@@ -90,6 +90,7 @@ class Misc(commands.Cog):
         )
         embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a, %d %b, %Y"), inline=False)
         embed.add_field(name="Time", value=timestamp.astimezone(gmt).strftime("%I:%M %p"), inline=False)
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
 
 
