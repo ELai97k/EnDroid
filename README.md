@@ -6,7 +6,7 @@
  - kick and ban users
  - bad word filter
  - 8ball
- - ~play music~ (DEFUNCT)
+ - ~play music~ **(DEFUNCT)**
  - create polls
  - set prefix
  - set reminders
