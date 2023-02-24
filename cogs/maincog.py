@@ -12,7 +12,7 @@ class MainCog(commands.Cog):
         if member.guild.id == 911112792646508624: # Elai's server
             embed = discord.Embed (
                 title = f'Hello {member.name}, and welcome to **{member.guild.name}**!',
-                description = 'Pls be sure to read the rules at <#911130413756461126> and get verified at <#958915454401912863>. After getting verified, you will be able to unlock the rest of the server.',
+                description = 'Pls read the rules at <#911130413756461126> and get verified at <#958915454401912863>. After getting verified, you will be able to unlock the rest of the server.',
                 color=0x198C19
             )
             embed.set_footer(text='Thank you for joining us! We hope you enjoy your stay.')
