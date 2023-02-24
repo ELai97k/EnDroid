@@ -25,7 +25,7 @@ class ReactionRoles(commands.Cog):
                 verified_role = discord.utils.get(guild.roles, name=payload.emoji)
                 # Unerified role
                 unverified_role = discord.utils.get(guild.roles, name=payload.emoji)
-                
+
             if verified_role is not None:
                 # add Verified role
                 await payload.member.add_roles(verified_role)
