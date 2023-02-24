@@ -96,7 +96,7 @@ class ReactionRoles(commands.Cog):
         # da rules remove member role
         if payload.message_id == 921277460841111583:
             if str(payload.emoji) == "☑️":
-                member_role = discord.utils.get(payload.member.guild.roles, name="Member")
+                member_role = discord.utils.get(guild.roles, name='Member')
             else:
                 member_role = discord.utils.get(guild.roles, name=payload.emoji)
 
@@ -105,7 +105,7 @@ class ReactionRoles(commands.Cog):
 
             if member_role is not None:
                 print(f"Role: {member_role}, checked.")
-                await payload.member.remove_roles(member_role)
+                await member.remove_roles(member_role)
                 print(f"{member_role} role removed from {member}")
 
         # get verified remove role
@@ -142,7 +142,7 @@ class ReactionRoles(commands.Cog):
 
             if announcements is not None:
                 print(f"Role: {announcements}, checked.")
-                await payload.member.remove_roles(announcements)
+                await member.remove_roles(announcements)
                 print(f"{announcements} role removed from {member}")
 
         # voter role remove
@@ -157,7 +157,7 @@ class ReactionRoles(commands.Cog):
 
             if voter is not None:
                 print(f"Role: {voter}, checked.")
-                await payload.member.remove_roles(voter)
+                await member.remove_roles(voter)
                 print(f"{voter} role removed from {member}")
 
 
