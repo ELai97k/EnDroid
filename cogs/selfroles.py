@@ -15,10 +15,10 @@ class SelfRoles (commands.Cog):
             return
         if ctx.author.bot:
             return
-        
+
         embed = discord.Embed (
             title = "Get Verified.",
-            description = "<@&911522491925692446> pls react to this message with ✅ to get the **Verified** role and unlock the server.",
+            description = "<@&911522491925692446> pls react to this message with ✅ to get the <@&911148845914800148> role and unlock the server.",
             color=discord.Color.blurple()
         )
         await self.client.get_channel(958915454401912863).send(embed=embed)
@@ -38,10 +38,10 @@ class SelfRoles (commands.Cog):
             return
         if ctx.author.bot:
             return
-        
+
         embed = discord.Embed (
             title = "Self Roles (optional)",
-            description = "React to this message with the corresponding emoji and the role associated with it.\n\n<@&1032579279885705257> 📢\n<@&1078567772524650556> 🧡",
+            description = "React to this message with the corresponding emoji and the role associated with it.\n\n📢 <@&1032579279885705257>\n🧡 <@&1078567772524650556>",
             color=discord.Color.blurple()
         )
         
