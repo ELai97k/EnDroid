@@ -36,7 +36,7 @@ class BotStatuses(commands.Cog):
             "Discord",
             "Ren'Py",
             "Hagar's Ordeal",
-            "I need new statuses!!"
+            "status"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
