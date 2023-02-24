@@ -41,11 +41,9 @@ class SelfRoles (commands.Cog):
         
         embed = discord.Embed (
             title = "Self Roles (optional)",
-            description = "React to this message with the corresponding emoji and the role associated with it.",
+            description = "React to this message with the corresponding emoji and the role associated with it.\n\n<@&1032579279885705257> 📢\n<@&1078567772524650556> 🧡",
             color=discord.Color.blurple()
         )
-        embed.add_field(name="<@&1032579279885705257>", value="📢", inline=False)
-        embed.add_field(name="<@&1078567772524650556>", value="🧡", inline=False)
         
         await self.client.get_channel(958915454401912863).send(embed=embed)
         await ctx.message.delete()
