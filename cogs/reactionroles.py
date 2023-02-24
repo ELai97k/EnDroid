@@ -120,7 +120,7 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1078563481101553824:
+        if payload.message_id == 1078572834701443142:
             if str(payload.emoji) == "📢":
                 announcements = discord.utils.get(guild.roles, name='announcements')
             else:
@@ -141,7 +141,7 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1078563481101553824:
+        if payload.message_id == 1078572834701443142:
             if str(payload.emoji) == "📢":
                 announcements = discord.utils.get(guild.roles, name='announcements')
             else:
@@ -163,7 +163,7 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1078563481101553824:
+        if payload.message_id == 1078572834701443142:
             if str(payload.emoji) == "🧡":
                 voter = discord.utils.get(guild.roles, name='Voter')
             else:
@@ -184,7 +184,7 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1078563481101553824:
+        if payload.message_id == 1078572834701443142:
             if str(payload.emoji) == "🧡":
                 voter = discord.utils.get(guild.roles, name='Voter')
             else:
