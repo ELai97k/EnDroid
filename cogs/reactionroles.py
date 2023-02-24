@@ -113,6 +113,49 @@ class ReactionRoles(commands.Cog):
                 print(f"{verified_role} role removed from {member}")
 
 
+    # announcements add role
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, payload):
+        guild_id = payload.guild_id 
+        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if payload.message_id == 1078563481101553824:
+            if str(payload.emoji) == "📢":
+                announcements = discord.utils.get(guild.roles, name='announcements')
+            else:
+                announcements = discord.utils.get(guild.roles, name=payload.emoji)
+
+            if member is not None:
+                print(f"User: {member}, checked.")
+
+            if announcements is not None:
+                print(f"Role: {announcements}, checked.")
+                await payload.member.add_roles(announcements)
+                print(f"{announcements} role added to {member}")
+
+    # announcements remove role
+    @commands.Cog.listener()
+    async def on_raw_reaction_remove(self, payload):
+        guild_id = payload.guild_id 
+        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if payload.message_id == 1078563481101553824:
+            if str(payload.emoji) == "📢":
+                announcements = discord.utils.get(guild.roles, name='announcements')
+            else:
+                announcements = discord.utils.get(guild.roles, name=payload.emoji)
+
+            if member is not None:
+                print(f"User: {member}, checked.")
+
+            if announcements is not None:
+                print(f"Role: {announcements}, checked.")
+                await payload.member.remove_roles(announcements)
+                print(f"{announcements} role removed from {member}")
+
+
 def setup(client):
     client.add_cog(ReactionRoles(client))
 
