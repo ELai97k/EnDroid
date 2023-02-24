@@ -19,9 +19,6 @@ class ReactionRoles(commands.Cog):
             else:
                 member_role = discord.utils.get(guild.roles, name=payload.emoji)
 
-            if member is not None:
-                print(f"User: {member}, checked.")
-
             if member_role is not None:
                 print(f"Role: {member_role}, checked.")
                 await payload.member.add_roles(member_role)
@@ -39,9 +36,6 @@ class ReactionRoles(commands.Cog):
                 member_role = discord.utils.get(payload.member.guild.roles, name="Member")
             else:
                 member_role = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
 
             if member_role is not None:
                 print(f"Role: {member_role}, checked.")
@@ -68,9 +62,6 @@ class ReactionRoles(commands.Cog):
                 verified_role = discord.utils.get(guild.roles, name=payload.emoji)
                 # Unerified role
                 unverified_role = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
 
             if verified_role is not None:
                 print(f"Role: {verified_role}, checked.")
@@ -99,9 +90,6 @@ class ReactionRoles(commands.Cog):
                 unverified_role = discord.utils.get(guild.roles, name=payload.emoji)
                 verified_role = discord.utils.get(guild.roles, name=payload.emoji)
 
-            if member is not None:
-                print(f"User: {member}, checked.")
-
             if unverified_role is not None:
                 print(f"Role: {unverified_role}, checked.")
                 await member.add_roles(unverified_role)
@@ -126,9 +114,6 @@ class ReactionRoles(commands.Cog):
             else:
                 announcements = discord.utils.get(guild.roles, name=payload.emoji)
 
-            if member is not None:
-                print(f"User: {member}, checked.")
-
             if announcements is not None:
                 print(f"Role: {announcements}, checked.")
                 await payload.member.add_roles(announcements)
@@ -146,9 +131,6 @@ class ReactionRoles(commands.Cog):
                 announcements = discord.utils.get(guild.roles, name='announcements')
             else:
                 announcements = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
 
             if announcements is not None:
                 print(f"Role: {announcements}, checked.")
@@ -169,9 +151,6 @@ class ReactionRoles(commands.Cog):
             else:
                 voter = discord.utils.get(guild.roles, name=payload.emoji)
 
-            if member is not None:
-                print(f"User: {member}, checked.")
-
             if voter is not None:
                 print(f"Role: {voter}, checked.")
                 await payload.member.add_roles(voter)
@@ -189,9 +168,6 @@ class ReactionRoles(commands.Cog):
                 voter = discord.utils.get(guild.roles, name='Voter')
             else:
                 voter = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
 
             if voter is not None:
                 print(f"Role: {voter}, checked.")
