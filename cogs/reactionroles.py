@@ -13,8 +13,8 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1025041977361833994:
-            if str(payload.emoji) == "☑️":
+        if payload.message_id == 1078563481101553824: # get verified
+            if str(payload.emoji) == "✅":
                 # Verified role
                 verified_role = discord.utils.get(payload.member.guild.roles, name="Verified")
                 # Unerified role
@@ -44,8 +44,8 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        if payload.message_id == 1025041977361833994:
-            if str(payload.emoji) == "☑️":
+        if payload.message_id == 1078563481101553824: # get verified
+            if str(payload.emoji) == "✅":
                 unverified_role = discord.utils.get(guild.roles, name='Unverified')
                 verified_role = discord.utils.get(guild.roles, name="Verified")
             else:
