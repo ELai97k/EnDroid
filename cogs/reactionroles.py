@@ -156,6 +156,49 @@ class ReactionRoles(commands.Cog):
                 print(f"{announcements} role removed from {member}")
 
 
+    # voter role add
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, payload):
+        guild_id = payload.guild_id 
+        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if payload.message_id == 1078563481101553824:
+            if str(payload.emoji) == "🧡":
+                voter = discord.utils.get(guild.roles, name='Voter')
+            else:
+                voter = discord.utils.get(guild.roles, name=payload.emoji)
+
+            if member is not None:
+                print(f"User: {member}, checked.")
+
+            if voter is not None:
+                print(f"Role: {voter}, checked.")
+                await payload.member.add_roles(voter)
+                print(f"{voter} role added to {member}")
+
+    # voter role remove
+    @commands.Cog.listener()
+    async def on_raw_reaction_remove(self, payload):
+        guild_id = payload.guild_id 
+        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if payload.message_id == 1078563481101553824:
+            if str(payload.emoji) == "🧡":
+                voter = discord.utils.get(guild.roles, name='Voter')
+            else:
+                voter = discord.utils.get(guild.roles, name=payload.emoji)
+
+            if member is not None:
+                print(f"User: {member}, checked.")
+
+            if voter is not None:
+                print(f"Role: {voter}, checked.")
+                await payload.member.remove_roles(voter)
+                print(f"{voter} role removed from {member}")
+
+
 def setup(client):
     client.add_cog(ReactionRoles(client))
 
