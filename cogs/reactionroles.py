@@ -14,7 +14,7 @@ class ReactionRoles(commands.Cog):
         member = discord.utils.get(guild.members, id=payload.user_id)
 
         if payload.message_id == 1025041977361833994:
-            if str(payload.emoji) == '☑️':
+            if str(payload.emoji) == "☑️":
                 # Verified role
                 verified_role = discord.utils.get(payload.member.guild.roles, name="Verified")
                 # Unerified role
@@ -35,6 +35,30 @@ class ReactionRoles(commands.Cog):
                 # remove Unverified role
                 await payload.member.remove_roles(unverified_role)
                 print(f"{unverified_role} role removed from {member}")
+
+
+    # reaction remove
+    @commands.Cog.listener()
+    async def on_raw_reaction_remove(self, payload):
+        guild_id = payload.guild_id 
+        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if payload.message_id == 1025041977361833994:
+            if str(payload.emoji) == "☑️":
+                unverified_role = discord.utils.get(guild.roles, name='Unverified')
+                verified_role = discord.utils.get(guild.roles, name="Verified")
+            else:
+                unverified_role = discord.utils.get(guild.roles, name=payload.emoji)
+                verified_role = discord.utils.get(guild.roles, name=payload.emoji)
+
+            if unverified_role is not None:
+                await member.add_roles(unverified_role)
+                print(f"{unverified_role} role added to {member}")
+
+            if verified_role is not None:
+                await member.remove_roles(verified_role)
+                print(f"{verified_role} role removed from {member}")
 
 
 def setup(client):
