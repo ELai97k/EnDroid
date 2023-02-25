@@ -32,8 +32,8 @@ class SelfRoles (commands.Cog):
             await ctx.message.delete()
 
 
-async def setup(client):
-    await client.add_cog(SelfRoles(client))
+def setup(client):
+    client.add_cog(SelfRoles(client))
 
-async def teardown(client):
-    await client.remove_cog(SelfRoles(client))
+def teardown(client):
+    client.remove_cog(SelfRoles(client))
