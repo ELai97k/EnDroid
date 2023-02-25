@@ -28,7 +28,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{member_role} role added to {member}")
 
         # get verified add role
-        if payload.message_id == 1078645716148293632:
+        if payload.message_id == 921277460841111583:
             if str(payload.emoji) == "✅":
                 # Verified role
                 verified_role = discord.utils.get(payload.member.guild.roles, name="Verified")
@@ -109,7 +109,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{member_role} role removed from {member}")
 
         # get verified remove role
-        if payload.message_id == 1078645716148293632:
+        if payload.message_id == 921277460841111583:
             if str(payload.emoji) == "✅":
                 unverified_role = discord.utils.get(guild.roles, name='Unverified')
                 verified_role = discord.utils.get(guild.roles, name="Verified")
