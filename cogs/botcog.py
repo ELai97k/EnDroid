@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
 class Botcog(commands.Cog):
-    """Bot cog."""
+    """Bot cog for logging out."""
     def __init__(self, client):
         self.client = client
 
