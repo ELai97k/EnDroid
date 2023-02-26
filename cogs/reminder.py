@@ -1,6 +1,7 @@
 import discord
 import asyncio
 from discord.ext import commands
+from discord.ext.commands import CommandError
 
 class Reminder(commands.Cog):
     """Get the bot to set reminders and be pinged when it's due."""
@@ -49,11 +50,11 @@ class Reminder(commands.Cog):
 
         elif seconds < 60:
             embed = discord.Embed(color=0xc7ecf7)
-            embed.add_field(name="Warning", value="You have specified a duration that is too short! Minimum duration is 1 minute.")
+            embed.add_field(name="Warning", value="You have specified a duration that is too short! Minimum duration is `1 minute`.")
 
         elif seconds > 604800:
             embed = discord.Embed(color=0xc7ecf7)
-            embed.add_field(name="Warning", value="You have specified a duration that is too long! Maximum duration is 7 days.")
+            embed.add_field(name="Warning", value="You have specified a duration that is too long! Maximum duration is `7 days`.")
 
         else:
             await ctx.send(f"Alright {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
@@ -64,6 +65,17 @@ class Reminder(commands.Cog):
             return
         await ctx.send(embed=embed)
         print(f"Unable to process reminder for {user}")
+
+    @remind.error
+    async def remind_error(self, ctx, error):
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
 def setup(client):
