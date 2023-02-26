@@ -60,7 +60,7 @@ class Warns_Database(commands.Cog):
 
     # warn error
     @warn.error
-    async def warn_error(ctx, error):
+    async def warn_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
@@ -71,6 +71,7 @@ class Warns_Database(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
     # warnings
@@ -102,7 +103,7 @@ class Warns_Database(commands.Cog):
 
     # warnings error
     @warnings.error
-    async def warnings_error(ctx, error):
+    async def warnings_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
@@ -113,6 +114,7 @@ class Warns_Database(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
     # remove warn command
@@ -138,7 +140,7 @@ class Warns_Database(commands.Cog):
 
     # remove warn error
     @removewarns.error
-    async def removewarns_error(ctx, error):
+    async def removewarns_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
@@ -149,6 +151,7 @@ class Warns_Database(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
 def setup(client):
