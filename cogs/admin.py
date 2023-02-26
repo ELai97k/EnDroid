@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import has_permissions, MissingPermissions, CommandError
 
 class Admin(commands.Cog):
     """Kick and ban commands for admin and mods."""
@@ -36,6 +36,14 @@ class Admin(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+
 
     # ban command
     @commands.command(pass_context=True, help="Ban a member from the server.")
@@ -65,6 +73,14 @@ class Admin(commands.Cog):
     async def ban_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
