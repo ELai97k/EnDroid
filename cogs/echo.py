@@ -1,5 +1,6 @@
+import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import has_permissions, MissingPermissions, CommandError
 
 class Echo(commands.Cog):
     """Control the bot to say anything."""
@@ -28,6 +29,14 @@ class Echo(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+
 
     # speak command for moderators
     @commands.command(help="Make the bot speak your message input.")
@@ -51,6 +60,14 @@ class Echo(commands.Cog):
     async def speak_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
