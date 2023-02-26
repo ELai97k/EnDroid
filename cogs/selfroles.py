@@ -7,7 +7,7 @@ class SelfRoles (commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # embed commands
+    # embed command
     @commands.command(aliases = ["self_roles"], help="Get Verified embed command.")
     @has_permissions(administrator=True)
     async def selfroles(self, ctx):
