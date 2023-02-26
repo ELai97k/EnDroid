@@ -3,6 +3,7 @@ import os
 import json
 import sqlite3
 from discord.ext import commands
+from discord.ext.commands import CommandNotFound
 
 intents = discord.Intents.default().all()
 intents.members=True
@@ -82,6 +83,11 @@ async def on_ready():
         type = discord.ActivityType.playing, name = "Visual Studio Code"
         )
     )
+
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, CommandNotFound):
+        await ctx.send("No such command found in my cogs!")
 
     # sqlite3 db warnings
     db = sqlite3.connect('warnings.sqlite')
