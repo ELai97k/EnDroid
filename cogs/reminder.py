@@ -50,11 +50,11 @@ class Reminder(commands.Cog):
 
         elif seconds < 60:
             embed = discord.Embed(color=0xc7ecf7)
-            embed.add_field(name="Warning", value="You have specified a duration that is too short! Minimum duration is `1 minute`.")
+            embed.add_field(name="Warning", value="You have specified a duration that is too short!\n```Minimum duration is 1 minute.```")
 
         elif seconds > 604800:
             embed = discord.Embed(color=0xc7ecf7)
-            embed.add_field(name="Warning", value="You have specified a duration that is too long! Maximum duration is `7 days`.")
+            embed.add_field(name="Warning", value="You have specified a duration that is too long!\n```Maximum duration is 7 days.```")
 
         else:
             await ctx.send(f"Alright {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
