@@ -63,6 +63,14 @@ class Cogs(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+
 
     # reload cogs
     @commands.command(help="Command for reloading cogs.")
@@ -88,6 +96,14 @@ class Cogs(commands.Cog):
     async def reload_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
