@@ -8,7 +8,7 @@ class EightBall(commands.Cog):
 
     # 8ball command (prefix + ask)
     @commands.command(help="Ask the bot anything with the 8ball function.")
-    async def ask(self, ctx):
+    async def ask(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -41,8 +41,14 @@ class EightBall(commands.Cog):
             "Reply hazy, try again later.",
             "As I see it, yes."
         ]
-        await ctx.channel.trigger_typing()
-        await ctx.send(f'{random.choice(eight_ball)}')
+
+        if message is None:
+            await ctx.channel.trigger_typing()
+            await ctx.send("Pls ask me a yes-or-no question first.")
+
+        else:
+            await ctx.channel.trigger_typing()
+            await ctx.send(f'{random.choice(eight_ball)}')
 
 
 def setup(client):
