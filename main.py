@@ -93,6 +93,7 @@ async def on_command_error(ctx, error):
             color = discord.Color.dark_red()
         )
         await ctx.send(embed=embed)
+        print(f"{client.user} Error 404: Command Not Found")
 
     # sqlite3 db warnings
     db = sqlite3.connect('warnings.sqlite')
