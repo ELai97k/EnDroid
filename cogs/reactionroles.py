@@ -57,7 +57,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{unverified_role} role removed from {member}")
 
         # announcements add role
-        if payload.message_id == 1078645775166349312:
+        if payload.message_id == 1079289735886950470:
             if str(payload.emoji) == "📢":
                 announcements = discord.utils.get(guild.roles, name='announcements')
             else:
@@ -72,7 +72,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{announcements} role added to {member}")
 
         # voter role add
-        if payload.message_id == 1078645775166349312:
+        if payload.message_id == 1079289735886950470:
             if str(payload.emoji) == "🧡":
                 voter = discord.utils.get(guild.roles, name='Voter')
             else:
@@ -131,7 +131,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{verified_role} role removed from {member}")
 
         # announcements remove role
-        if payload.message_id == 1078645775166349312:
+        if payload.message_id == 1079289735886950470:
             if str(payload.emoji) == "📢":
                 announcements = discord.utils.get(guild.roles, name='announcements')
             else:
@@ -146,7 +146,7 @@ class ReactionRoles(commands.Cog):
                 print(f"{announcements} role removed from {member}")
 
         # voter role remove
-        if payload.message_id == 1078645775166349312:
+        if payload.message_id == 1079289735886950470:
             if str(payload.emoji) == "🧡":
                 voter = discord.utils.get(guild.roles, name='Voter')
             else:
