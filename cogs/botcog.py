@@ -26,7 +26,7 @@ class Botcog(commands.Cog):
         await asyncio.sleep(3)
         await self.client.change_presence(status=discord.Status.offline)
         await asyncio.sleep(3)
-        await self.client.logout()
+        await self.client.close()
 
     @logout.error
     async def logout_error(self, ctx, error):
