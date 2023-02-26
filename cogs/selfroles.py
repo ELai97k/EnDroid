@@ -18,7 +18,7 @@ class SelfRoles (commands.Cog):
 
         embed = discord.Embed (
             title = "Self Roles (optional)",
-            description = "React to this message with the corresponding emoji and the role associated with it.\n\n📢 <@&1032579279885705257>\n🧡 <@&1078567772524650556>",
+            description = "React to this message to give yourself a role (once again it's optional).\n\n📢 <@&1032579279885705257>\n🧡 <@&1078567772524650556>",
             color=0xc7ecf7
         )
         
