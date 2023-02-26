@@ -12,21 +12,6 @@ class ReactionRoles(commands.Cog):
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
 
-        # da rules add member role
-        if payload.message_id == 921277460841111583:
-            if str(payload.emoji) == "☑️":
-                member_role = discord.utils.get(payload.member.guild.roles, name="Member")
-            else:
-                member_role = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
-
-            if member_role is not None:
-                print(f"Role: {member_role}, checked.")
-                await payload.member.add_roles(member_role)
-                print(f"{member_role} role added to {member}")
-
         # get verified add role
         if payload.message_id == 921277460841111583:
             if str(payload.emoji) == "✅":
@@ -92,21 +77,6 @@ class ReactionRoles(commands.Cog):
         guild_id = payload.guild_id 
         guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
         member = discord.utils.get(guild.members, id=payload.user_id)
-
-        # da rules remove member role
-        if payload.message_id == 921277460841111583:
-            if str(payload.emoji) == "☑️":
-                member_role = discord.utils.get(guild.roles, name='Member')
-            else:
-                member_role = discord.utils.get(guild.roles, name=payload.emoji)
-
-            if member is not None:
-                print(f"User: {member}, checked.")
-
-            if member_role is not None:
-                print(f"Role: {member_role}, checked.")
-                await member.remove_roles(member_role)
-                print(f"{member_role} role removed from {member}")
 
         # get verified remove role
         if payload.message_id == 921277460841111583:
