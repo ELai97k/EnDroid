@@ -8,7 +8,7 @@ class SelfRoles (commands.Cog):
         self.client = client
 
     # embed command
-    @commands.command(aliases = ["self_roles"], help="Get Verified embed command.")
+    @commands.command(aliases = ["self_roles"], help="Self roles embed command.")
     @has_permissions(administrator=True)
     async def selfroles(self, ctx):
         if ctx.author == self.client.user:
