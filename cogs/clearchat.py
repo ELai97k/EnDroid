@@ -1,5 +1,6 @@
+import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import has_permissions, MissingPermissions, CommandError
 
 class ClearChat(commands.Cog):
     """Cog for clearing chat command."""
@@ -29,6 +30,14 @@ class ClearChat(commands.Cog):
     async def clearchat_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
