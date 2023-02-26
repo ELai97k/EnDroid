@@ -37,6 +37,7 @@ class Cogs(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
     # unload cogs
@@ -70,6 +71,7 @@ class Cogs(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
     # reload cogs
@@ -104,6 +106,7 @@ class Cogs(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
 def setup(client):
