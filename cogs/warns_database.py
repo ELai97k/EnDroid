@@ -1,7 +1,7 @@
 import discord
 import sqlite3
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import has_permissions, MissingPermissions, CommandError
 
 class Warns_Database(commands.Cog):
     """Cog for warning system."""
@@ -64,6 +64,14 @@ class Warns_Database(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+
 
     # warnings
     @commands.command(help="Shows amount of warnings for a member.")
@@ -98,6 +106,14 @@ class Warns_Database(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+
 
     # remove warn command
     @commands.command(help="Remove all warnings from a member.")
@@ -125,6 +141,14 @@ class Warns_Database(commands.Cog):
     async def removewarns_error(ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Could not complete your request! Pls type properly, idiot!",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
 
 
 def setup(client):
