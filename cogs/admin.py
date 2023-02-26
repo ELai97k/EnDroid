@@ -43,6 +43,7 @@ class Admin(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
     # ban command
@@ -81,6 +82,7 @@ class Admin(commands.Cog):
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
 
 
 def setup(client):
