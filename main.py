@@ -87,7 +87,12 @@ async def on_ready():
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, CommandNotFound):
-        await ctx.send("No such command found in my cogs!")
+        embed = discord.Embed (
+            title = "Command Error",
+            description = "No such command found in my cogs!",
+            color = discord.Color.dark_red()
+        )
+        await ctx.send(embed=embed)
 
     # sqlite3 db warnings
     db = sqlite3.connect('warnings.sqlite')
