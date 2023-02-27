@@ -74,7 +74,7 @@ class Prefix(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -94,23 +94,7 @@ class Prefix(commands.Cog):
 
         prefix = prefixes[str(ctx.guild.id)]
 
-        await ctx.send(f"My server prefix is `{prefix}`")
-
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.client.user:
-            return
-        if message.author.bot:
-            return
-
-        if message.content.lower().startswith("whats the prefix") or message.content.lower().startswith("what's the prefix") or message.content.lower().startswith("what is the prefix") or message.content.lower().startswith("whats the current prefix") or message.content.lower().startswith("what's the current prefix") or message.content.lower().startswith("what is the current prefix"):
-            with open("prefixes.json", "r") as f:
-                prefixes = json.load(f)
-
-            prefix = prefixes[str(message.guild.id)]
-
-            await message.channel.send(f"My current prefix is `{prefix}`")
+        await ctx.send(f"My current server prefix is `{prefix}`")
 
 
 def setup(client):
