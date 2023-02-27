@@ -67,7 +67,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls specify a member for me to warn!\n```Could not complete your request!```",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -110,7 +110,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls specify a member for me to see their warning report!\n```Could not complete your request!```",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -147,7 +147,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls specify a member for me to remove warnings!\n```Could not complete your request!```",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
