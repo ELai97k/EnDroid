@@ -16,8 +16,6 @@ class Warns_Database(commands.Cog):
             return
         if ctx.author.bot:
             return
-        
-        reason = None
 
         async def addwarn(ctx, reason, user):
             db = sqlite3.connect('warnings.sqlite')
@@ -37,15 +35,14 @@ class Warns_Database(commands.Cog):
             db.commit()
         await addwarn(ctx, reason, user)
 
-        if reason is not None:
-            # embed
-            embed = discord.Embed (
-                title=f"**⚠ WARNING for {user}**",
-                description=f"This user `{user}` has been given a warning, and it has been recorded and added to the userdata successfully.",
-                color=discord.Color.dark_red()
-            )
-            await ctx.send(embed=embed)
-            print(f"{user} has been given a warning!")
+        # embed
+        embed = discord.Embed (
+            title=f"**⚠ WARNING for {user}**",
+            description=f"This user `{user}` has been given a warning, and it has been recorded and added to the userdata successfully.",
+            color=discord.Color.dark_red()
+        )
+        await ctx.send(embed=embed)
+        print(f"{user} has been given a warning!")
 
         db = sqlite3.connect('warnings.sqlite')
         cursor = db.cursor()
