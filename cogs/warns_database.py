@@ -92,20 +92,23 @@ class Warns_Database(commands.Cog):
         if data:
             embed = discord.Embed (
                 title = f"Warning Report for `{user}`",
-                description = f"**Warnings:** {len(data)}",
+                description = f"```Warnings: {len(data)}```",
                 color = discord.Color.blurple()
             )
             await ctx.send(embed=embed)
             await ctx.send(f"`{user}` has {len(data)} warnings.")
+            print(f"`{user}` has {len(data)} warnings.")
+
         # if user has no warnings
         else:
             embed = discord.Embed (
                 title = f"Warning Report for `{user}`",
-                description = f"**Warnings:** {len(data)}",
+                description = f"```Warnings: {len(data)}```",
                 color = discord.Color.blurple()
             )
             await ctx.send(embed=embed)
             await ctx.send(f"`{user}` has {len(data)} warnings.")
+            print(f"`{user}` has {len(data)} warnings.")
 
     # warnings error
     @warnings.error
