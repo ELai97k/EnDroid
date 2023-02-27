@@ -16,6 +16,8 @@ class Warns_Database(commands.Cog):
             return
         if ctx.author.bot:
             return
+        
+        reason = None
 
         async def addwarn(ctx, reason, user):
             db = sqlite3.connect('warnings.sqlite')
@@ -35,14 +37,15 @@ class Warns_Database(commands.Cog):
             db.commit()
         await addwarn(ctx, reason, user)
 
-        # embed
-        embed = discord.Embed (
-            title=f"**⚠ WARNING for {user}**",
-            description=f"This user `{user}` has been given a warning, and it has been recorded and added to the userdata successfully.",
-            color=discord.Color.dark_red()
-        )
-        await ctx.send(embed=embed)
-        print(f"{user} has been given a warning!")
+        if reason is not None:
+            # embed
+            embed = discord.Embed (
+                title=f"**⚠ WARNING for {user}**",
+                description=f"This user `{user}` has been given a warning, and it has been recorded and added to the userdata successfully.",
+                color=discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+            print(f"{user} has been given a warning!")
 
         db = sqlite3.connect('warnings.sqlite')
         cursor = db.cursor()
@@ -67,7 +70,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls specify a member for me to warn!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -110,7 +113,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls specify a member for me to see their warning report!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -147,7 +150,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls specify a member for me to remove warnings!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
