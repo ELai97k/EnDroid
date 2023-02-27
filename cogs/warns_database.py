@@ -38,7 +38,7 @@ class Warns_Database(commands.Cog):
         # embed
         embed = discord.Embed (
             title=f"**⚠ WARNING for {user}**",
-            description=f"This user `{user}` has been given a warning, and it has been recorded and added to the userdata successfully.",
+            description=f"This user `{user}` has been given a warning! It has been recorded and added to their userdata successfully.",
             color=discord.Color.dark_red()
         )
         await ctx.send(embed=embed)
@@ -67,7 +67,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Pls specify a member and reason for warning!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -90,14 +90,20 @@ class Warns_Database(commands.Cog):
 
         # if user has a warning
         if data:
-            embed = discord.Embed (color=discord.Color.blurple())
-            embed.add_field(name=f"Warning Report for `{user}`", value=f"**Warnings:** {len(data)}")
+            embed = discord.Embed (
+                title = f"Warning Report for `{user}`",
+                description = f"**Warnings:** {len(data)}",
+                color = discord.Color.blurple()
+            )
             await ctx.send(embed=embed)
             await ctx.send(f"`{user}` has {len(data)} warnings.")
         # if user has no warnings
         else:
-            embed = discord.Embed (color=discord.Color.blurple())
-            embed.add_field(name=f"Warning Report for `{user}`", value=f"**Warnings:** {len(data)}")
+            embed = discord.Embed (
+                title = f"Warning Report for `{user}`",
+                description = f"**Warnings:** {len(data)}",
+                color = discord.Color.blurple()
+            )
             await ctx.send(embed=embed)
             await ctx.send(f"`{user}` has {len(data)} warnings.")
 
@@ -110,7 +116,7 @@ class Warns_Database(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Pls specify a member for me to view their warning report!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
