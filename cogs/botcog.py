@@ -10,7 +10,7 @@ class Botcog(commands.Cog):
 
     # log out
     @commands.command(help="Command for bot log out.")
-    @has_permissions(manage_server=True)
+    @has_permissions(manage_roles=True)
     async def logout(self, ctx):
         if ctx.author == self.client.user:
             return
