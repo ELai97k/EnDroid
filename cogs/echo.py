@@ -20,7 +20,7 @@ class Echo(commands.Cog):
             await ctx.send("What do you want me to say?")
 
         else:
-            # main server general channel 1010841256294875218
+            # main server general channel
             await self.client.get_channel(1010841256294875218).send(f"{message}")
             await ctx.message.delete()
 
@@ -32,7 +32,7 @@ class Echo(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -54,7 +54,7 @@ class Echo(commands.Cog):
 
         else:
             # G Bar general channel 762317365970468877
-            await self.client.get_channel(762317365970468877).send(f"{message}")
+            await self.client.get_channel(1010841256294875218).send(f"{message}")
             await ctx.message.delete()
 
     @speak.error
@@ -65,7 +65,7 @@ class Echo(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
