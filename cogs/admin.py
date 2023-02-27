@@ -39,7 +39,7 @@ class Admin(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -78,7 +78,7 @@ class Admin(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Could not complete your request! Pls type properly, idiot!",
+                description = "Pls try again!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
