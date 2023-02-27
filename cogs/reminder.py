@@ -68,14 +68,16 @@ class Reminder(commands.Cog):
 
     @remind.error
     async def remind_error(self, ctx, error):
+        user = ctx.author
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Pls enter a proper time and reminder!\n```I'm unable to process your input!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
             print(f"{self.client.user} Error 404: Command Error")
+            print(f"Unable to process reminder for {user}")
 
 
 def setup(client):
