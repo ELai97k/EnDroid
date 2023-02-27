@@ -34,7 +34,7 @@ class Prefix(commands.Cog):
 
     # change prefix command
     @commands.command(aliases=["setprefix"], help="Command for changing the bot's prefix.")
-    @has_permissions(administrator=True)
+    @has_permissions(manage_server=True, administrator=True)
     async def changeprefix(self, ctx, prefix):
         if ctx.author == self.client.user:
             return
