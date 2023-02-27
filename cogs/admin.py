@@ -9,7 +9,6 @@ class Admin(commands.Cog):
 
     # kick command
     @commands.command(pass_context=True, help="Kick a member out of the server.")
-    @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True)
     async def kick(self, ctx, *, member:discord.Member, reason=None):
         if member.guild_permissions.manage_roles:
@@ -48,7 +47,6 @@ class Admin(commands.Cog):
 
     # ban command
     @commands.command(pass_context=True, help="Ban a member from the server.")
-    @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, ban_members=True)
     async def ban(self, ctx, *, member:discord.Member, reason=None):
         if member.guild_permissions.manage_roles:
