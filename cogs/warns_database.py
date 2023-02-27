@@ -9,7 +9,6 @@ class Warns_Database(commands.Cog):
         self.client = client
 
     @commands.command(help="Give a warning to a member.")
-    @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
     async def warn(self, ctx, user:discord.Member, *, reason:str):
         if ctx.author == self.client.user:
@@ -77,7 +76,6 @@ class Warns_Database(commands.Cog):
 
     # warnings
     @commands.command(help="Shows amount of warnings for a member.")
-    @commands.has_role("Moderators")
     async def warnings(self, ctx, *, user:discord.Member):
         if ctx.author == self.client.user:
             return
@@ -129,7 +127,6 @@ class Warns_Database(commands.Cog):
 
     # remove warn command
     @commands.command(help="Remove all warnings from a member.")
-    @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
     async def removewarns(self, ctx, *, user:discord.Member):
         if ctx.author == self.client.user:
