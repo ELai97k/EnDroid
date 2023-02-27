@@ -34,7 +34,7 @@ class Prefix(commands.Cog):
 
     # change prefix command
     @commands.command(aliases=["setprefix"], help="Command for changing the bot's prefix.")
-    @has_permissions(manage_server=True)
+    @has_permissions(manage_roles=True)
     async def changeprefix(self, ctx, prefix):
         if ctx.author == self.client.user:
             return
@@ -79,22 +79,6 @@ class Prefix(commands.Cog):
             )
             await ctx.send(embed=embed)
             print(f"{self.client.user} Error 404: Command Error")
-
-
-    # server prefix command
-    @commands.command(aliases=["currentprefix"], help="Command to fetch server prefix.")
-    async def serverprefix(self, ctx):
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
-
-        with open("prefixes.json", "r") as f:
-            prefixes = json.load(f)
-
-        prefix = prefixes[str(ctx.guild.id)]
-
-        await ctx.send(f"My current server prefix is `{prefix}`")
 
 
 def setup(client):
