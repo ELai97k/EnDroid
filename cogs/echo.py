@@ -9,7 +9,7 @@ class Echo(commands.Cog):
 
     # say command for admin only
     @commands.command(help="Make the bot say your message input.")
-    @has_permissions(administrator=True)
+    @has_permissions(manage_server=True)
     async def say(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
@@ -41,7 +41,6 @@ class Echo(commands.Cog):
 
     # speak command for moderators
     @commands.command(help="Make the bot speak your message input.")
-    @commands.has_role("Moderators")
     @has_permissions(manage_messages=True)
     async def speak(self, ctx, *, message=None):
         if ctx.author == self.client.user:
