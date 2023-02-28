@@ -39,7 +39,7 @@ class Reminder(commands.Cog):
         if seconds == 0:
             embed = discord.Embed (
                 title = "Cannot process reminder",
-                description = "Please input a reminder text first followed by duration of time.",
+                description = "Please input duration of time first followed by a reminder text.",
                 color=0xc7ecf7
             )
             embed.add_field(name="Days", value="`d`")
