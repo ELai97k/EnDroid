@@ -33,7 +33,7 @@ class Cogs(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Pls load something, like a cog. But not your idiot brain!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -67,7 +67,7 @@ class Cogs(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Pls unload your dumb brain, thanks!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
@@ -102,7 +102,7 @@ class Cogs(commands.Cog):
         if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
+                description = "Reload what? Your stupidity? No way!\n```Could not complete your request!```",
                 color = discord.Color.dark_red()
             )
             await ctx.send(embed=embed)
