@@ -34,6 +34,10 @@ class BotStatuses(commands.Cog):
             "Spotify",
             "SoundCloud",
             "Discord",
+            "Godot",
+            "GDevelop 5",
+            "Unity",
+            "RPG Maker XP",
             "Ren'Py",
             "Hagar's Ordeal",
             "status"
