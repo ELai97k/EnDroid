@@ -17,6 +17,7 @@ class ClearChat(commands.Cog):
 
         if amount is None:
             await ctx.channel.purge(limit=50)
+            print("Clear chat successful!")
         else:
             try:
                 int(amount)
@@ -24,6 +25,7 @@ class ClearChat(commands.Cog):
                 await ctx.send("Please enter a valid integer as amount.")
             else:
                 await ctx.channel.purge(linit=amount)
+                print("Clear chat successful!")
 
     @clearchat.error
     async def clearchat_error(self, ctx, error):
