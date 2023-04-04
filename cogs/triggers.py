@@ -25,12 +25,10 @@ class Triggers(commands.Cog):
                 "negro",
                 "penis",
                 "vagina",
-                "nude",
                 "porn",
                 "pornhub.com",
                 "brazzers.com",
                 "faggot",
-                "naked",
                 "cum ",
                 "motherfucker"
             ]
@@ -57,7 +55,7 @@ class Triggers(commands.Cog):
  
         embed = discord.Embed (
             title = "Endroid will delete these censored words:",
-            description="||`Dick`\n`Cuck(s)`\n`Cock(s)`\n`Sex`\n`Nigga`\n`Nigger`\n`Negro`\n`Penis`\n`Vagina`\n`Nude`\n`Pronhub.com`\n`Brazzers.com`\n`Faggot`\n`Naked`\n`Cum`\n`Motherfucker`||",
+            description="||`Dick`\n`Cuck(s)`\n`Cock(s)`\n`Sex`\n`Nigga`\n`Nigger`\n`Negro`\n`Penis`\n`Vagina`\n`Pronhub.com`\n`Brazzers.com`\n`Faggot`\n`Cum`\n`Motherfucker`||",
             color=discord.Color.dark_red()
         )
         embed.set_footer(text="You will be given a warning that will trigger Endroid's auto-moderation")
