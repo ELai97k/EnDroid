@@ -75,7 +75,7 @@ class Warns_Database(commands.Cog):
 
 
     # warnings
-    @commands.command(help="Shows amount of warnings for a member.")
+    @commands.command(aliases=["report"], help="Shows amount of warnings for a member.")
     async def warnings(self, ctx, *, user:discord.Member):
         if ctx.author == self.client.user:
             return
@@ -126,7 +126,7 @@ class Warns_Database(commands.Cog):
 
 
     # remove warn command
-    @commands.command(help="Remove all warnings from a member.")
+    @commands.command(aliases=["rw"], help="Remove all warnings from a member.")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
     async def removewarns(self, ctx, *, user:discord.Member):
         if ctx.author == self.client.user:
