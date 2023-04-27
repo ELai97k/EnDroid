@@ -7,25 +7,20 @@ class ClearChat(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context=True, help="Command to clear chats in a text channel.")
+    @commands.command(aliases=["clear"], pass_context=True, help="Command to clear chats in a text channel.")
     @has_permissions(manage_messages=True)
-    async def clearchat(self, ctx, amount=None):
+    async def clearchat(self, ctx, amount=5):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
 
+        await ctx.channel.purge(limit=amount+1)
+        print(f"Cleared {amount} chats successful!")
+
         if amount is None:
-            await ctx.channel.purge(limit=50)
-            print("Clear chat successful!")
-        else:
-            try:
-                int(amount)
-            except:
-                await ctx.send("Please enter a valid integer as amount.")
-            else:
-                await ctx.channel.purge(linit=amount)
-                print("Clear chat successful!")
+            await ctx.channel.purge(limit=50+1)
+            print(f"Cleared {amount} chats successful!")
 
     @clearchat.error
     async def clearchat_error(self, ctx, error):
