@@ -26,96 +26,81 @@ class Auto_Responses(commands.Cog):
             self.client.load_extension("cogs.auto_responses")
             print("Auto Responses has been turned on")
 
-        # test
-        if message.content.lower().startswith("test"):
-            await message.channel.trigger_typing()
-            await message.channel.send("Testing")
-
-        # ping pomg
-        if message.content.lower().startswith("ping"):
-            await message.channel.trigger_typing()
-            await message.channel.send("🏓pong")
-
-        # beep boop
-        if message.content.lower().startswith("beep"):
-            await message.channel.trigger_typing()
-            await message.channel.send("boop")
-
         # F
         if message.content == "F":
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("F")
             print("F")
 
         # bruh
         if "bruh" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("bruh")
 
         # input
         if "input" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("`output`")
 
         # I have no friends
-        if message.content.lower().startswith("I have no friends"):
-            await message.channel.trigger_typing()
+        if message.content.lower().startswith("i have no friends"):
+            await message.channel.typing()
             await message.channel.send("F")
 
         # say something / tell me something
         if message.content.lower().startswith("say something") or message.content.lower().startswith("tell me something"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("something")
 
         # tell me a joke
         if message.content.lower().startswith("tell me a joke"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("you")
 
         # stupid bot
         if "stupid bot" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("what is my purpose?")
 
         # hello bot(s)
         if message.content.lower().startswith("hello bot") or message.content.lower().startswith("hello bots"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"Hello {message.author.mention}")
 
         # hi bot(s)
         if message.content.lower().startswith("hi bot") or message.content.lower().startswith("hi bots"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"Hi {message.author.mention}")
 
         # hey bot(s)
         if message.content.lower().startswith("hey bot") or message.content.lower().startswith("hey bots"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"hey {message.author.mention}")
 
         # hello endroid
         if message.content.lower().startswith("hello endroid"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"Hello {message.author.mention}")
 
         # hi endroid
         if message.content.lower().startswith("hi endroid"):
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"Hi {message.author.mention}")
 
         # jmm
         if "jmm" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("jmm")
 
         # jumm
         if "jumm" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("jumm")
 
-        # I thought you did
-        if "did not" in message.content.lower() or "didn't" in message.content.lower() or "didnt" in message.content.lower():
-            await message.channel.trigger_typing()
-            await message.channel.send("I thought you did.")
+        # why isn't this working
+        if message.content.lower().startswith("why isnt this working") or message.content.lower().startswith("why isn't this working"):
+            await message.channel.typing()
+            await message.channel.send("I dunno, why isn't it?")
 
         # dead chat embed
         if message.content.lower().startswith("dead chat"):
@@ -159,22 +144,9 @@ class Auto_Responses(commands.Cog):
                 "Go bother someone else!",
                 "Don't disturb me!"
             ]
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f"{random.choice(ping_responses)}")
             print("Why me?")
-
-        #pog, poggers and pogchamp
-        if "pog" in message.content.lower() or "poggers" in message.content.lower() or "pogchamp" in message.content.lower():
-            pog_responses = [
-                "pog",
-                "poggers",
-                "pogchamp",
-                "Pog!",
-                "Poggers",
-                "Pogchamp!"
-            ]
-            await message.channel.trigger_typing()
-            await message.channel.send(f'{random.choice(pog_responses)}')
 
         # I am responses
         if message.content.lower().startswith("i am"):
@@ -190,9 +162,9 @@ class Auto_Responses(commands.Cog):
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("i am", "").strip():
-                    await message.channel.trigger_typing()
+                    await message.channel.typing()
                     return await message.channel.send(response)
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("i am", "").strip() + ", I'm Endroid!")
 
         # I'm / im responses
@@ -209,9 +181,9 @@ class Auto_Responses(commands.Cog):
             }
             for trigger, response in list(responses.items()):
                 if trigger in message.content.lower().replace("'", "").replace("im", "").strip():
-                    await message.channel.trigger_typing()
+                    await message.channel.typing()
                     return await message.channel.send(response)
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("im", "").replace("i'm", "").strip() + ", I'm Endroid!")
 
         # hey endroid
@@ -244,14 +216,14 @@ class Auto_Responses(commands.Cog):
                 "Greetings, user.",
                 "Greetings, human."
             ]
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send(f'{random.choice(greetings)}')
 
             # if no reply within 60 secs
             try:
                 reply_message = await self.client.wait_for('message', timeout=60.0)
             except asyncio.TimeoutError:
-                await reply_message.channel.trigger_typing()
+                await reply_message.channel.typing()
                 await reply_message.channel.send("Why did you call me if you're not going to say anything??")
 
             else:
@@ -272,35 +244,35 @@ class Auto_Responses(commands.Cog):
                     }
                     for trigger, response in list(responses.items()):
                         if trigger in reply_message.content.lower():
-                            await reply_message.channel.trigger_typing()
+                            await reply_message.channel.typing()
                             await reply_message.channel.send(response)
 
         # turn that frown upside down
         if ":(" in message.content:
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("Turn that frown upside down!")
 
             # if no reply within 30 secs
             try:
                 reply_message = await self.client.wait_for('message', timeout=30.0)
             except asyncio.TimeoutError:
-                await reply_message.channel.trigger_typing()
+                await reply_message.channel.typing()
                 await reply_message.channel.send("why won't you reply me?")
 
             # reply with "no"
             else:
                 if "no" in reply_message.content.lower():
-                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.typing()
                     await reply_message.channel.send("How dare you!")
 
                 # reply with ":)"
                 if ":)" in reply_message.content:
-                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.typing()
                     await reply_message.channel.send("Excellent!")
 
                 # reply with "):"
                 if "):" in reply_message.content:
-                    await reply_message.channel.trigger_typing()
+                    await reply_message.channel.typing()
                     await reply_message.channel.send("listen here you piece of shit!")
 
 
