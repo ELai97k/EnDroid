@@ -12,30 +12,18 @@ class BotStatuses(commands.Cog):
     async def random_status_loop(self):
         status = [
             "myself",
-            "Visual Studio Code",
-            "on Raspberry Pi 3",
-            "Persona 4 Golden",
+            "The Stanley Parable Ultra Deluxe",
             "Stardew Valley",
-            "Biomutant",
+            "Among Us",
+            "Job Simulator",
+            "Team Fortress 2",
+            "Splitgate",
             "Minecraft",
             "Minecraft Dungeons",
-            "SteamVR",
-            "Beat Saber",
-            "Job Simulator: The 2050 Archives",
-            "Job Simulator",
-            "Vacation Simulator",
-            "Vacation Simulator: Back To Job",
-            "Adobe Photoshop",
-            "Adobe Premiere Pro",
-            "Aseprite",
-            "YouTube",
-            "GitHub",
-            "Spotify",
-            "SoundCloud",
+            "Biomutant",
             "Discord",
-            "Godot",
-            "Ren'Py",
-            "Hagar's Ordeal"
+            "GitHub",
+            "Ren'Py"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
