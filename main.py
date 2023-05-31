@@ -35,7 +35,7 @@ class CustomHelpCommand(commands.HelpCommand):
                         value = '{0}\n{1}'.format(cog.description, value)
 
                     embed.add_field(name=name, value=value, inline=True)
-                    embed.set_footer(text="Use !help [cog name] or !help [command] for more info.")
+                    embed.set_footer(text="Use !help [cog] or !help [command] for more info.")
 
         await self.get_destination().send(embed=embed)
 
