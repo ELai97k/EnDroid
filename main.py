@@ -86,11 +86,11 @@ async def on_ready():
 # bot default status
 async def status_task():
     while True:
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"listining status"))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="listining status"))
         await asyncio.sleep(999)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"playing status"))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="playing status"))
         await asyncio.sleep(999)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"watching status"))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="watching status"))
         await asyncio.sleep(999)
 
 # command not found error
