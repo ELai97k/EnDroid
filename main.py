@@ -101,6 +101,12 @@ async def on_ready():
         type = discord.ActivityType.watching, name = "this server"
         )
     )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.watching, name = "you"
+        )
+    )
 
 # command not found error
 @client.event
