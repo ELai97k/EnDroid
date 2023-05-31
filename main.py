@@ -89,13 +89,13 @@ async def on_ready():
         type = discord.ActivityType.watching, name = "!help"
         )
     )
-    await asyncio.sleep(10)
+    await asyncio.sleep(999)
     await client.change_presence (
         activity = discord.Activity (
         type = discord.ActivityType.watching, name = "you"
         )
     )
-    await asyncio.sleep(10)
+    await asyncio.sleep(999)
     await client.change_presence (
         activity = discord.Activity (
         type = discord.ActivityType.watching, name = "this server"
