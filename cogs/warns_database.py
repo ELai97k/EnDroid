@@ -8,7 +8,7 @@ class Warns_Database(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(help="Give a warning to a member.")
+    @commands.command(aliases=["w"], help="Give a warning to a member.")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
     async def warn(self, ctx, user:discord.Member, *, reason:str):
         if ctx.author == self.client.user:
@@ -75,7 +75,7 @@ class Warns_Database(commands.Cog):
 
 
     # warnings
-    @commands.command(aliases=["report"], help="Shows amount of warnings for a member.")
+    @commands.command(aliases=["report", "r", "wr"], help="Shows amount of warnings for a member.")
     async def warnings(self, ctx, *, user:discord.Member):
         if ctx.author == self.client.user:
             return
