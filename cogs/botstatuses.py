@@ -43,35 +43,35 @@ class BotStatuses(commands.Cog):
     #     )
 
 
-@tasks.loop(seconds=999.0)
-async def random_status_loop(self):
-    watching_statuses = [
-        "you",
-        "this server",
-        "YouTube",
-        "Game Theory",
-        "Film Theory",
-        "Matatabi Movie Labo",
-        "Netflix",
-        "Disney+",
-        "Everything Everywhere All At Once",
-        "American Born Chinese",
-        "Attack On Titan",
-        "My Hero Academia",
-        "Mob Psycho 100",
-        "Shaman King",
-        "Spider-Man: Across the Spider-Verse",
-        "The Super Mario Bros. Movie",
-        "Wendell & Wild",
-        "Turning Red",
-        "Encanto",
-        "The Mitchells vs. the Machines"
-    ]
-    await self.client.change_presence (
-        activity = discord.Activity (
-            type = discord.ActivityType.watching, name = f'{random.choice(watching_statuses)}'
+    @tasks.loop(seconds=999.0)
+    async def random_status_loop(self):
+        watching_statuses = [
+            "you",
+            "this server",
+            "YouTube",
+            "Game Theory",
+            "Film Theory",
+            "Matatabi Movie Labo",
+            "Netflix",
+            "Disney+",
+            "Everything Everywhere All At Once",
+            "American Born Chinese",
+            "Attack On Titan",
+            "My Hero Academia",
+            "Mob Psycho 100",
+            "Shaman King",
+            "Spider-Man: Across the Spider-Verse",
+            "The Super Mario Bros. Movie",
+            "Wendell & Wild",
+            "Turning Red",
+            "Encanto",
+            "The Mitchells vs. the Machines"
+        ]
+        await self.client.change_presence (
+            activity = discord.Activity (
+                type = discord.ActivityType.watching, name = f'{random.choice(watching_statuses)}'
+            )
         )
-    )
 
 
 async def setup(client):
