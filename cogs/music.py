@@ -14,7 +14,7 @@ import aiohttp
 import discord
 import ffmpeg
 import aiomysql
-import yt_dlp as youtube_dl
+import yt_dlp
 from discord.ext import commands
 
 #warning: this uses ffmpeg-python, not ffmpeg (the python module) or python-ffmpeg
