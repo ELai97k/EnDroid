@@ -90,11 +90,11 @@ class music(commands.Cog):
     '''Music commands'''
     __slots__ = ("logger", "channels_playing_audio", "lock", "bot", "players", "ydl_opts")
 
-    def __init__(self, bot):
+    def __init__(self, client):
         self.channels_playing_audio = []
         self.logger = logging.getLogger(f"maximilian.{__name__}")
         self.lock = asyncio.Lock()
-        self.bot = bot
+        self.client = client
         self.players = {}
         self.ydl_opts = {
         'format': 'bestaudio/best',
@@ -111,14 +111,14 @@ class music(commands.Cog):
         'preferredquality': '192'
         }]
         }
-        self.bot.settings.add_category("music", {'toggle':'music commands', 'performance':'better performance at the cost of audio quality'}, {'toggle':None, 'performance':None}, {'toggle':"manage_guild", 'performance':None})
+        self.client.settings.add_category("music", {'toggle':'music commands', 'performance':'better performance at the cost of audio quality'}, {'toggle':None, 'performance':None}, {'toggle':"manage_guild", 'performance':None})
 
     async def check_enabled(self, ctx):
-        if not self.bot.settings.music.ready:
-            await ctx.send(self.bot.strings["SETTING_NOT_READY"])
-        while not self.bot.settings.music.ready:
+        if not self.client.settings.music.ready:
+            await ctx.send(self.client.strings["SETTING_NOT_READY"])
+        while not self.client.settings.music.ready:
             await asyncio.sleep(0.3)
-        return self.bot.settings.music.toggle.enabled(ctx.guild.id)
+        return self.client.settings.music.toggle.enabled(ctx.guild.id)
 
     async def _get_player(self, ctx):
         '''Gets a player if it exists, creates one if it doesn't exist'''
@@ -146,30 +146,30 @@ class music(commands.Cog):
 
     async def _join_voice(self, ctx, channel):
         '''Joins a voice channel'''
-        joiningmessage = await ctx.send(self.bot.strings["JOINING"])
+        joiningmessage = await ctx.send(self.client.strings["JOINING"])
         vc = ctx.voice_client
         if vc:
             if vc.channel.id == channel.id:
-                await joiningmessage.edit(content=self.bot.strings["ALREADY_CONNECTED"])
+                await joiningmessage.edit(content=self.client.strings["ALREADY_CONNECTED"])
             else:
                 try:
                     await vc.move_to(channel)
                 except asyncio.TimeoutError:
-                    await joiningmessage.edit(content=self.bot.strings["MOVING_TIMEOUT"].format(channel.name))
+                    await joiningmessage.edit(content=self.client.strings["MOVING_TIMEOUT"].format(channel.name))
                     return
         else:
             try:
                 await channel.connect()
             except asyncio.TimeoutError:
-                await joiningmessage.edit(content=self.bot.strings["CONNECTION_TIMEOUT"].format(channel.name))
+                await joiningmessage.edit(content=self.client.strings["CONNECTION_TIMEOUT"].format(channel.name))
                 return
         self.logger.info("connected to vc")
-        title = self.bot.strings["CONNECTED"].format(channel.name) + " "
+        title = self.client.strings["CONNECTED"].format(channel.name) + " "
         if ctx.command.name == "play":
-            title += self.bot.strings["GETTING_AUDIO"]
+            title += self.client.strings["GETTING_AUDIO"]
         else:
-            title += self.bot.strings["START_PLAYING"]
-        await ctx.send(embed=discord.Embed(title=title, color=self.bot.config['theme_color']))
+            title += self.client.strings["START_PLAYING"]
+        await ctx.send(embed=discord.Embed(title=title, color=self.client.config['theme_color']))
 
     async def _fade_audio(self, newvolume, ctx):
         '''Smoothly transitions between volume levels'''
@@ -185,22 +185,22 @@ class music(commands.Cog):
     async def _handle_errors(self, ctx, error):
         '''Handle certain errors (should probably use cog_command_error instead of this)'''
         if isinstance(error, DurationLimitError):
-            await ctx.send(self.bot.strings["ERROR_DURATION"])
+            await ctx.send(self.client.strings["ERROR_DURATION"])
         elif isinstance(error, NoSearchResultsError):
-            await ctx.send(self.bot.strings["ERROR_NO_SEARCH_RESULTS"])
+            await ctx.send(self.client.strings["ERROR_NO_SEARCH_RESULTS"])
         elif isinstance(error, asyncio.TimeoutError):
-            await ctx.send(self.bot.strings["ERROR_TIMEOUT"])
+            await ctx.send(self.client.strings["ERROR_TIMEOUT"])
         else:
             try:
-                await self.bot.core.send_traceback()
+                await self.client.core.send_traceback()
             except discord.HTTPException:
                 pass
-            await ctx.send(self.bot.strings["GENERIC_ERROR"])
+            await ctx.send(self.client.strings["GENERIC_ERROR"])
             with contextlib.suppress(AttributeError):
                 if ctx.guild.me.voice:
                     await self.leave_voice(ctx, True)
-                    await ctx.send(self.bot.strings["ERROR_LEFT_VOICE"])
-            await self.bot.core.send_debug(ctx)
+                    await ctx.send(self.client.strings["ERROR_LEFT_VOICE"])
+            await self.client.core.send_debug(ctx)
 
     async def leave_voice(self, ctx, silent=False):
         try:
@@ -210,13 +210,13 @@ class music(commands.Cog):
             await ctx.guild.voice_client.disconnect()
             self.logger.info("left vc, reset queue and destroyed player")
             if not silent:
-                await ctx.send(embed=discord.Embed(title=self.bot.strings["LEFT_VOICE"], color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title=self.client.strings["LEFT_VOICE"], color=self.client.config['theme_color']))
         except AssertionError:
             if not silent:
-                return await ctx.send(self.bot.strings["NOT_IN_VOICE"])
+                return await ctx.send(self.client.strings["NOT_IN_VOICE"])
         except:
             if not silent:
-                return await ctx.send(self.bot.strings["FAILED_LEAVING_VOICE"])
+                return await ctx.send(self.client.strings["FAILED_LEAVING_VOICE"])
 
     def process_queue(self, ctx, channel, error):
         '''Starts playing the next song in the queue, cleans up some stuff if the queue is empty'''
@@ -245,13 +245,13 @@ class music(commands.Cog):
                 player.current_song = [False, newsong[0], newsong[3], newsong[1], newsong[4], newsong[2], time.time(), 0, 0, volume]
                 player.queue.remove(player.queue[0])
                 #build now playing embed, send it
-                embed = discord.Embed(title=self.bot.strings["NOW_PLAYING_TITLE"], description=f"`{newsong[1]}`", color=self.bot.config['theme_color'])
-                embed.add_field(name=self.bot.strings["VIDEO_URL"], value=f"<{newsong[2]}>", inline=True)
-                embed.add_field(name=self.bot.strings["DURATION"], value=f"{newsong[3]}")
-                embed.set_footer(text=self.bot.strings["NOW_PLAYING_FOOTER"].format(queuelength))
+                embed = discord.Embed(title=self.client.strings["NOW_PLAYING_TITLE"], description=f"`{newsong[1]}`", color=self.client.config['theme_color'])
+                embed.add_field(name=self.client.strings["VIDEO_URL"], value=f"<{newsong[2]}>", inline=True)
+                embed.add_field(name=self.client.strings["DURATION"], value=f"{newsong[3]}")
+                embed.set_footer(text=self.client.strings["NOW_PLAYING_FOOTER"].format(queuelength))
                 embed.set_image(url=f"{newsong[4]}")
                 coro = ctx.send(embed=embed)
-                fut = asyncio.run_coroutine_threadsafe(coro, self.bot.loop)
+                fut = asyncio.run_coroutine_threadsafe(coro, self.client.loop)
                 fut.result()
             return True
         except IndexError:
@@ -282,7 +282,7 @@ class music(commands.Cog):
         try:
             open(f"songcache/{video}.mp3", "r")
             #check if video id is in database, add it if it isn't
-            data = await self.bot.db.exec("select * from songs where id = %s limit 1", (video))
+            data = await self.client.db.exec("select * from songs where id = %s limit 1", (video))
             if data:
                 data = data[0]
                 player.metadata.name = data['name']
@@ -292,28 +292,28 @@ class music(commands.Cog):
                 player.metadata.url = f"https://youtube.com/watch?v={video}"
             else:
                 with yt_dlp.YoutubeDL(self.ydl_opts) as youtubedl:
-                    info = youtubedl.sanitize_info(await self.bot.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
+                    info = youtubedl.sanitize_info(await self.client.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
                     player.metadata.url = f"https://youtube.com/watch?v={video}"
                     player.metadata.name = info["title"]
                     player.metadata.filename = f"songcache/{video}.mp3"
                     player.metadata.thumbnail = info["thumbnail"]
-                    if info['duration'] == 0.0 or info['duration'] == self.bot.strings["STREAM_DURATION"]:
+                    if info['duration'] == 0.0 or info['duration'] == self.client.strings["STREAM_DURATION"]:
                         self.logger.info("this video is a stream")
                         self.filename = info["url"]
-                        self.duration = self.bot.strings["STREAM_DURATION"]
+                        self.duration = self.client.strings["STREAM_DURATION"]
                     else:
                         m, s = divmod(info["duration"], 60)
                         self.duration = f"{m}:{0 if len(list(str(s))) == 1 else ''}{s}"
-                        if m > 60 and ctx.author.id != self.bot.owner_id:
+                        if m > 60 and ctx.author.id != self.client.owner_id:
                             raise DurationLimitError()
-                    await self.bot.db.exec("insert into songs values(%s, %s, %s, %s)", (player.metadata.name, video, player.metadata.duration, player.metadata.thumbnail))
+                    await self.client.db.exec("insert into songs values(%s, %s, %s, %s)", (player.metadata.name, video, player.metadata.duration, player.metadata.thumbnail))
             self.logger.info("got song from cache!")
         except FileNotFoundError:
             self.logger.info("song isn't in cache")
             async with ctx.typing():
                 with yt_dlp.YoutubeDL(self.ydl_opts) as youtubedl:
-                    #the self.bot.loop.run_in_executor is to prevent the extract_info call from blocking other stuff
-                    info = youtubedl.sanitize_info(await self.bot.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
+                    #the self.client.loop.run_in_executor is to prevent the extract_info call from blocking other stuff
+                    info = youtubedl.sanitize_info(await self.client.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
                     #get name of file we're going to play, for some reason prepare_filename
                     #doesn't return the correct file extension
                     player.metadata.name = info["title"]
@@ -325,16 +325,16 @@ class music(commands.Cog):
                         player.metadata.filename = info["url"]
                         player.metadata.duration = "No duration available (this is a stream)"
                         return
-                    performance = self.bot.settings.music.performance.enabled(ctx.guild.id)
+                    performance = self.client.settings.music.performance.enabled(ctx.guild.id)
                     info = None
                     if performance and ctx.command:
                         if ctx.command.name != "download":
-                            info = youtubedl.sanitize_info(await self.bot.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
+                            info = youtubedl.sanitize_info(await self.client.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=False)))
                     if not info:
-                        info = youtubedl.sanitize_info(await self.bot.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=True)))
+                        info = youtubedl.sanitize_info(await self.client.loop.run_in_executor(None, lambda: youtubedl.extract_info(f"https://youtube.com/watch?v={video}", download=True)))
                     m, s = divmod(info["duration"], 60)
                     player.metadata.duration = f"{m}:{0 if len(list(str(s))) == 1 else ''}{s}"
-                    if m > 60 and ctx.author.id != self.bot.owner_id:
+                    if m > 60 and ctx.author.id != self.client.owner_id:
                         raise DurationLimitError()
                     player.metadata.filename = None
                     if performance and ctx.command:
@@ -343,7 +343,7 @@ class music(commands.Cog):
                     if not player.metadata.filename:
                         player.metadata.filename = youtubedl.prepare_filename(info).replace(youtubedl.prepare_filename(info).split(".")[1], "mp3")
                         try:
-                            await self.bot.db.exec("insert into songs values(%s, %s, %s, %s)", (player.metadata.name, video, player.metadata.duration, player.metadata.thumbnail))
+                            await self.client.db.exec("insert into songs values(%s, %s, %s, %s)", (player.metadata.name, video, player.metadata.duration, player.metadata.thumbnail))
                         except aiomysql.IntegrityError:
                             pass
         except Exception as e:
@@ -354,7 +354,7 @@ class music(commands.Cog):
     async def search_youtube_for_song(self, ydl, ctx, url, num, player):
         '''Searches Youtube for a song and extracts metadata from the first search result. If the maximum duration is exceeded, it goes to the next search result, up to 4 times. If no more search results are available, it raises NoSearchResultsError'''
         if num == 0:
-            player.metadata.info = await self.bot.loop.run_in_executor(None, lambda: ydl.extract_info(f"ytsearch5:{url}", download=False))
+            player.metadata.info = await self.client.loop.run_in_executor(None, lambda: ydl.extract_info(f"ytsearch5:{url}", download=False))
         try:
             player.metadata.id = player.metadata.info["entries"][num]["id"]
             player.metadata.name = player.metadata.info["entries"][num]["title"]
@@ -409,7 +409,7 @@ class music(commands.Cog):
         async with ctx.typing():
             with yt_dlp.YoutubeDL(self.ydl_opts) as ydl:
                 self.logger.info("looking for song in db...")
-                info = await self.bot.db.exec("select * from songs where name like %s", (f"%{url}%", ))
+                info = await self.client.db.exec("select * from songs where name like %s", (f"%{url}%", ))
                 if info:
                     info = info[0]
                     self.logger.info("found song in db! trying to get from cache...")
@@ -439,10 +439,10 @@ class music(commands.Cog):
         if not url:
             await ctx.send("You need to specify a url or something to search for.")
             return
-        if self.bot.settings.music.performance.enabled(ctx.guild.id):
-            await ctx.send(self.bot.strings["PERFORMANCE_MODE_ENABLED"].format(await self.bot.get_prefix(ctx.message)))
+        if self.client.settings.music.performance.enabled(ctx.guild.id):
+            await ctx.send(self.client.strings["PERFORMANCE_MODE_ENABLED"].format(await self.client.get_prefix(ctx.message)))
         elif randint(1, 30) == 3:
-            await ctx.send(self.bot.strings["PERFORMANCE_MODE_REMINDER"].format(await self.bot.get_prefix(ctx.message)))
+            await ctx.send(self.client.strings["PERFORMANCE_MODE_REMINDER"].format(await self.client.get_prefix(ctx.message)))
             await asyncio.sleep(0.2)
         #init player for this guild if it doesn't exist
         player = await self._get_player(ctx)
@@ -458,9 +458,9 @@ class music(commands.Cog):
                 #show warning if repeating song
                 try:
                     if player.current_song[0] == True:
-                        await ctx.send(self.bot.strings["WARNING_REPEATING"].format(await self.bot.get_prefix(ctx.message), await self.bot.get_prefix(ctx.message)))
-                    elif player.current_song[2] == self.bot.strings["STREAM_DURATION"]:
-                        await ctx.send(self.bot.strings["WARNING_STREAM"].format(await self.bot.get_prefix(ctx.message)))
+                        await ctx.send(self.client.strings["WARNING_REPEATING"].format(await self.client.get_prefix(ctx.message), await self.client.get_prefix(ctx.message)))
+                    elif player.current_song[2] == self.client.strings["STREAM_DURATION"]:
+                        await ctx.send(self.client.strings["WARNING_STREAM"].format(await self.client.get_prefix(ctx.message)))
                 except (KeyError, IndexError):
                     #if there's a keyerror or indexerror, nothing's playing. this is normal if someone adds stuff to queue rapidly, so ignore it
                     pass
@@ -477,13 +477,13 @@ class music(commands.Cog):
                         return
                     #actually add that stuff to queue
                     player.queue.append([player.metadata.filename, player.metadata.name, player.metadata.url, player.metadata.duration, player.metadata.thumbnail])
-                    await ctx.send(embed=discord.Embed(title=self.bot.strings["SONG_ADDED"], color=self.bot.config['theme_color']).add_field(name=self.bot.strings["SONG_NAME"], value=f"`{player.metadata.name}`", inline=False).add_field(name=self.bot.strings["VIDEO_URL"], value=f"<{player.metadata.url}>", inline=True).set_footer(text=self.bot.strings["ADDED_TO_QUEUE"].format(len(player.queue), await self.bot.get_prefix(ctx.message))).add_field(name=self.bot.strings["DURATION"], value=player.metadata.duration, inline=True).set_image(url=player.metadata.thumbnail))
+                    await ctx.send(embed=discord.Embed(title=self.client.strings["SONG_ADDED"], color=self.client.config['theme_color']).add_field(name=self.client.strings["SONG_NAME"], value=f"`{player.metadata.name}`", inline=False).add_field(name=self.client.strings["VIDEO_URL"], value=f"<{player.metadata.url}>", inline=True).set_footer(text=self.client.strings["ADDED_TO_QUEUE"].format(len(player.queue), await self.client.get_prefix(ctx.message))).add_field(name=self.client.strings["DURATION"], value=player.metadata.duration, inline=True).set_image(url=player.metadata.thumbnail))
                     #unlock after sending message
                     self.logger.info("Added song to queue, unlocked.")
                     return
         except AttributeError:
             traceback.print_exc()
-            await ctx.send(self.bot.strings["USER_NOT_IN_VOICE"])
+            await ctx.send(self.client.strings["USER_NOT_IN_VOICE"])
             return
         await self._join_voice(ctx, channel)
         #after connecting, download audio from youtube (try to get it from cache first to speed things up and save bandwidth)
@@ -503,8 +503,8 @@ class music(commands.Cog):
                 source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(player.metadata.filename), volume=0.5)
             except Exception:
                 await self.leave_voice(ctx)
-                await ctx.send(self.bot.strings["UNEXPECTED_ERROR"])
-                await self.bot.core.send_debug(ctx)
+                await ctx.send(self.client.strings["UNEXPECTED_ERROR"])
+                await self.client.core.send_debug(ctx)
             try:
                 ctx.voice_client.stop()
             except:
@@ -517,7 +517,7 @@ class music(commands.Cog):
             #that information in order:
             #0: Is this song supposed to repeat?, 1: Filename, 2: Duration (already in the m:s format), 3: Video title,  4: Thumbnail URL, 5: Video URL, 6: time the song started (now), 7: Time when paused, 8: Total time paused, 9: Volume
             player.current_song = [False, player.metadata.filename, player.metadata.duration, player.metadata.name, player.metadata.thumbnail, player.metadata.url, time.time(), 0, 0, 0.5]
-            embed = discord.Embed(title="Now playing:", description=f"`{player.metadata.name}`", color=self.bot.config['theme_color'])
+            embed = discord.Embed(title="Now playing:", description=f"`{player.metadata.name}`", color=self.client.config['theme_color'])
             embed.add_field(name="Video URL", value=f"<{player.metadata.url}>", inline=True)
             embed.add_field(name="Total Duration", value=f"{player.metadata.duration}")
             queuelength = len(player.queue)
@@ -568,9 +568,9 @@ class music(commands.Cog):
                 #the following statement is really long and hard to read, not sure whether to split into multiple lines or not
                 #show user's queue, change how it's displayed depending on how many songs are in the queue
                 try:
-                    await ctx.send(f"You have {queuelength} {'song in your queue: ' if queuelength == 1 else 'songs in your queue. '}\n{f'Your queue: {newline}' if queuelength != 1 else ''}{f'{newline}'.join([f'{count+1}: `{i[1]}`(<{i[2]}>) Duration: {i[3]}' for count, i in enumerate(player.queue)])}\n{f'Total duration: {h}{m}:{s}' if queuelength != 1 and f'{h}{m}:{s}' != '0:0' else ''}\nUse `{await self.bot.get_prefix(ctx.message)}remove <song's position>` to remove a song from your queue. For example, `{await self.bot.get_prefix(ctx.message)}remove 1` removes the first item in the queue.\nYou can add items to your queue by using the `play` command again while a song is playing. If you want to clear your queue, use the `clear` command.") 
+                    await ctx.send(f"You have {queuelength} {'song in your queue: ' if queuelength == 1 else 'songs in your queue. '}\n{f'Your queue: {newline}' if queuelength != 1 else ''}{f'{newline}'.join([f'{count+1}: `{i[1]}`(<{i[2]}>) Duration: {i[3]}' for count, i in enumerate(player.queue)])}\n{f'Total duration: {h}{m}:{s}' if queuelength != 1 and f'{h}{m}:{s}' != '0:0' else ''}\nUse `{await self.client.get_prefix(ctx.message)}remove <song's position>` to remove a song from your queue. For example, `{await self.client.get_prefix(ctx.message)}remove 1` removes the first item in the queue.\nYou can add items to your queue by using the `play` command again while a song is playing. If you want to clear your queue, use the `clear` command.") 
                 except discord.HTTPException:
-                    await ctx.send(f"You have {queuelength} {'song in your queue: ' if queuelength == 1 else 'songs in your queue. '}\nYour queue is too long to display, so I'm only showing the first 10 songs in it.\n {f'Your queue: {newline}' if queuelength != 1 else ''}{f'{newline}'.join([f'{count+1}: `{i[1]}`(<{i[2]}>) Duration: {i[3]}' for count, i in enumerate(player.queue[:10])])}\n{f'Total duration: {h}{m}:{s}' if queuelength != 1 and f'{h}{m}:{s}' != '0:0' else ''}\nUse `{await self.bot.get_prefix(ctx.message)}remove <song's position>` to remove a song from your queue. For example, `{await self.bot.get_prefix(ctx.message)}remove 1` removes the first item in the queue.\nYou can add items to your queue by using the `play` command again while a song is playing. If you want to clear your queue, use the `clear` command.")
+                    await ctx.send(f"You have {queuelength} {'song in your queue: ' if queuelength == 1 else 'songs in your queue. '}\nYour queue is too long to display, so I'm only showing the first 10 songs in it.\n {f'Your queue: {newline}' if queuelength != 1 else ''}{f'{newline}'.join([f'{count+1}: `{i[1]}`(<{i[2]}>) Duration: {i[3]}' for count, i in enumerate(player.queue[:10])])}\n{f'Total duration: {h}{m}:{s}' if queuelength != 1 and f'{h}{m}:{s}' != '0:0' else ''}\nUse `{await self.client.get_prefix(ctx.message)}remove <song's position>` to remove a song from your queue. For example, `{await self.client.get_prefix(ctx.message)}remove 1` removes the first item in the queue.\nYou can add items to your queue by using the `play` command again while a song is playing. If you want to clear your queue, use the `clear` command.")
             else:
                 await ctx.send("You don't have anything in your queue.")
         except (IndexError, AttributeError):
@@ -585,7 +585,7 @@ class music(commands.Cog):
         player = await self._get_player(ctx)
         try:
             assert player.queue != []
-            await ctx.send(embed=discord.Embed(title="\U000023e9 Skipping to the next song in the queue... ", color=self.bot.config['theme_color']))
+            await ctx.send(embed=discord.Embed(title="\U000023e9 Skipping to the next song in the queue... ", color=self.client.config['theme_color']))
             player.current_song[0] = False
             #fade audio out
             await self._fade_audio(0, ctx)
@@ -609,11 +609,11 @@ class music(commands.Cog):
             if ctx.voice_client.is_playing():
                 ctx.voice_client.pause()
                 player.current_song[7] = time.time()
-                await ctx.send(embed=discord.Embed(title=f"\U000023f8 Paused. Run `{await self.bot.get_prefix(ctx.message)}resume` to resume audio, or run `{await self.bot.get_prefix(ctx.message)}leave` to make me leave the voice channel.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title=f"\U000023f8 Paused. Run `{await self.client.get_prefix(ctx.message)}resume` to resume audio, or run `{await self.client.get_prefix(ctx.message)}leave` to make me leave the voice channel.", color=self.client.config['theme_color']))
             elif ctx.voice_client.is_paused():
-                await ctx.send(embed=discord.Embed(title=f"\U0000274e I'm already paused. Use `{await self.bot.get_prefix(ctx.message)}resume` to resume.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title=f"\U0000274e I'm already paused. Use `{await self.client.get_prefix(ctx.message)}resume` to resume.", color=self.client.config['theme_color']))
             else:
-                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything.", color=self.client.config['theme_color']))
         except Exception:
             traceback.print_exc()
             await ctx.send("I'm not in a voice channel.")
@@ -628,13 +628,13 @@ class music(commands.Cog):
             assert ctx.guild.me.voice != None
             if ctx.voice_client.is_paused():
                 player.current_song[8] += round(time.time() - player.current_song[7])
-                await ctx.send(embed=discord.Embed(title="\U000025b6 Resuming...", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U000025b6 Resuming...", color=self.client.config['theme_color']))
                 ctx.voice_client.resume()
                 return
             elif ctx.voice_client.is_playing():
-                await ctx.send(embed=discord.Embed(title="\U0000274e I'm already playing something.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U0000274e I'm already playing something.", color=self.client.config['theme_color']))
             else:
-                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything.", color=self.client.config['theme_color']))
         except Exception:
             traceback.print_exc()
             await ctx.send("I'm not in a voice channel.")
@@ -658,7 +658,7 @@ class music(commands.Cog):
             else:
                 await self._fade_audio(newvolume, ctx)
                 player.current_song[9] = newvolume/100
-                await ctx.send(embed=discord.Embed(title=f"\U00002705 Set volume to {newvolume}%.{' Warning: Music may sound distorted at this volume level.' if newvolume >= 90 else ''}", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title=f"\U00002705 Set volume to {newvolume}%.{' Warning: Music may sound distorted at this volume level.' if newvolume >= 90 else ''}", color=self.client.config['theme_color']))
         except ValueError:
             try:
                 float(newvolume)
@@ -684,7 +684,7 @@ class music(commands.Cog):
         try:
             assert player.queue != []
             player.queue = []
-            await ctx.send(embed=discord.Embed(title="\U00002705 Cleared your queue!", color=self.bot.config['theme_color']))
+            await ctx.send(embed=discord.Embed(title="\U00002705 Cleared your queue!", color=self.client.config['theme_color']))
         except AssertionError:
             await ctx.send("You don't have anything in your queue.")
         except Exception:
@@ -700,16 +700,16 @@ class music(commands.Cog):
             if ctx.voice_client.is_playing() and player.current_song[2] != "No duration available (this is a stream)":
                 if player.current_song[0]:
                     player.current_song[0] = False
-                    await ctx.send(embed=discord.Embed(title="I won't repeat the current song anymore.", color=self.bot.config['theme_color']))
+                    await ctx.send(embed=discord.Embed(title="I won't repeat the current song anymore.", color=self.client.config['theme_color']))
                 else:
                     player.current_song[0] = True
-                    await ctx.send(embed=discord.Embed(title="\U0001f501 I'll repeat the current song after it finishes. Run this command again to stop repeating the current song.", color=self.bot.config['theme_color']))
+                    await ctx.send(embed=discord.Embed(title="\U0001f501 I'll repeat the current song after it finishes. Run this command again to stop repeating the current song.", color=self.client.config['theme_color']))
             elif player.current_song[2] == "No duration available (this is a stream)":
-                await ctx.send(embed=discord.Embed(title="\U0000274e I can't repeat streams.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U0000274e I can't repeat streams.", color=self.client.config['theme_color']))
             else:
-                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.bot.config['theme_color']))
+                await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.client.config['theme_color']))
         except AttributeError:
-            await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.bot.config['theme_color']))
+            await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.client.config['theme_color']))
         except IndexError:
             await ctx.send("I'm not in a voice channel.")
 
@@ -726,8 +726,8 @@ class music(commands.Cog):
             elif ctx.voice_client.is_paused():
                 m, s = divmod(round((player.current_song[7] - player.current_song[6]) - player.current_song[8]), 60)
             else:
-                return await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.bot.config['theme_color']))
-            embed = discord.Embed(title="Currently playing:", description=f"`{player.current_song[3]}`", color=self.bot.config['theme_color'])
+                return await ctx.send(embed=discord.Embed(title="\U0000274e I'm not playing anything right now.", color=self.client.config['theme_color']))
+            embed = discord.Embed(title="Currently playing:", description=f"`{player.current_song[3]}`", color=self.client.config['theme_color'])
             embed.add_field(name="Video URL", value=f"<{player.current_song[5]}>", inline=True)
             if player.current_song[2] == "No duration available (this is a stream)":
                 embed.add_field(name="Duration (Elapsed/Total)", value=f"You've been listening to this stream for {m} minutes and {s} seconds.")
@@ -736,7 +736,7 @@ class music(commands.Cog):
             embed.set_image(url=player.current_song[4])
             await ctx.send(embed=embed)
         except AttributeError:
-            await ctx.send(embed=discord.Embed(title="\U0000274e I'm not in a voice channel.", color=self.bot.config['theme_color']))
+            await ctx.send(embed=discord.Embed(title="\U0000274e I'm not in a voice channel.", color=self.client.config['theme_color']))
 
     @commands.command(aliases=["quit"])
     async def stop(self, ctx):
@@ -759,7 +759,7 @@ class music(commands.Cog):
             await self.destroy_player(ctx)
             self.logger.info("reset queue")
             ctx.voice_client.stop()
-            await ctx.send(embed=discord.Embed(title=f"\U000023f9 Stopped playing music{'.' if queuelength == 0 else ' and cleared your queue.'}", color=self.bot.config['theme_color']))
+            await ctx.send(embed=discord.Embed(title=f"\U000023f9 Stopped playing music{'.' if queuelength == 0 else ' and cleared your queue.'}", color=self.client.config['theme_color']))
         except AttributeError:
             await ctx.send("I'm not in a voice channel.")
 
@@ -785,7 +785,7 @@ class music(commands.Cog):
         if not await self.check_enabled(ctx):
             return await ctx.send("Sorry, music commands are disabled in this server. Ask a moderator to enable them through `<prefix> config music toggle`.\nIf I'm playing something, you can still use `<prefix> leave`.\nIf you just added me, music features are disabled by default.")
         if not url:
-            return await ctx.send(f"Run this command again and specify something you want to search for. For example, running `{await self.bot.get_prefix(ctx.message)}download never gonna give you up` will download and send Never Gonna Give You Up in the channel you sent the command in.")
+            return await ctx.send(f"Run this command again and specify something you want to search for. For example, running `{await self.client.get_prefix(ctx.message)}download never gonna give you up` will download and send Never Gonna Give You Up in the channel you sent the command in.")
         player = await self._get_player(ctx)
         await ctx.send("Getting that song...")
         async with player.lock:
@@ -815,9 +815,9 @@ class music(commands.Cog):
                                     #if so, transcode to that bitrate
                                     inputfile = ffmpeg.input(player.metadata.filename)
                                     output = functools.partial(ffmpeg.output, inputfile, f"{player.metadata.filename[:-4]}temp.mp3", audio_bitrate=f"{i}k")
-                                    stream = await self.bot.loop.run_in_executor(None, output)
+                                    stream = await self.client.loop.run_in_executor(None, output)
                                     run = functools.partial(ffmpeg.run, stream, quiet=True, overwrite_output=True)
-                                    await self.bot.loop.run_in_executor(None, run)
+                                    await self.client.loop.run_in_executor(None, run)
                                     await ctx.send(f"Here's the file (at {i} kbps):", file=discord.File(f"{player.metadata.filename[:-4]}temp.mp3"))
                                     self.logger.info("Done getting song, unlocked.")
                                     return
