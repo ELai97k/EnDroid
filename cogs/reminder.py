@@ -80,8 +80,8 @@ class Reminder(commands.Cog):
             print(f"Unable to process reminder for {user}")
 
 
-def setup(client):
-    client.add_cog(Reminder(client))
+async def setup(client):
+    await client.add_cog(Reminder(client))
 
-def teardown(client):
-    client.remove_cog(Reminder(client))
+async def teardown(client):
+    await client.remove_cog(Reminder(client))

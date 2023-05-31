@@ -62,8 +62,8 @@ class Triggers(commands.Cog):
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Triggers(client))
+async def setup(client):
+    await client.add_cog(Triggers(client))
 
-def teardown(client):
-    client.remove_cog(Triggers(client))
+async def teardown(client):
+    await client.remove_cog(Triggers(client))

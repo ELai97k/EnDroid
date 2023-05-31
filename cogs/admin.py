@@ -83,8 +83,8 @@ class Admin(commands.Cog):
             print(f"{self.client.user} Error 404: Command Error")
 
 
-def setup(client):
-    client.add_cog(Admin(client))
+async def setup(client):
+    await client.add_cog(Admin(client))
 
-def teardown(client):
-    client.remove_cog(Admin(client))
+async def teardown(client):
+    await client.remove_cog(Admin(client))

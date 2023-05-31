@@ -131,8 +131,8 @@ class ReactionRoles(commands.Cog):
                 print(f"{voter} role removed from {member}")
 
 
-def setup(client):
-    client.add_cog(ReactionRoles(client))
+async def setup(client):
+    await client.add_cog(ReactionRoles(client))
 
-def teardown(client):
-    client.remove_cog(ReactionRoles(client))
+async def teardown(client):
+    await client.remove_cog(ReactionRoles(client))

@@ -20,7 +20,7 @@ class Autoresponse(commands.Cog):
             color=0x198C19
         )
         await ctx.send(embed=embed)
-        self.client.unload_extension("cogs.auto_responses")
+        await self.client.unload_extension("cogs.auto_responses")
         print("Auto responses has been turned off")
 
 
@@ -38,7 +38,7 @@ class Autoresponse(commands.Cog):
             color=0x198C19
         )
         await ctx.send(embed=embed)
-        self.client.load_extension("cogs.auto_responses")
+        await self.client.load_extension("cogs.auto_responses")
         print("Auto responses has been turned on")
 
 
@@ -78,8 +78,8 @@ class Autoresponse(commands.Cog):
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Autoresponse(client))
+async def setup(client):
+    await client.add_cog(Autoresponse(client))
 
-def teardown(client):
-    client.remove_cog(Autoresponse(client))
+async def teardown(client):
+    await client.remove_cog(Autoresponse(client))

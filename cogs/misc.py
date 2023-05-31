@@ -70,7 +70,10 @@ class Misc(commands.Cog):
             user = ctx.author
 
         embed = discord.Embed(color=discord.Color.blurple())
-        embed.set_image(url=user.avatar_url)
+        try:
+            embed.set_image(url=user.avatar.url)
+        except:
+            embed.set_image(url=str(user.display_avatar.url))
         await ctx.send(embed=embed)
 
 
@@ -90,7 +93,6 @@ class Misc(commands.Cog):
         )
         embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a, %d %b, %Y"), inline=False)
         embed.add_field(name="Time", value=timestamp.astimezone(gmt).strftime("%I:%M %p"), inline=False)
-        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
 
 
@@ -143,8 +145,8 @@ class Misc(commands.Cog):
         await self.client.get_channel(762317365970468877).send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Misc(client))
+async def setup(client):
+    await client.add_cog(Misc(client))
 
-def teardown(client):
-    client.remove_cog(Misc(client))
+async def teardown(client):
+    await client.remove_cog(Misc(client))

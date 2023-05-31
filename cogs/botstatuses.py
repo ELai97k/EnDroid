@@ -32,8 +32,8 @@ class BotStatuses(commands.Cog):
         )
 
 
-def setup(client):
-    client.add_cog(BotStatuses(client))
+async def setup(client):
+    await client.add_cog(BotStatuses(client))
 
-def teardown(client):
-    client.remove_cog(BotStatuses(client))
+async def teardown(client):
+    await client.remove_cog(BotStatuses(client))

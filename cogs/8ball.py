@@ -41,18 +41,18 @@ class EightBall(commands.Cog):
             "Reply hazy, try again later.",
             "As I see it, yes."
         ]
-
+        
         if message is None:
-            await ctx.channel.trigger_typing()
+            await ctx.channel.typing()
             await ctx.send("Pls ask me a yes-or-no question first.")
 
         else:
-            await ctx.channel.trigger_typing()
+            await ctx.channel.typing()
             await ctx.send(f'{random.choice(eight_ball)}')
 
 
-def setup(client):
-    client.add_cog(EightBall(client))
+async def setup(client):
+    await client.add_cog(EightBall(client))
 
-def teardown(client):
-    client.remove_cog(EightBall(client))
+async def teardown(client):
+    await client.remove_cog(EightBall(client))

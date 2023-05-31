@@ -40,8 +40,8 @@ class MainCog(commands.Cog):
             await member.remove_roles(role)
 
 
-def setup(client):
-    client.add_cog(MainCog(client))
+async def setup(client):
+    await client.add_cog(MainCog(client))
 
-def teardown(client):
-    client.remove_cog(MainCog(client))
+async def teardown(client):
+    await client.remove_cog(MainCog(client))

@@ -81,8 +81,8 @@ class Prefix(commands.Cog):
             print(f"{self.client.user} Error 404: Command Error")
 
 
-def setup(client):
-    client.add_cog(Prefix(client))
+async def setup(client):
+    await client.add_cog(Prefix(client))
 
-def teardown(client):
-    client.remove_cog(Prefix(client))
+async def teardown(client):
+    await client.remove_cog(Prefix(client))

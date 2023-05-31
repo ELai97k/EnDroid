@@ -1,7 +1,7 @@
 import discord
 import asyncio
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions, CommandError
+from discord.ext.commands import has_permissions, MissingPermissions
 
 class Botcog(commands.Cog):
     """Bot cog for logging out."""
@@ -10,14 +10,14 @@ class Botcog(commands.Cog):
 
     # log out
     @commands.command(help="Command for bot log out.")
-    @has_permissions(manage_roles=True)
+    @has_permissions(administrator=True)
     async def logout(self, ctx):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
         
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(f"```{self.client.user} logging out...\nReminder: Log me back in manually through the terminal.```")
         
         print(f"{self.client.user} logging out...")
@@ -33,18 +33,9 @@ class Botcog(commands.Cog):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
-        if isinstance(error, CommandError):
-            embed = discord.Embed (
-                title = "Command Error",
-                description = "Pls try again!\n```Could not complete your request!```",
-                color = discord.Color.dark_red()
-            )
-            await ctx.send(embed=embed)
-            print(f"{self.client.user} Error 404: Command Error")
 
+async def setup(client):
+    await client.add_cog(Botcog(client))
 
-def setup(client):
-    client.add_cog(Botcog(client))
-
-def teardown(client):
-    client.remove_cog(Botcog(client))
+async def teardown(client):
+    await client.remove_cog(Botcog(client))

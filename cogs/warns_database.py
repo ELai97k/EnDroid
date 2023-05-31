@@ -161,8 +161,8 @@ class Warns_Database(commands.Cog):
             print(f"{self.client.user} Error 404: Command Error")
 
 
-def setup(client):
-    client.add_cog(Warns_Database(client))
+async def setup(client):
+    await client.add_cog(Warns_Database(client))
 
-def teardown(client):
-    client.remove_cog(Warns_Database(client))
+async def teardown(client):
+    await client.remove_cog(Warns_Database(client))

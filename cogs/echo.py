@@ -71,8 +71,8 @@ class Echo(commands.Cog):
             print(f"{self.client.user} Error 404: Command Error")
 
 
-def setup(client):
-    client.add_cog(Echo(client))
+async def setup(client):
+    await client.add_cog(Echo(client))
 
-def teardown(client):
-    client.remove_cog(Echo(client))
+async def teardown(client):
+    await client.remove_cog(Echo(client))

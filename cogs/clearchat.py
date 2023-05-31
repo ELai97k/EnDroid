@@ -37,8 +37,8 @@ class ClearChat(commands.Cog):
             print(f"{self.client.user} Error 404: Command Error")
 
 
-def setup(client):
-    client.add_cog(ClearChat(client))
+async def setup(client):
+    await client.add_cog(ClearChat(client))
 
-def teardown(client):
-    client.remove_cog(ClearChat(client))
+async def teardown(client):
+    await client.remove_cog(ClearChat(client))

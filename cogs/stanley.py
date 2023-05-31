@@ -53,8 +53,8 @@ class Stanley(commands.Cog):
         await ctx.send(":bucket:")
 
 
-def setup(client):
-    client.add_cog(Stanley(client))
+async def setup(client):
+    await client.add_cog(Stanley(client))
 
-def teardown(client):
-    client.remove_cog(Stanley(client))
+async def teardown(client):
+    await client.remove_cog(Stanley(client))
