@@ -111,14 +111,14 @@ class music(commands.Cog):
         'preferredquality': '192'
         }]
         }
-        self.client.settings.add_category("music", {'toggle':'music commands', 'performance':'better performance at the cost of audio quality'}, {'toggle':None, 'performance':None}, {'toggle':"manage_guild", 'performance':None})
+        #self.client.add_category("music", {'toggle':'music commands', 'performance':'better performance at the cost of audio quality'}, {'toggle':None, 'performance':None}, {'toggle':"manage_guild", 'performance':None})
 
     async def check_enabled(self, ctx):
-        if not self.client.settings.music.ready:
+        if not self.client.music.ready:
             await ctx.send(self.client.strings["SETTING_NOT_READY"])
-        while not self.client.settings.music.ready:
+        while not self.client.music.ready:
             await asyncio.sleep(0.3)
-        return self.client.settings.music.toggle.enabled(ctx.guild.id)
+        return self.client.music.toggle.enabled(ctx.guild.id)
 
     async def _get_player(self, ctx):
         '''Gets a player if it exists, creates one if it doesn't exist'''
@@ -325,7 +325,7 @@ class music(commands.Cog):
                         player.metadata.filename = info["url"]
                         player.metadata.duration = "No duration available (this is a stream)"
                         return
-                    performance = self.client.settings.music.performance.enabled(ctx.guild.id)
+                    performance = self.client.music.performance.enabled(ctx.guild.id)
                     info = None
                     if performance and ctx.command:
                         if ctx.command.name != "download":
@@ -439,7 +439,7 @@ class music(commands.Cog):
         if not url:
             await ctx.send("You need to specify a url or something to search for.")
             return
-        if self.client.settings.music.performance.enabled(ctx.guild.id):
+        if self.client.music.performance.enabled(ctx.guild.id):
             await ctx.send(self.client.strings["PERFORMANCE_MODE_ENABLED"].format(await self.client.get_prefix(ctx.message)))
         elif randint(1, 30) == 3:
             await ctx.send(self.client.strings["PERFORMANCE_MODE_REMINDER"].format(await self.client.get_prefix(ctx.message)))
