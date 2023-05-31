@@ -83,15 +83,24 @@ async def on_ready():
     # bot login
     print(f"{client.user} logged in successfully!")
 
-# bot default status
-async def status_task():
-    while True:
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="listining status"))
-        await asyncio.sleep(999)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="playing status"))
-        await asyncio.sleep(999)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="watching status"))
-        await asyncio.sleep(999)
+    # bot default status
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.watching, name = "!help"
+        )
+    )
+    await asyncio.sleep(10)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.watching, name = "you"
+        )
+    )
+    await asyncio.sleep(10)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.watching, name = "this server"
+        )
+    )
 
 # command not found error
 @client.event
