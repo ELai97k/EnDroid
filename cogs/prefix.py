@@ -33,9 +33,9 @@ class Prefix(commands.Cog):
 
 
     # change prefix command
-    @commands.command(aliases=["setprefix"], help="Command for changing the bot's prefix.")
+    @commands.command(aliases=["setprefix", "changeprefix"], help="Command for changing the bot's prefix.")
     @has_permissions(manage_roles=True)
-    async def changeprefix(self, ctx, prefix):
+    async def prefix(self, ctx, prefix):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -66,7 +66,7 @@ class Prefix(commands.Cog):
         await ctx.send(embed=embed)
         await ctx.guild.me.edit(nick=f"[{prefix}] Endroid")
 
-    @changeprefix.error
+    @prefix.error
     async def changeprefix_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
