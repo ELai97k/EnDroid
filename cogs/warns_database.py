@@ -37,7 +37,7 @@ class Warns_Database(commands.Cog):
         # embed
         embed = discord.Embed (
             title=f"**⚠ WARNING for {user}**",
-            description=f"This user `{user}` has been given a warning! It has been recorded and added to their userdata successfully.",
+            description=f"This user `{user}` has been given a warning! It has been recorded and added to their userdata.",
             color=discord.Color.dark_red()
         )
         await ctx.send(embed=embed)
