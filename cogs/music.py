@@ -675,8 +675,8 @@ class music(commands.Cog):
     async def seek(self, ctx, to:TimeConverter):
         pass
 
-    @commands.command(aliases=["c"])
-    async def clear(self, ctx):
+    @commands.command(aliases=["c", "cq"])
+    async def clearqueue(self, ctx):
         '''Clear the queue.'''
         if not await self.check_enabled(ctx):
             return await ctx.send("Sorry, music commands are disabled in this server. Ask a moderator to enable them through `<prefix> config music toggle`.\nIf I'm playing something, you can still use `<prefix> leave`.\nIf you just added me, music features are disabled by default.")
