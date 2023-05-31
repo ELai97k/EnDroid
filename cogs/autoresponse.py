@@ -72,7 +72,7 @@ class Autoresponse(commands.Cog):
         )
         # you're / ur responses
         embed.add_field(name="hey endroid + you're / ur",
-        value="```stupid, dumb, dum, a dumbass, useless, not helpful, not helping, a good bot, a clever bot, a cleverbot, a smart bot```",
+        value="```stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot```",
         inline=False)
 
         await ctx.send(embed=embed)
