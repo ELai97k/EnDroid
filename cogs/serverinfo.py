@@ -17,6 +17,11 @@ class ServerInfo(commands.Cog):
             title = f"{ctx.guild.name} Info",
             color = 0xc7ecf7
         )
+        try:
+            embed.set_image(url=ctx.guild.avatar.url)
+        except:
+            embed.set_image(url=str(ctx.guild.display_avatar.url))
+
         embed.add_field(name='🆔 Server ID:', value=f"{ctx.guild.id}", inline=True)
         embed.add_field(name='📆 Created On:', value=ctx.guild.created_at.strftime("%a, %d %b, %Y"), inline=False)
         embed.add_field(name='👑 Owner:', value=f"{ctx.guild.owner.mention}", inline=False)
