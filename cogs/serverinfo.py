@@ -18,9 +18,9 @@ class ServerInfo(commands.Cog):
             color = 0xc7ecf7
         )
         try:
-            embed.set_thumbnail(url=ctx.guild.avatar.url)
+            embed.set_thumbnail(url=ctx.guild.icon.url)
         except:
-            embed.set_thumbnail(url=str(ctx.guild.display_avatar.url))
+            embed.set_thumbnail(url=str(ctx.guild.display_icon.url))
 
         embed.add_field(name='🆔 Server ID:', value=f"{ctx.guild.id}", inline=True)
         embed.add_field(name='📆 Created On:', value=ctx.guild.created_at.strftime("%a, %d %b, %Y"), inline=False)
