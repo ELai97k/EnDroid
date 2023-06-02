@@ -150,10 +150,6 @@ class Auto_Responses(commands.Cog):
             await message.channel.typing()
             await message.channel.send(f"{random.choice(ping_responses)}")
 
-        if "did not" in message.content.lower() or "didnt" in message.content.lower() or "didn't" in message.content.lower():
-            await message.channel.typing()
-            await message.channel.send("I thought you did.")
-
         # I am responses
         if message.content.lower().startswith("i am"):
             responses = {
@@ -191,6 +187,14 @@ class Auto_Responses(commands.Cog):
                     return await message.channel.send(response)
             await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("im", "").replace("i'm", "").strip() + ", I'm Endroid!")
+
+        if "did not" in message.content.lower() or "didnt" in message.content.lower() or "didn't" in message.content.lower():
+            await message.channel.typing()
+            await message.channel.send("I thought you did.")
+
+        if message.content.lower().startswith("fuck you bot") or message.content.lower().startswith("fuck u bot"):
+            await message.channel.typing()
+            await message.channel.send("fuck you too")
 
         # hey endroid
         if message.content.lower().startswith("hey endroid"):
