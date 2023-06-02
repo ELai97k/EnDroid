@@ -131,24 +131,28 @@ class Auto_Responses(commands.Cog):
                 "Why me?",
                 "Why ping me?",
                 "You mentioned me?",
-                "You called?",
                 "I see what you're trying to do, you can't break me that easily!",
                 "What are you doing?",
                 "Are you sure about that?",
-                "No",
-                "Yes",
-                "What",
-                "What you want",
-                "What do you want",
-                "I can't assist you",
-                "I can't help you at this moment",
-                "Go away",
+                "No.",
+                "Yes.",
+                "What?",
+                "What you want?",
+                "What do you want?",
+                "I can't assist you?",
+                "I can't help you at this moment?",
+                "Go away?",
                 "Go bother someone else!",
-                "Don't disturb me!"
+                "Don't disturb me!",
+                "cough",
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             ]
             await message.channel.typing()
             await message.channel.send(f"{random.choice(ping_responses)}")
-            print("Why me?")
+
+        if "did not" in message.content.lower() or "didnt" in message.content.lower() or "didn't" in message.content.lower():
+            await message.channel.typing()
+            await message.channel.send("I thought you did.")
 
         # I am responses
         if message.content.lower().startswith("i am"):
