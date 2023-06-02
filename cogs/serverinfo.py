@@ -6,7 +6,7 @@ class ServerInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(help="Command for server information.")
+    @commands.command(aliases=["server"], help="Command for server information.")
     async def serverinfo(self, ctx):
         if ctx.author == self.client.user:
             return
