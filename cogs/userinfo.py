@@ -6,7 +6,7 @@ class UserInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(help="Command to fetch user info.")
+    @commands.command(aliases=["user"], help="Command to fetch user info.")
     async def userinfo(self, ctx, *, user: discord.Member = None):
         if ctx.author == self.client.user:
             return
