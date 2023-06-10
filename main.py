@@ -77,61 +77,6 @@ async def main():
     await load_extensions()
 asyncio.run(main())
 
-# on ready event
-@client.event
-async def on_ready():
-    # bot login
-    print(f"{client.user} logged in successfully!")
-
-    # bot default status
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "!help"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "myself"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "Visual Studio Code"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "discord.py"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "!help"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "myself"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "Visual Studio Code"
-        )
-    )
-    await asyncio.sleep(999)
-    await client.change_presence (
-        activity = discord.Activity (
-        type = discord.ActivityType.playing, name = "discord.py"
-        )
-    )
-
 # command not found error
 @client.event
 async def on_command_error(ctx, error):
