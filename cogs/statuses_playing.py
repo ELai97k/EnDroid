@@ -10,8 +10,6 @@ class Statuses_Playing(commands.Cog):
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         statuses = [
-            "myself",
-            "Visual Studio Code",
             "The Stanley Parable Ultra Deluxe",
             "Stardew Valley",
             "The Sims 3",
