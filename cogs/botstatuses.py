@@ -48,24 +48,22 @@ class BotStatuses(commands.Cog):
         watching_statuses = [
             "you",
             "this server",
-            "YouTube",
             "Game Theory",
             "Film Theory",
             "Matatabi Movie Labo",
+            "YouTube",
             "Netflix",
             "Disney+",
+            "Amazon Prime Video",
             "Everything Everywhere All At Once",
-            "American Born Chinese",
-            "Attack On Titan",
-            "My Hero Academia",
-            "Mob Psycho 100",
-            "Shaman King",
             "Spider-Man: Across the Spider-Verse",
             "The Super Mario Bros. Movie",
-            "Wendell & Wild",
-            "Turning Red",
-            "Encanto",
-            "The Mitchells vs. the Machines"
+            "Transformers: Rise of the Beasts",
+            "The Grand Tour: A Scamdi Flick",
+            "The Grand Tour: Eurocrash",
+            "American Born Chinese",
+            "Attack On Titan",
+            "My Hero Academia"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
