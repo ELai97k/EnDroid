@@ -89,6 +89,48 @@ async def on_ready():
         type = discord.ActivityType.playing, name = "!help"
         )
     )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "myself"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "Visual Studio Code"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "discord.py"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "!help"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "myself"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "Visual Studio Code"
+        )
+    )
+    await asyncio.sleep(999)
+    await client.change_presence (
+        activity = discord.Activity (
+        type = discord.ActivityType.playing, name = "discord.py"
+        )
+    )
 
 # command not found error
 @client.event
