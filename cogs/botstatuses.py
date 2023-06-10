@@ -1,6 +1,6 @@
 import discord
 import asyncio
-from discord.ext import commands, tasks
+from discord.ext import commands
 
 class BotStatuses(commands.Cog):
     def __init__(self, client):
