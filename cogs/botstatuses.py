@@ -35,29 +35,7 @@ class BotStatuses(commands.Cog):
             )
         )
         await asyncio.sleep(999)
-        await self.client.change_presence (
-            activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "!help"
-            )
-        )
-        await asyncio.sleep(999)
-        await self.client.change_presence (
-            activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "Visual Studio Code"
-            )
-        )
-        await asyncio.sleep(999)
-        await self.client.change_presence (
-            activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "myself"
-            )
-        )
-        await asyncio.sleep(999)
-        await self.client.change_presence (
-            activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "discord.py"
-            )
-        )
+        
 
 
 async def setup(client):
