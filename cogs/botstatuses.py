@@ -25,7 +25,7 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "myself"
+            type = discord.ActivityType.watching, name = "VLC Media Player"
             )
         )
         await asyncio.sleep(999)
@@ -35,7 +35,65 @@ class BotStatuses(commands.Cog):
             )
         )
         await asyncio.sleep(999)
-        
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.watching, name = "INFOTECH HRMS"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "myself"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "El Condor Pasa"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "PCSX2 1.6.0"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "Xenia Canary"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "PPSSPP"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "Drastic"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.watching, name = "Bohemian Rhapsody"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "Bohemian Rhapsody"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "ProPresenter"
+            )
+        )
 
 
 async def setup(client):
