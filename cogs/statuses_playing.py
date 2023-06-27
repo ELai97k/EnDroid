@@ -20,6 +20,7 @@ class Statuses_Playing(commands.Cog):
             "Biomutant",
             "Animal Crossing New Horizons",
             "Splatoon 3",
+            "Mario Kart 8 Deluxe",
             "Persona 3",
             "Persona 3 FES",
             "Persona 3 Portable",
@@ -29,7 +30,6 @@ class Statuses_Playing(commands.Cog):
             "Persona 5 Royal",
             "Discord",
             "GitHub",
-            "Ren'Py",
             "YouTube",
             "Spotify"
         ]
