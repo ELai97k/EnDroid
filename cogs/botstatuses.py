@@ -37,7 +37,7 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
-            type = discord.ActivityType.watching, name = "INFOTECH HRMS"
+            type = discord.ActivityType.playing, name = "Nintendo Switch"
             )
         )
         await asyncio.sleep(999)
@@ -92,6 +92,18 @@ class BotStatuses(commands.Cog):
         await self.client.change_presence (
             activity = discord.Activity (
             type = discord.ActivityType.playing, name = "ProPresenter"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "VLC Media Player"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "VLC Media Player"
             )
         )
 
