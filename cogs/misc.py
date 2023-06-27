@@ -59,7 +59,7 @@ class Misc(commands.Cog):
 
 
     # user profile pics
-    @commands.command(pass_context=True, aliases=["profile", "userprofile", "userpfp"], help="Command to show user's profile picture (pfp)")
+    @commands.command(pass_context=True, aliases=["profile", "userprofile", "userpfp", "avatar"], help="Command to show user's profile picture (pfp)")
     async def pfp(self, ctx, *, user:discord.Member=None):
         if ctx.author == self.client.user:
             return
