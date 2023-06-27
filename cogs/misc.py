@@ -78,8 +78,8 @@ class Misc(commands.Cog):
 
 
     # GMT timezone
-    @commands.command(help="Fetch timezone in GMT +8")
-    async def gmt_time(self, ctx):
+    @commands.command(aliases=["mytime", "sgt", "malaysiatime", "singaporetime", "malaysia_time", "singapore_time"], help="Fetch timezone in Malaysia/Singapore (GMT +8)")
+    async def myt(self, ctx):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -88,7 +88,7 @@ class Misc(commands.Cog):
         timestamp = datetime.now()
         gmt = pytz.timezone('Asia/Singapore')
         embed = discord.Embed (
-            title = "Current date and time in GMT+8",
+            title = "Current date and time in Malaysia / Singapore time (GMT+8)",
             color=0xc7ecf7
         )
         embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a, %d %b, %Y"), inline=False)
