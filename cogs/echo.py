@@ -7,6 +7,37 @@ class Echo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    # echo
+    @commands.command(help="Echo command.")
+    @has_permissions(manage_roles=True)
+    async def echo(self, ctx, *, message=None):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        
+        if message is None:
+            await ctx.send("Pls say somethin~!")
+
+        else:
+            await ctx.message.delete()
+            await ctx.send(f"{message}")
+
+    @echo.error
+    async def echo_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
+            embed = discord.Embed (
+                title = "Command Error",
+                description = "Pls try again!\n```Could not complete your request!```",
+                color = discord.Color.dark_red()
+            )
+            await ctx.send(embed=embed)
+            print(f"{self.client.user} Error 404: Command Error")
+
+
     # say command for admin only
     @commands.command(help="Make the bot say your message input.")
     @has_permissions(manage_roles=True)
