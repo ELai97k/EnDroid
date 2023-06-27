@@ -6,6 +6,22 @@ class Poll(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    # poll help
+    @commands.command(help="Command for poll help.")
+    async def pollhelp(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        
+        embed = discord.Embed(
+            color = discord.Color.orange(),
+            title = "How to use the poll command:",
+            description="```!poll title one two three four etc```\nTo input sentences or phrases in the title and/or items, use quotation marks."
+        )
+        await ctx.send(embed=embed)
+
+
     # poll command
     @commands.command(pass_context=True, help="Command to create polls.")
     async def poll(self, ctx, question, *options: str):
