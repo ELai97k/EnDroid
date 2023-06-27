@@ -511,7 +511,7 @@ class Music(commands.Cog):
         )
         embed.add_field (
             name="summon",
-            value="Summon the bot to a specific voice channel when you're not in a voice channel, e.g. `!summon General`",
+            value="Summon the bot to a specific voice channel, e.g. `!summon General`",
             inline=False
         )
         embed.add_field (
