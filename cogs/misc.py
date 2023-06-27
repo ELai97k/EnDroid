@@ -88,7 +88,7 @@ class Misc(commands.Cog):
         timestamp = datetime.now()
         gmt = pytz.timezone('Asia/Singapore')
         embed = discord.Embed (
-            title = "Current date and time in Malaysia / Singapore time (GMT+8)",
+            title = "Current date and time in Malaysia/Singapore time (GMT+8)",
             color=0xc7ecf7
         )
         embed.add_field(name="Date", value=timestamp.astimezone(gmt).strftime("%a, %d %b, %Y"), inline=False)
