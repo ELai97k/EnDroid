@@ -79,6 +79,12 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "This Wandering Day"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
             type = discord.ActivityType.watching, name = "Bohemian Rhapsody"
             )
         )
@@ -97,6 +103,12 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "Where The Shadows Lie"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
             type = discord.ActivityType.playing, name = "VLC Media Player"
             )
         )
@@ -104,6 +116,18 @@ class BotStatuses(commands.Cog):
         await self.client.change_presence (
             activity = discord.Activity (
             type = discord.ActivityType.listening, name = "VLC Media Player"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.watching, name = "The Lord of the Rings: The Rings of Power"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "on Raspberry Pi 3"
             )
         )
 
