@@ -96,8 +96,11 @@ class Space(commands.Cog):
             "It's too big. Too big. Wanna go home. Wanna go to earth.",
             "SPAAACCCCCE!",
             "SPAAACE!",
-
+            "YEEEHAAAAAW!",
+            "Ah!"
         ]
+        await ctx.send(f'{random.choice(space)}')
+        await ctx.send(f'{random.choice(space)}')
 
 
 async def setup(client):
