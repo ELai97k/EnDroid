@@ -28,7 +28,9 @@ class Statuses_Watching(commands.Cog):
             "The Grand Tour: Eurocrash",
             "American Born Chinese",
             "Attack On Titan",
-            "My Hero Academia"
+            "My Hero Academia",
+            "The Lord of the Rings: The Rings of Power",
+            "Bluey"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
