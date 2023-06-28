@@ -120,15 +120,15 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @commands.command(name="version", aliases=["ver"], help="Discord version.")
+    @commands.command(name="version", aliases=["ver"], help="Bot's discord.py version")
     async def _version(self, ctx):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
         
-        await ctx.send(discord.__version__)
-        print(discord.__version__)
+        await ctx.send(f"My discord.py version is {discord.__version__}")
+        print(f"discord.py v{discord.__version__}")
 
 
 async def setup(client):
