@@ -11,6 +11,7 @@ class Statuses_Watching(commands.Cog):
     async def random_status_loop(self):
         statuses = [
             "you",
+            "you bloom in the light of the moon",
             "this server",
             "Game Theory",
             "Film Theory",
