@@ -9,12 +9,6 @@ from discord.ext.commands import CommandNotFound
 intents = discord.Intents.default().all()
 intents.members=True
 
-# setting up prefixes.json in json file
-def get_prefix(client, message):
-    with open("prefixes.json", "r") as f:
-        prefixes = json.load(f)
-    return prefixes[str(message.guild.id)]
-
 # custom help command
 class CustomHelpCommand(commands.HelpCommand):
     # cogs and commands
@@ -36,7 +30,7 @@ class CustomHelpCommand(commands.HelpCommand):
                         value = '{0}\n{1}'.format(cog.description, value)
 
                     embed.add_field(name=name, value=value, inline=True)
-                    embed.set_footer(text=f"Use {client.get_prefix}help [cog] or {client.get_prefix}help [command] for more info.")
+                    embed.set_footer(text=f"Use {client.command_prefix}help [cog] or {client.command_prefix}help [command] for more info.")
 
         await self.get_destination().send(embed=embed)
 
@@ -47,7 +41,7 @@ class CustomHelpCommand(commands.HelpCommand):
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xc7ecf7
         )
-        embed.set_footer(text=f"Use {client.get_prefix}help [command] for more info on a command.")
+        embed.set_footer(text=f"Use {client.command_prefix}help [command] for more info on a command.")
         await self.get_destination().send(embed=embed)
 
     # command info
@@ -61,6 +55,12 @@ class CustomHelpCommand(commands.HelpCommand):
             inline=False
         )
         await self.get_destination().send(embed=embed)
+
+# setting up prefixes.json in json file
+def get_prefix(client, message):
+    with open("prefixes.json", "r") as f:
+        prefixes = json.load(f)
+    return prefixes[str(message.guild.id)]
 
 client = commands.Bot(command_prefix=get_prefix, 
 help_command=CustomHelpCommand(), 
