@@ -117,9 +117,18 @@ class Misc(commands.Cog):
 
         # embed footer
         embed.set_footer(text="The Three Laws of Robotics was created by Isaac Asimov in 1942.")
-
         await ctx.send(embed=embed)
 
+
+    @commands.command(name="version", aliases=["ver"], help="Discord version")
+    async def _version(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        
+        await ctx.send(discord.__version__)
+        print(discord.__version__)
 
 
 async def setup(client):
