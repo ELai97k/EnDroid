@@ -30,7 +30,8 @@ class Statuses_Watching(commands.Cog):
             "Attack On Titan",
             "My Hero Academia",
             "The Lord of the Rings: The Rings of Power",
-            "Bluey"
+            "Bluey",
+            "Paw Patrol"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
