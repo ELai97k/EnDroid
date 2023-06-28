@@ -127,7 +127,7 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "Spaaaaaaaaaaaaace!!"
+            type = discord.ActivityType.playing, name = "SPAAACCCCCE!"
             )
         )
         await asyncio.sleep(999)
@@ -145,7 +145,7 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
-            type = discord.ActivityType.watching, name = "Spaaaaaaaaaaaaace!!"
+            type = discord.ActivityType.watching, name = "SPAAACCCCCE!"
             )
         )
 
