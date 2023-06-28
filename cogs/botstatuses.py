@@ -55,6 +55,12 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
+            type = discord.ActivityType.listening, name = "The Sound of Silence"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
             type = discord.ActivityType.playing, name = "PCSX2 1.6.0"
             )
         )
@@ -121,6 +127,12 @@ class BotStatuses(commands.Cog):
         await asyncio.sleep(999)
         await self.client.change_presence (
             activity = discord.Activity (
+            type = discord.ActivityType.playing, name = "Spaaaaaaaaaaaaace!!"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
             type = discord.ActivityType.watching, name = "The Lord of the Rings: The Rings of Power"
             )
         )
@@ -128,6 +140,12 @@ class BotStatuses(commands.Cog):
         await self.client.change_presence (
             activity = discord.Activity (
             type = discord.ActivityType.playing, name = "on Raspberry Pi 3"
+            )
+        )
+        await asyncio.sleep(999)
+        await self.client.change_presence (
+            activity = discord.Activity (
+            type = discord.ActivityType.watching, name = "Spaaaaaaaaaaaaace!!"
             )
         )
 
