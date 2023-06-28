@@ -120,7 +120,7 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @commands.command(name="version", aliases=["ver"], help="Discord version")
+    @commands.command(name="version", aliases=["ver"], help="Discord version.")
     async def _version(self, ctx):
         if ctx.author == self.client.user:
             return
