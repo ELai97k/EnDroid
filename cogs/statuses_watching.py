@@ -17,9 +17,13 @@ class Statuses_Watching(commands.Cog):
             "Film Theory",
             "Matatabi Movie Labo",
             "YouTube",
+            "Twitter",
+            "TikTok",
+            "Twitch",
             "Netflix",
             "Disney+",
             "Amazon Prime Video",
+            "Apple TV+",
             "Everything Everywhere All At Once",
             "Spider-Man: Across the Spider-Verse",
             "The Super Mario Bros. Movie",
@@ -30,8 +34,11 @@ class Statuses_Watching(commands.Cog):
             "Attack On Titan",
             "My Hero Academia",
             "The Lord of the Rings: The Rings of Power",
+            "She-Ra and the Princesses of Power",
+            "Arcane",
             "Bluey",
-            "Paw Patrol"
+            "Paw Patrol",
+            "Sesame Street"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
