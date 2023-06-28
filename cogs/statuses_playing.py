@@ -41,7 +41,8 @@ class Statuses_Playing(commands.Cog):
             "Discord",
             "GitHub",
             "YouTube",
-            "Spotify"
+            "Spotify",
+            "Twitter"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
