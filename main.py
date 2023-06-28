@@ -18,8 +18,12 @@ def get_prefix(client, message):
 # custom help command
 class CustomHelpCommand(commands.HelpCommand):
     # cogs and commands
-    async def send_bot_help(self, mapping):
-        command_prefix = client.command_prefix
+    async def send_bot_help(self, mapping, guild):
+        with open("prefixes.json", "r") as f:
+            data = json.loads(f.read())
+            guild = str(self.guild.id)
+            prefix = data[guild]
+
         embed = discord.Embed(title=f"{client.user.name}'s Cogs & Commands", color=0xc7ecf7)
         description = self.context.bot.description
         if description:
@@ -37,19 +41,23 @@ class CustomHelpCommand(commands.HelpCommand):
                         value = '{0}\n{1}'.format(cog.description, value)
 
                     embed.add_field(name=name, value=value, inline=True)
-                    embed.set_footer(text=f"Use {command_prefix}help [cog] or {command_prefix}help [command] for more info.")
+                    embed.set_footer(text=f"Use {prefix}help [cog] or {prefix}help [command] for more info.")
 
         await self.get_destination().send(embed=embed)
 
     # cog info
-    async def send_cog_help(self, cog):
-        command_prefix = client.command_prefix
+    async def send_cog_help(self, cog, guild):
+        with open("prefixes.json", "r") as f:
+            data = json.loads(f.read())
+            guild = str(self.guild.id)
+            prefix = data[guild]
+
         embed = discord.Embed (
             title = f"{cog.qualified_name} Commands",
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xc7ecf7
         )
-        embed.set_footer(text=f"Use {command_prefix}help [command] for more info on a command.")
+        embed.set_footer(text=f"Use {prefix}help [command] for more info on a command.")
         await self.get_destination().send(embed=embed)
 
     # command info
