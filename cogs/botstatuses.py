@@ -1,7 +1,6 @@
 import discord
 import asyncio
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
 
 class BotStatuses(commands.Cog):
     def __init__(self, client):
