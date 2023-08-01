@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
 class Status(commands.Cog):
-    """Bot statuses."""
+    """Custom bot statuses."""
     def __init__(self, client):
         self.client = client
 
