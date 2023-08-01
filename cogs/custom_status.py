@@ -19,10 +19,10 @@ class Status(commands.Cog):
             "playing":discord.ActivityType.playing,
             "watching":discord.ActivityType.watching,
             "listening":discord.ActivityType.listening,
-            "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
+            "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="!help"))
         }
         if type.lower() == "default":
-            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="!help"))
             await ctx.send("Changed to default status!")
         try:
             await self.client.change_presence(activity=discord.Activity(type=types[type.lower()], name=newstatus))
