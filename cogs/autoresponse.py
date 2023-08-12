@@ -52,7 +52,7 @@ class Autoresponse(commands.Cog):
 
         embed = discord.Embed (
             title = "Endroid will automatically respond to the following messages:",
-            description = ":(\nI am\nI'm / im\nteleport bread\ndead chat\nwhy isn't this working\njmm\njumm\nhi / hello endroid\nhello / hi / hey bot(s)\nstupid bot\ntell me a joke\nsay something / tell me something\nI have no friends\ninput\nbruh\nF\nshut up bot / bot shut up\nshut up endroid / endroid shut up",
+            description = ":(\nI'm / im\nteleport bread\ndead chat\nwhy isn't this working\njmm\njumm\nhi / hello endroid\nhello / hi / hey bot(s)\nstupid bot\ntell me a joke\nsay something / tell me something\nI have no friends\ninput\nbruh\nF\nshut up bot / bot shut up\nshut up endroid / endroid shut up",
             color=0xc7ecf7
         )
         await ctx.send(embed=embed)
