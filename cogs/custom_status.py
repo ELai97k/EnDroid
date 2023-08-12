@@ -7,7 +7,7 @@ class Status(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(help="Set custom bot status.")
+    @commands.command(aliases=["changestatus"], help="Set custom bot status.")
     @has_permissions(administrator=True, manage_roles=True)
     async def change_status(self, ctx, type, newstatus=None):
         if ctx.author == self.client.user:
