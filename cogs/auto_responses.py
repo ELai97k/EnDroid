@@ -150,25 +150,6 @@ class Auto_Responses(commands.Cog):
             await message.channel.typing()
             await message.channel.send(f"{random.choice(ping_responses)}")
 
-        # I am responses
-        if message.content.lower().startswith("i am"):
-            responses = {
-                "elai":"Are you sure about that?",
-                "endroid":"You're not Endroid, I'm Endroid!",
-                "a bot":"You're not a bot! I'm a bot!",
-                "bot":"You're not a bot! I'm a bot!",
-                "stupid":"Yeah, I know.",
-                "a fucking dumbass":"yes you are indeed",
-                "a dumbass":"yeah you are",
-                "okay":"That's good."
-            }
-            for trigger, response in list(responses.items()):
-                if trigger in message.content.lower().replace("i am", "").strip():
-                    await message.channel.typing()
-                    return await message.channel.send(response)
-            await message.channel.typing()
-            await message.channel.send("Hi " + message.content.lower().replace("i am", "").strip() + ", I'm Endroid!")
-
         # I'm / im responses
         if message.content.lower().replace("'", "").strip().startswith("im"):
             responses = {
@@ -187,10 +168,6 @@ class Auto_Responses(commands.Cog):
                     return await message.channel.send(response)
             await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("im", "").replace("i'm", "").strip() + ", I'm Endroid!")
-
-        if "did not" in message.content.lower() or "didnt" in message.content.lower() or "didn't" in message.content.lower():
-            await message.channel.typing()
-            await message.channel.send("I thought you did.")
 
         if message.content.lower().startswith("fuck you bot") or message.content.lower().startswith("fuck u bot"):
             await message.channel.typing()
