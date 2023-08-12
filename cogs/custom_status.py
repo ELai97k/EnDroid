@@ -22,7 +22,7 @@ class Status(commands.Cog):
             "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Visual Studio Code"))
         }
         if type.lower() == "default":
-            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="!help"))
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Visual Studio Code"))
             await ctx.send("Changed to default status!")
         try:
             await self.client.change_presence(activity=discord.Activity(type=types[type.lower()], name=newstatus))
