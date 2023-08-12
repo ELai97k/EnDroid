@@ -19,7 +19,7 @@ class Status(commands.Cog):
             "playing":discord.ActivityType.playing,
             "watching":discord.ActivityType.watching,
             "listening":discord.ActivityType.listening,
-            "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="!help"))
+            "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Visual Studio Code"))
         }
         if type.lower() == "default":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="!help"))
