@@ -35,7 +35,7 @@ class Weather(commands.Cog):
                 weather_description = z[0]["description"]
                 embed = discord.Embed(
                     title=f"Weather in {city_name}",
-                    color=0xffc90d
+                    color=0xc7ecf7
                 )
                 embed.add_field(name="Description:", value=f"**{weather_description}**", inline=False)
                 embed.add_field(name="Temperature:", value=f"**{current_temperature_celsius}°C**", inline=False)
