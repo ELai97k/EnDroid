@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import requests
+import os
 
 class Weather(commands.Cog):
     """Weather cog."""
@@ -14,7 +15,7 @@ class Weather(commands.Cog):
         if ctx.author.bot:
             return
         
-        api_key = "40196ce69a2157b7e84fd37cd3d90813"
+        api_key = os.getenv("weather_api")
         base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
         city_name = city
