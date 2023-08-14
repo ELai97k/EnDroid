@@ -78,7 +78,7 @@ class Misc(commands.Cog):
 
 
     # GMT+8 timezone
-    @commands.command(aliases=["gmt+8", "gmt_8", "GMT+8"], help="Fetch timezone in Malaysia/Singapore (GMT +8)")
+    @commands.command(aliases=["gmt+8", "gmt_8"], help="Fetch timezone in Malaysia/Singapore (GMT +8)")
     async def gmt8(self, ctx):
         if ctx.author == self.client.user:
             return
