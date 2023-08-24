@@ -290,7 +290,7 @@ class Auto_Responses(commands.Cog):
                     creator = "<@696008187991687189>"
                     await reply_message.channel.typing()
                     await reply_message.channel.send(f"{creator} is my Creator.")
-                
+
                 # if reply_message.content.lower().startswith(""):
                 #     await reply_message.channel.typing()
                 #     await reply_message.channel.send("")
