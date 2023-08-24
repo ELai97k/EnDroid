@@ -16,8 +16,7 @@ class Misc(commands.Cog):
         if ctx.author.bot:
             return
 
-        await ctx.send("This is a test command.")
-        print("This is a test command and it works.")
+        await ctx.send("aaaaaaaaaaaaaaaaa")
 
 
     # ping command
