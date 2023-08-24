@@ -288,9 +288,12 @@ class Auto_Responses(commands.Cog):
             else:
                 if reply_message.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u"):
                     creator = "<@696008187991687189>"
-                    await message.channel.typing()
-                    await message.channel.send(f"{creator} is my Creator.")
+                    await reply_message.channel.typing()
+                    await reply_message.channel.send(f"{creator} is my Creator.")
                 
+                # if reply_message.content.lower().startswith(""):
+                #     await reply_message.channel.typing()
+                #     await reply_message.channel.send("")
                 
                 # you're / ur responses
                 if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("you are") or reply_message.content.lower().startswith("u are") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur") or reply_message.content.lower().startswith("u r") or reply_message.content.lower().startswith("your"):
