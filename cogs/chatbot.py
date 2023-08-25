@@ -15,8 +15,8 @@ class Chatbot(commands.Cog):
         chatbot.train_model()
         chatbot.save_model()
 
-        if message.content.lower().startswith("hey endroid"):
-            response = chatbot.request(message.content[12:])
+        if message.content.lower().startswith("!chat"):
+            response = chatbot.request(message.content[6:])
             await message.channel.typing()
             await message.channel.send(response)
 
