@@ -288,8 +288,12 @@ class Auto_Responses(commands.Cog):
             else:
                 if reply_message.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u") or reply_message.content.lower().startswith("who created you") or reply_message.content.lower().startswith("who created u"):
                     creator = "<@696008187991687189>"
-                    await reply_message.channel.typing()
-                    await reply_message.channel.send(f"{creator} is my Creator.")
+                    if creator.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u") or reply_message.content.lower().startswith("who created you") or reply_message.content.lower().startswith("who created u"):
+                        await reply_message.channel.typing()
+                        await reply_message.channel.send("You created me!")
+                    else:
+                        await reply_message.channel.typing()
+                        await reply_message.channel.send(f"{creator} is my Creator.")
 
                 # if reply_message.content.lower().startswith(""):
                 #     await reply_message.channel.typing()
