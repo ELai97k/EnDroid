@@ -9,11 +9,15 @@ class Echo(commands.Cog):
 
     # echo
     @commands.command(help="Echo command.")
-    async def echo(self, ctx, *, message=None):
+    async def echo(self, ctx, *, channel, message=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
+        
+        channel = discord.utils.get(ctx.guild.text_channels)
+        if channel is None:
+            return await ctx.send("Pls specify a channel!")
         
         if message is None:
             await ctx.send("Pls say somethin~!")
