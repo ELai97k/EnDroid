@@ -52,8 +52,8 @@ class Echo(commands.Cog):
 
         else:
             # main server general channel
-            await self.client.get_channel(1010841256294875218).send(f"{message}")
             await ctx.message.delete()
+            await self.client.get_channel(1010841256294875218).send(f"{message}")
 
     @say.error
     async def say_error(self, ctx, error):
@@ -84,8 +84,8 @@ class Echo(commands.Cog):
 
         else:
             # G Bar general channel
-            await self.client.get_channel(762317365970468877).send(f"{message}")
             await ctx.message.delete()
+            await self.client.get_channel(762317365970468877).send(f"{message}")
 
     @speak.error
     async def speak_error(self, ctx, error):
