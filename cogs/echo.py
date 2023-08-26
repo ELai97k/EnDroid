@@ -21,7 +21,7 @@ class Echo(commands.Cog):
 
         else:
             await ctx.message.delete()
-            await ctx.send(f"{message}")
+            await ctx.send(message, allowed_mentions=discord.AllowedMentions.none())
 
     @echo.error
     async def echo_error(self, ctx, error):
@@ -53,7 +53,7 @@ class Echo(commands.Cog):
         else:
             # main server general channel
             await ctx.message.delete()
-            await self.client.get_channel(1010841256294875218).send(f"{message}")
+            await ctx.get_channel(1010841256294875218).send(message, allowed_mentions=discord.AllowedMentions.none())
 
     @say.error
     async def say_error(self, ctx, error):
@@ -85,7 +85,7 @@ class Echo(commands.Cog):
         else:
             # G Bar general channel
             await ctx.message.delete()
-            await self.client.get_channel(762317365970468877).send(f"{message}")
+            await ctx.get_channel(762317365970468877).send(message, allowed_mentions=discord.AllowedMentions.none())
 
     @speak.error
     async def speak_error(self, ctx, error):
