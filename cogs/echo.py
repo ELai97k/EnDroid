@@ -10,7 +10,7 @@ class Echo(commands.Cog):
     # echo
     @commands.command(help="Echo command.")
     @has_permissions(manage_roles=True)
-    async def echo(self, ctx, *, message=None, channel: str=None):
+    async def echo(self, ctx, *, message=None, channel=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
@@ -26,7 +26,7 @@ class Echo(commands.Cog):
 
         else:
             await ctx.message.delete()
-            await ctx.channel.send(f"{message}")
+            await ctx.guild.text_channels.send(f"{message}")
 
     @echo.error
     async def echo_error(self, ctx, error):
