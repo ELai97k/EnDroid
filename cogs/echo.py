@@ -9,7 +9,6 @@ class Echo(commands.Cog):
 
     # echo
     @commands.command(help="Echo command.")
-    @has_permissions(manage_roles=True)
     async def echo(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
