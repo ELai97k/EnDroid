@@ -20,6 +20,7 @@ class Triggers(commands.Cog):
                 "cuck",
                 "cock",
                 "sex",
+                "sexy",
                 "nigga",
                 "nigger",
                 "negro",
@@ -29,11 +30,11 @@ class Triggers(commands.Cog):
                 "pornhub.com",
                 "brazzers.com",
                 "faggot",
-                "cum ",
+                "cum",
                 "motherfucker"
             ]
             for bad_word in bad_list:
-                if bad_word in message.content.lower():
+                if bad_word in message.content.lower().split():
                     # trigger embed
                     embed = discord.Embed (
                         title=f"**:warning: WARNING for `{message.author}`**",
