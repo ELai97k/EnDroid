@@ -1,4 +1,5 @@
 import discord
+import sqlite3
 from discord.ext import commands
 
 class Triggers(commands.Cog):
@@ -7,11 +8,29 @@ class Triggers(commands.Cog):
         self.client = client
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message(self, ctx, user:discord.Member, *, message):
         if message.author == self.client.user:
             return
         if message.author.bot:
             return
+        
+        async def addwarn(ctx, bad_word, user):
+            db = sqlite3.connect('warnings.sqlite')
+            cursor = db.cursor()
+            cursor.execute(
+                """
+                INSERT INTO warns (
+                    user_id,
+                    user_name,
+                    reason,
+                    guild_id,
+                    guild_name
+                )
+                VALUES (?, ?, ?, ?, ?)
+                """, (user.id, user.name, bad_word, ctx.guild.id, ctx.guild.name)
+            )
+            db.commit()
+        await addwarn(ctx, bad_word, user)
 
         # bad words
         if message.author.guild.id == 911112792646508624: # Elai's server
