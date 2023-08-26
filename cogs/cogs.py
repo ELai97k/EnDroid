@@ -15,8 +15,23 @@ class Cogs(commands.Cog):
             return
         if ctx.author.bot:
             return
-        
-        if extension is None:
+
+        embed = discord.Embed (
+            title = "Operation Successful!",
+            description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
+            color=0x198C19
+        )
+        await ctx.channel.typing()
+        await ctx.send(embed=embed)
+        await self.client.load_extension(f'cogs.{extension}')
+        print(f'Loading {extension}')
+
+    @load.error
+    async def load_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
+
+        if isinstance(error, CommandError):
             embed = discord.Embed (
                 title = "Command Error",
                 description = "Pls load something, like a cog. But not your idiot brain!\n```Could not complete your request!```",
@@ -24,22 +39,6 @@ class Cogs(commands.Cog):
             )
             await ctx.send(embed=embed)
             print(f"{self.client.user} Error 404: Command Error")
-
-        else:
-            embed = discord.Embed (
-                title = "Operation Successful!",
-                description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
-                color=0x198C19
-            )
-            await ctx.channel.typing()
-            await ctx.send(embed=embed)
-            await self.client.load_extension(f'cogs.{extension}')
-            print(f'Loading {extension}')
-
-    @load.error
-    async def load_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("You do not have permission to use this command!")
 
 
     # unload cogs
