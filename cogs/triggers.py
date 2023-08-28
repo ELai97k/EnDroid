@@ -13,8 +13,7 @@ class Triggers(commands.Cog):
             return
         if message.author.bot:
             return
-        user = message.author
-        
+
         if bad_word in message.content.lower().split():
             bad_list = [
                 "dick",
@@ -62,6 +61,7 @@ class Triggers(commands.Cog):
 
 
         async def addwarn(ctx, bad_word, user):
+            user = message.author
             db = sqlite3.connect('warnings.sqlite')
             cursor = db.cursor()
             cursor.execute(
