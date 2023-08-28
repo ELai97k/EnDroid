@@ -1,5 +1,4 @@
 import discord
-import sqlite3
 from discord.ext import commands
 
 class Triggers(commands.Cog):
@@ -8,13 +7,14 @@ class Triggers(commands.Cog):
         self.client = client
 
     @commands.Cog.listener()
-    async def on_message(self, ctx, user:discord.Member, *, message):
+    async def on_message(self, message):
         if message.author == self.client.user:
             return
         if message.author.bot:
             return
 
-        if bad_word in message.content.lower().split():
+        # bad words
+        if message.author.guild.id == 911112792646508624: # Elai's server
             bad_list = [
                 "dick",
                 "cuck",
@@ -45,39 +45,22 @@ class Triggers(commands.Cog):
                     await message.channel.send(embed=embed)
                     print(f"{message.author} has been given a warning!")
 
-                    db = sqlite3.connect('warnings.sqlite')
-                    cursor = db.cursor()
-                    cursor.execute("SELECT * FROM warns WHERE user_id = ? AND guild_id = ?", (user.id, ctx.guild.id))
-                    data = cursor.fetchall()
-                    if len(data) >= 3:
-                        await user.kick(reason=f"`{user}` has reached 3 warnings.")
-                        await ctx.send(f"`{user}` has reached 3 warnings and is promptly kicked from this server.")
-                        print(f"{user} has reached 3 warnings and is kicked from this server.")
 
-                    if len(data) == 4:
-                        await user.ban(reason=f"`{user}` has reached 4 warnings.")
-                        await ctx.send(f"`{user}` has reached 4 warnings and is banned from this server, goodbye.")
-                        print(f"{user} has reached 4 warnings and is banned from this server.")
-
-
-        async def addwarn(ctx, bad_word, user):
-            user = message.author
-            db = sqlite3.connect('warnings.sqlite')
-            cursor = db.cursor()
-            cursor.execute(
-                """
-                INSERT INTO warns (
-                    user_id,
-                    user_name,
-                    bad_word,
-                    guild_id,
-                    guild_name
-                )
-                VALUES (?, ?, ?, ?, ?)
-                """, (user.id, user.name, bad_word, ctx.guild.id, ctx.guild.name)
-            )
-            db.commit()
-        await addwarn(ctx, bad_word, user)
+    # trigger words
+    @commands.command(help="Command that displays a list of bad words.")
+    async def triggers(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+ 
+        embed = discord.Embed (
+            title = "Endroid will delete these censored words:",
+            description="||`Dick`\n`Cuck(s)`\n`Cock(s)`\n`Sex`\n`Nigga`\n`Nigger`\n`Negro`\n`Penis`\n`Vagina`\n`Pronhub.com`\n`Brazzers.com`\n`Faggot`\n`Cum`\n`Motherfucker`||",
+            color=discord.Color.dark_red()
+        )
+        embed.set_footer(text="You will be given a warning that will trigger Endroid's auto-moderation")
+        await ctx.send(embed=embed)
 
 
 async def setup(client):
