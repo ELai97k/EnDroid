@@ -13,6 +13,7 @@ class Triggers(commands.Cog):
             return
         if message.author.bot:
             return
+        user = message.author
         
         if bad_word in message.content.lower().split():
             bad_list = [
