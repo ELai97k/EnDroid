@@ -44,7 +44,7 @@ class EightBall(commands.Cog):
         
         if message is None:
             await ctx.channel.typing()
-            await ctx.send("pls ask me a yes or no question first lol")
+            await ctx.send("pls ask me a question first lol")
 
         else:
             await ctx.channel.typing()
