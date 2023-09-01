@@ -53,8 +53,8 @@ class Misc(commands.Cog):
             return
         if ctx.author.bot:
             return
-        
-        await ctx.send("Here's my GitHub page:\nhttps://github.com/ELai97k/EnDroid")
+        github = "https://github.com/ELai97k/EnDroid"
+        await ctx.send(github)
 
 
     # user profile pics
