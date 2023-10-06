@@ -60,7 +60,7 @@ class Reminder(commands.Cog):
             await ctx.send(f"Alright {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
             print(f"{user} {reminder} {counter}")
             await asyncio.sleep(seconds)
-            await ctx.send(f"Hi {user.mention}, you asked me to remind you about `{reminder}` `{counter}` ago.")
+            await ctx.send(f"Hi {user.mention}, you asked me to remind you about `{reminder} {counter}` ago.")
             print(f"{user} {reminder} {counter}")
             return
         await ctx.send(embed=embed)
