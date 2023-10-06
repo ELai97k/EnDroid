@@ -46,22 +46,22 @@ class Reminder(commands.Cog):
             embed.add_field(name="Hours", value="`h`")
             embed.add_field(name="Minutes", value="`m`")
             embed.add_field(name="Minimum duration", value="```1 minute```")
-            embed.add_field(name="Maximum duration", value="```7 days```")
+            embed.add_field(name="Maximum duration", value="```104 days```")
 
         elif seconds < 60:
             embed = discord.Embed(color=0xc7ecf7)
             embed.add_field(name="Warning", value="You have specified a duration that is too short!\n```Minimum duration is 1 minute.```")
 
-        elif seconds > 604800:
+        elif seconds > 8985600:
             embed = discord.Embed(color=0xc7ecf7)
-            embed.add_field(name="Warning", value="You have specified a duration that is too long!\n```Maximum duration is 7 days.```")
+            embed.add_field(name="Warning", value="You have specified a duration that is too long!\n```Maximum duration is 104 days.```")
 
         else:
             await ctx.send(f"Alright {user.mention}, I will remind you about `{reminder}` in `{counter}`.")
             print(f"{user} {reminder} {counter}")
             await asyncio.sleep(seconds)
             await ctx.send(f"Hi {user.mention}, you asked me to remind you about `{reminder} {counter}` ago.")
-            print(f"{user} {reminder} {counter}")
+            print(user, reminder, counter)
             return
         await ctx.send(embed=embed)
         print(f"Unable to process reminder for {user}")
