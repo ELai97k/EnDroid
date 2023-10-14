@@ -69,7 +69,7 @@ class AutoResponses(commands.Cog):
             return
 
         embed = discord.Embed (
-            title = "List of available options when typing 'hey endroid'",
+            title = "List of available options after typing 'hey endroid'",
             color=0xc7ecf7
         )
         # you're / ur responses
