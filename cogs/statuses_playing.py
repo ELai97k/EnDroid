@@ -12,11 +12,11 @@ class Statuses_Playing(commands.Cog):
         statuses = [
             "The Stanley Parable Ultra Deluxe",
             "Stardew Valley",
-            "The Sims 3",
-            "The Sims 4",
-            "Splitgate",
+            "Beat Saber",
+            "Job Simulator",
+            "chess.com",
             "Minecraft",
-            "Biomutant",
+            "Team Fortress 2",
             "Animal Crossing New Horizons",
             "Splatoon 3",
             "Mario Kart 8 Deluxe",
@@ -35,12 +35,11 @@ class Statuses_Playing(commands.Cog):
             "Discord",
             "GitHub",
             "YouTube",
-            "Spotify",
-            "Twitter"
+            "Spotify"
         ]
         await self.client.change_presence (
             activity = discord.Activity (
-                type = discord.ActivityType.playing, name = f'{random.choice(statuses)}'
+                type = discord.ActivityType.playing, name = {random.choice(statuses)}
             )
         )
 
