@@ -22,12 +22,6 @@ class BotStatuses(commands.Cog):
             type = discord.ActivityType.playing, name = "!help"
             )
         )
-        await asyncio.sleep(999)
-        await self.client.change_presence (
-            activity = discord.Activity (
-            type = discord.ActivityType.playing, name = "on Raspberry Pi 3"
-            )
-        )
 
 
 async def setup(client):
