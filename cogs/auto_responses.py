@@ -315,32 +315,22 @@ class Auto_Responses(commands.Cog):
                             await reply_message.channel.send(response)
 
         # turn that frown upside down
-        if ":(" in message.content:
+        if ":(" in message.content.lower():
             await message.channel.typing()
             await message.channel.send("Turn that frown upside down!")
 
-            # if no reply within 30 secs
-            try:
-                reply_message = await self.client.wait_for('message', timeout=30.0)
-            except asyncio.TimeoutError:
-                await reply_message.channel.typing()
-                await reply_message.channel.send("why won't you reply me?")
+            reply_message = await self.client.wait_for("message")
+            if "no" in reply_message.content.lower():
+                await message.channel.typing()
+                await message.channel.send("How dare you!")
 
-            # reply with "no"
-            else:
-                if "no" in reply_message.content.lower():
-                    await reply_message.channel.typing()
-                    await reply_message.channel.send("How dare you!")
+            if ":)" in reply_message.content.lower():
+                await message.channel.typing()
+                await message.channel.send("Excellent!")
 
-                # reply with ":)"
-                if ":)" in reply_message.content:
-                    await reply_message.channel.typing()
-                    await reply_message.channel.send("Excellent!")
-
-                # reply with "):"
-                if "):" in reply_message.content:
-                    await reply_message.channel.typing()
-                    await reply_message.channel.send("listen here you piece of shit!")
+            if "):" in reply_message.content.lower():
+                await message.channel.typing()
+                await message.channel.send("Listen here, you piece of shit!")
 
 
 async def setup(client):
