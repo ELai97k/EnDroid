@@ -245,7 +245,7 @@ class AutoResponses(commands.Cog):
             await message.channel.typing()
             await message.channel.send("fuck you too")
 
-        if message.content.lower().startswith("Endroid is annoying") or message.content.lower().startswith("Endroid is so annoying") or message.content.lower().startswith("Endroid is such an annoying bot") or message.content.lower().startswith("Endroid is such an annoying dumb bot") or message.content.lower().startswith("Endroid is such an annoying bitch") or message.content.lower().startswith("Endroid is such an annoying ass") or message.content.lower().startswith("Endroid is such an annoying ass bot") or message.content.lower().startswith("Endroid is such an annoying dumbass") or message.content.lower().startswith("Endroid is such an annoying dumbass bot"):
+        if message.content.lower().startswith("endroid is annoying") or message.content.lower().startswith("endroid is so annoying") or message.content.lower().startswith("endroid is such an annoying bot") or message.content.lower().startswith("endroid is such an annoying dumb bot") or message.content.lower().startswith("endroid is such an annoying bitch") or message.content.lower().startswith("endroid is such an annoying ass") or message.content.lower().startswith("endroid is such an annoying ass bot") or message.content.lower().startswith("endroid is such an annoying dumbass") or message.content.lower().startswith("endroid is such an annoying dumbass bot"):
             await message.channel.typing()
             await message.channel.send("waaaaaaaaaaaaaaaaa")
 
@@ -313,7 +313,6 @@ class AutoResponses(commands.Cog):
                     await reply_message.channel.typing()
                     await reply_message.channel.send(random.choice(how_are_you))
 
-
                 # you're / ur responses
                 if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("you are") or reply_message.content.lower().startswith("u are") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur") or reply_message.content.lower().startswith("u r") or reply_message.content.lower().startswith("your"):
                     responses = {
@@ -347,6 +346,10 @@ class AutoResponses(commands.Cog):
             if ":)" in reply_message.content.lower():
                 await message.channel.typing()
                 await message.channel.send("Excellent!")
+
+            if "(:" in reply_message.content.lower():
+                await message.channel.typing()
+                await message.channel.send("Very good!")
 
             if "):" in reply_message.content.lower():
                 await message.channel.typing()
