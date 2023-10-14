@@ -308,7 +308,7 @@ class AutoResponses(commands.Cog):
                         "I'm doing bad.",
                         "I'm not doing good.",
                         "I'm not doing fine.",
-                        "I'm not doing okay"
+                        "I'm not doing okay."
                     ]
                     await reply_message.channel.typing()
                     await reply_message.channel.send(random.choice(how_are_you))
