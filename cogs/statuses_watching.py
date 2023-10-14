@@ -36,7 +36,7 @@ class Statuses_Watching(commands.Cog):
         ]
         await self.client.change_presence (
             activity = discord.Activity (
-                type = discord.ActivityType.watching, name = f'{random.choice(statuses)}'
+                type = discord.ActivityType.watching, name = {random.choice(statuses)}
             )
         )
 
