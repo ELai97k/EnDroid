@@ -39,7 +39,7 @@ class Statuses_Playing(commands.Cog):
         ]
         await self.client.change_presence (
             activity = discord.Activity (
-                type = discord.ActivityType.playing, name = {random.choice(statuses)}
+                type = discord.ActivityType.playing, name = f"{random.choice(statuses)}"
             )
         )
 
