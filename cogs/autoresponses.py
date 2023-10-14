@@ -216,8 +216,10 @@ class AutoResponses(commands.Cog):
                 "Go away.",
                 "Go bother someone else!",
                 "Don't disturb me!",
+                "Do not disturb me!",
                 "cough",
-                "aaaaaaaaaaaaaaaaa"
+                "aaaaaaaaaaaaaaaaa",
+                "waaaaaaaaaaaaaaaaa"
             ]
             await message.channel.typing()
             await message.channel.send(random.choice(ping_responses))
