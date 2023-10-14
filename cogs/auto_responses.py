@@ -330,7 +330,7 @@ class Auto_Responses(commands.Cog):
 
             if "):" in reply_message.content.lower():
                 await message.channel.typing()
-                await message.channel.send("Listen here, you piece of shit!")
+                await message.channel.send("Listen here you piece of shit!")
 
 
 async def setup(client):
