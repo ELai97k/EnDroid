@@ -114,7 +114,7 @@ class AutoResponses(commands.Cog):
         # input
         if "input" in message.content.lower():
             await message.channel.typing()
-            await message.channel.send("`output`")
+            await message.channel.send("You typed an input so I have to respond with `output`")
 
         # I have no friends
         if message.content.lower().startswith("i have no friends"):
