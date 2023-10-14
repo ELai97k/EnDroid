@@ -220,7 +220,7 @@ class AutoResponses(commands.Cog):
                 "aaaaaaaaaaaaaaaaa"
             ]
             await message.channel.typing()
-            await message.channel.send(f"{random.choice(ping_responses)}")
+            await message.channel.send(random.choice(ping_responses))
 
         # I'm / im responses
         if message.content.lower().replace("'", "").strip().startswith("im"):
@@ -280,11 +280,11 @@ class AutoResponses(commands.Cog):
                 "Greetings, human."
             ]
             await message.channel.typing()
-            await message.channel.send(f'{random.choice(greetings)}')
+            await message.channel.send(random.choice(greetings))
 
             # if no reply within 60 secs
             try:
-                reply_message = await self.client.wait_for('message', timeout=60.0)
+                reply_message = await self.client.wait_for("message", timeout=60.0)
             except asyncio.TimeoutError:
                 await reply_message.channel.typing()
                 await reply_message.channel.send("Why did you call me if you're not going to say anything??")
@@ -294,9 +294,25 @@ class AutoResponses(commands.Cog):
                     await reply_message.channel.typing()
                     await reply_message.channel.send("Elai is my Creator.")
 
-                # if reply_message.content.lower().startswith(""):
-                #     await reply_message.channel.typing()
-                #     await reply_message.channel.send("")
+                if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
+                    how_are_you = [
+                        "I'm okay.",
+                        "I'm not okay.",
+                        "I'm good.",
+                        "I'm not good"
+                        "I'm fine.",
+                        "I'm not fine.",
+                        "I'm doing good.",
+                        "I'm doing fine.",
+                        "I'm doing okay",
+                        "I'm doing bad.",
+                        "I'm not doing good.",
+                        "I'm not doing fine.",
+                        "I'm not doing okay"
+                    ]
+                    await reply_message.channel.typing()
+                    await reply_message.channel.send(random.choice(how_are_you))
+
 
                 # you're / ur responses
                 if reply_message.content.lower().startswith("you're") or reply_message.content.lower().startswith("you are") or reply_message.content.lower().startswith("u are") or reply_message.content.lower().startswith("youre") or reply_message.content.lower().startswith("ur") or reply_message.content.lower().startswith("u r") or reply_message.content.lower().startswith("your"):
