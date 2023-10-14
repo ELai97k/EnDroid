@@ -305,7 +305,7 @@ class AutoResponses(commands.Cog):
                         "I'm okay.",
                         "I'm not okay.",
                         "I'm good.",
-                        "I'm not good"
+                        "I'm not good",
                         "I'm fine.",
                         "I'm not fine.",
                         "I'm doing good.",
