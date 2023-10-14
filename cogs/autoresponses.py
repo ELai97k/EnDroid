@@ -245,6 +245,10 @@ class AutoResponses(commands.Cog):
             await message.channel.typing()
             await message.channel.send("fuck you too")
 
+        if message.content.lower().startswith("Endroid is annoying") or message.content.lower().startswith("Endroid is so annoying") or message.content.lower().startswith("Endroid is such an annoying bot") or message.content.lower().startswith("Endroid is such an annoying dumb bot") or message.content.lower().startswith("Endroid is such an annoying bitch") or message.content.lower().startswith("Endroid is such an annoying ass") or message.content.lower().startswith("Endroid is such an annoying ass bot") or message.content.lower().startswith("Endroid is such an annoying dumbass") or message.content.lower().startswith("Endroid is such an annoying dumbass bot"):
+            await message.channel.typing()
+            await message.channel.send("waaaaaaaaaaaaaaaaa")
+
         # hey endroid
         if message.content.lower().startswith("hey endroid"):
             greetings = [
