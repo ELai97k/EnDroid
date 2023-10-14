@@ -8,7 +8,7 @@ class ClearChat(commands.Cog):
         self.client = client
 
     @commands.command(aliases=["clear"], pass_context=True, help="Command to clear chats in a text channel.")
-    @has_permissions(manage_messages=True)
+    @has_permissions(administrator=True)
     async def clearchat(self, ctx, amount=5):
         if ctx.author == self.client.user:
             return
