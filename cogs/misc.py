@@ -121,6 +121,7 @@ class Misc(commands.Cog):
 
         await asyncio.sleep(2)
         await ctx.channel.typing()
+        await asyncio.sleep(2)
         await ctx.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n```A robot may not harm humanity, or, by inaction, allow humanity to come to harm.```")
 
 
