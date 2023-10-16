@@ -1,5 +1,6 @@
 import discord
 import pytz
+import asyncio
 from datetime import datetime
 from discord.ext import commands
 
@@ -106,17 +107,21 @@ class Misc(commands.Cog):
         embed = discord.Embed (
             title="The Three Laws of Robotics",
             color=0xc7ecf7
-        )
+            )
         # First Law
-        embed.add_field(name="First Law", value="A robot may not injure a human being or, through inaction, allow a human being to come to harm.", inline=False)
+        embed.add_field(name="The First Law", value="```A robot may not injure a human being or, through inaction, allow a human being to come to harm.```", inline=False)
         # Second Law
-        embed.add_field(name="Second Law", value="A robot must obey the orders given it by human beings except where such orders would conflict with the **First Law**.", inline=False)
+        embed.add_field(name="The Second Law", value="```A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.```", inline=False)
         # Third Law
-        embed.add_field(name="Third Law", value="A robot must protect its own existence as long as such protection does not conflict with the **First** or **Second Law**.", inline=False)
-
+        embed.add_field(name="The Third Law", value="```A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.```", inline=False)
         # embed footer
         embed.set_footer(text="The Three Laws of Robotics was created by Isaac Asimov in 1942.")
+        await ctx.channel.typing()
         await ctx.send(embed=embed)
+
+        await asyncio.sleep(2)
+        await ctx.channel.typing()
+        await ctx.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n```A robot may not harm humanity, or, by inaction, allow humanity to come to harm.```")
 
 
     @commands.command(name="version", aliases=["ver"], help="Bot's discord.py version")
