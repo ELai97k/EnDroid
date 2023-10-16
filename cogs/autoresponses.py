@@ -297,7 +297,7 @@ class AutoResponses(commands.Cog):
                 reply_message = await self.client.wait_for("message", timeout=60.0)
             except asyncio.TimeoutError:
                 await reply_message.channel.typing()
-                await reply_message.channel.send("Why did you call me if you're not going to say anything??")
+                await reply_message.channel.send("How dare you!")
 
             else:
                 if reply_message.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u") or reply_message.content.lower().startswith("who created you") or reply_message.content.lower().startswith("who created u"):
