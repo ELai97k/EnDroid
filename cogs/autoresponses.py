@@ -376,7 +376,8 @@ class AutoResponses(commands.Cog):
                         "a good bot":"Thank you!",
                         "a clever bot":"Okay cool!",
                         "a cleverbot":"Haha I see what you did there.",
-                        "a smart bot":"But what if I'm not?"
+                        "a smart bot":"But what if I'm not?",
+                        "annoyimg":"waaaaaaaaaaaaaaaaa"
                     }
                     for trigger, response in list(responses.items()):
                         if trigger in reply_message.content.lower():
