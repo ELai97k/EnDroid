@@ -310,10 +310,12 @@ class AutoResponses(commands.Cog):
                 await reply_message.channel.send("How dare you!")
 
             else:
+                # who created you
                 if reply_message.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u") or reply_message.content.lower().startswith("who created you") or reply_message.content.lower().startswith("who created u"):
                     await reply_message.channel.typing()
                     await reply_message.channel.send("Elai is my Creator.")
 
+                # how are you
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
                     how_are_you = [
                         "I'm okay.",
