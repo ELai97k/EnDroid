@@ -77,6 +77,16 @@ class AutoResponses(commands.Cog):
         value="stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot",
         inline=False)
 
+        # who made you
+        embed.add_field(name="```who made you```",
+        value="```who created you```",
+        inline=False)
+
+        # how are you
+        embed.add_field(name="```how are you```",
+        value="```how are you doing```",
+        inline=False)
+
         await ctx.send(embed=embed)
 
 
