@@ -344,7 +344,7 @@ class AutoResponses(commands.Cog):
                         "a dumbass":"Fuck you!",
                         "a fucking dumbass":"Fuck off!",
                         "useless":"Why are we still here? Just to suffer?",
-                        "not helpful":"You never asked for help anyway!",
+                        "not helpful":"waaaaaaaaaaaaaaaaa",
                         "a good bot":"Thank you!",
                         "a clever bot":"Okay cool!",
                         "a cleverbot":"Haha I see what you did there.",
