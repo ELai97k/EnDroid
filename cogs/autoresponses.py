@@ -20,11 +20,11 @@ class AutoResponses(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = "`Auto-Responses` has been turned **OFF** and your changes were saved.",
+            description = "`Auto responses` has been turned **OFF** and your changes were saved.",
             color=0x198C19
         )
         await ctx.send(embed=embed)
-        await self.client.unload_extension("cogs.auto_responses")
+        await self.client.unload_extension("cogs.autoresponses")
         print("Auto responses has been turned off")
 
 
@@ -38,11 +38,11 @@ class AutoResponses(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = "`Auto-Responses` has been turned **ON** and your changes were saved.",
+            description = "`Auto responses` has been turned **ON** and your changes were saved.",
             color=0x198C19
         )
         await ctx.send(embed=embed)
-        await self.client.load_extension("cogs.auto_responses")
+        await self.client.load_extension("cogs.autoresponses")
         print("Auto responses has been turned on")
 
 
@@ -95,13 +95,13 @@ class AutoResponses(commands.Cog):
             await message.channel.send("Okay ;_;")
 
             # turn off this cog
-            await self.client.unload_extension("cogs.auto_responses")
-            print("Auto Responses has been turned off")
+            await self.client.unload_extension("cogs.autoresponses")
+            print("Auto responses has been turned off")
             await asyncio.sleep(999) # 16.5 mins
 
             # turn on this cog
-            await self.client.load_extension("cogs.auto_responses")
-            print("Auto Responses has been turned on")
+            await self.client.load_extension("cogs.autoresponses")
+            print("Auto responses has been turned on")
 
         # F
         if message.content == "F":
