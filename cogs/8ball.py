@@ -48,7 +48,7 @@ class EightBall(commands.Cog):
 
         else:
             await ctx.channel.typing()
-            await ctx.send(f'{random.choice(eight_ball)}')
+            await ctx.send(random.choice(eight_ball))
 
 
 async def setup(client):
