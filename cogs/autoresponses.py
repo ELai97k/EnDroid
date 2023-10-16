@@ -327,7 +327,8 @@ class AutoResponses(commands.Cog):
                     )
                     embed.add_field(name="Date", value=timestamp.astimezone(gmt8).strftime("%a, %d %b, %Y"), inline=False)
                     embed.add_field(name="Time", value=timestamp.astimezone(gmt8).strftime("%I:%M %p"), inline=False)
-                    await reply_message.send(embed=embed)
+                    await reply_message.channel.typing()
+                    await reply_message.channel.send(embed=embed)
 
                 # how are you
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
