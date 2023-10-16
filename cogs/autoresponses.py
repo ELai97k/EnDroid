@@ -92,7 +92,7 @@ class AutoResponses(commands.Cog):
 
         # shut bot to turn off auto responses
         if "shut up bot" in message.content.lower() or "bot shut up" in message.content.lower() or "shut up endroid" in message.content.lower() or "endroid shut up" in message.content.lower():
-            await message.channel.send("Okay :(")
+            await message.channel.send("Okay ;_;")
 
             # turn off this cog
             await self.client.unload_extension("cogs.auto_responses")
