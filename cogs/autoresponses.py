@@ -377,6 +377,7 @@ class AutoResponses(commands.Cog):
             ]
             if chance == 76:
                 await message.channel.send(random.choice(responses))
+                print("e")
 
 
 async def setup(client):
