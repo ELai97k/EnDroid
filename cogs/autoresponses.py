@@ -363,7 +363,10 @@ class AutoResponses(commands.Cog):
                 "Help?",
                 "help?",
                 "Help me",
-                "help me"
+                "help me",
+                "cough",
+                "aaaaaaaaaaaaaaaaa",
+                "waaaaaaaaaaaaaaaaa"
             ]
             if chance == 76:
                 await message.channel.send(random.choice(responses))
