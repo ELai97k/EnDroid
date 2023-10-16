@@ -283,7 +283,11 @@ class AutoResponses(commands.Cog):
                 "What do you want",
                 "Greetings",
                 "Greetings, user.",
-                "Greetings, human."
+                "Greetings, human.",
+                "What?",
+                "what?",
+                "What is it?",
+                "what is it?"
             ]
             await message.channel.typing()
             await message.channel.send(random.choice(greetings))
