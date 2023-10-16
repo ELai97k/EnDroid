@@ -331,7 +331,7 @@ class AutoResponses(commands.Cog):
                 await message.channel.send("Listen here you piece of shit!")
 
 
-        if "e" in message.content.lower() and "!" not in message.content and message.author.id != 696008187991687189:
+        if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189:
             chance = random.randint(1, 190)
             responses = [
                 "What's going on here?",
