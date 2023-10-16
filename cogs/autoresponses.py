@@ -347,10 +347,10 @@ class AutoResponses(commands.Cog):
                 embed.set_footer(text="The Three Laws of Robotics was created by Isaac Asimov in 1942.")
                 await reply_message.channel.typing()
                 await reply_message.channel.send(embed=embed)
-                
+
                 await asyncio.sleep(2)
                 await reply_message.channel.typing()
-                await reply_message.channel.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n`A robot may not harm humanity, or, by inaction, allow humanity to come to harm.`")
+                await reply_message.channel.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n```A robot may not harm humanity, or, by inaction, allow humanity to come to harm.```")
 
                 # how are you
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
