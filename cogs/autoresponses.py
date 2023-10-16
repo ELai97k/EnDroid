@@ -349,6 +349,7 @@ class AutoResponses(commands.Cog):
 
                     await asyncio.sleep(2)
                     await reply_message.channel.typing()
+                    await asyncio.sleep(2)
                     await reply_message.channel.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n```A robot may not harm humanity, or, by inaction, allow humanity to come to harm.```")
 
                 # how are you
