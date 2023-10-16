@@ -72,21 +72,12 @@ class AutoResponses(commands.Cog):
 
         embed = discord.Embed (
             title = "List of available options after typing 'hey endroid'",
+            description = "`how are you / how are you doing`\n`who made you / who created you`\n`what's the time / what is the time now`\n`what are the laws of robotics`",
             color=0xc7ecf7
         )
         # you're / ur responses
         embed.add_field(name="`you're / ur`",
-        value="stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot",
-        inline=False)
-
-        # who made you
-        embed.add_field(name="`who made you`",
-        value="`who created you`",
-        inline=False)
-
-        # how are you
-        embed.add_field(name="`how are you`",
-        value="`how are you doing`",
+        value="stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot\nannoying",
         inline=False)
 
         await ctx.send(embed=embed)
