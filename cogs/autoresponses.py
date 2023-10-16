@@ -353,10 +353,6 @@ class AutoResponses(commands.Cog):
                 await message.channel.typing()
                 await message.channel.send("Excellent!")
 
-            if "(:" in reply_message.content.lower():
-                await message.channel.typing()
-                await message.channel.send("Very good!")
-
             if "):" in reply_message.content.lower():
                 await message.channel.typing()
                 await message.channel.send("Listen here you piece of shit!")
