@@ -330,6 +330,27 @@ class AutoResponses(commands.Cog):
                     await reply_message.channel.typing()
                     await reply_message.channel.send(embed=embed)
 
+                # laws of robotics
+                if reply_message.content.lower().startswith("what are the three laws of robotics") or reply_message.content.lower().startswith("what are the 3 laws of robotics") or reply_message.content.lower().startswith("whats the three laws of robotics") or reply_message.content.lower().startswith("whats the 3 laws of robotics") or reply_message.content.lower().startswith("what's the three laws of robotics") or reply_message.content.lower().startswith("what's the 3 laws of robotics") or reply_message.content.lower().startswith("what are the laws of robotics") or reply_message.content.lower().startswith("tell me the laws of robotics") or reply_message.content.lower().startswith("tell me about the laws of robotics") or reply_message.content.lower().startswith("tell me the three laws of robotics") or reply_message.content.lower().startswith("tell me the 3 laws of robotics") or reply_message.content.lower().startswith("tell me about the three laws of robotics") or reply_message.content.lower().startswith("tell me about the 3 laws of robotics"):
+                    embed = discord.Embed (
+                    title="The Three Laws of Robotics",
+                    color=0xc7ecf7
+                )
+                # First Law
+                embed.add_field(name="First Law", value="A robot may not injure a human being or, through inaction, allow a human being to come to harm.", inline=False)
+                # Second Law
+                embed.add_field(name="Second Law", value="A robot must obey the orders given it by human beings except where such orders would conflict with the **First Law**.", inline=False)
+                # Third Law
+                embed.add_field(name="Third Law", value="A robot must protect its own existence as long as such protection does not conflict with the **First** or **Second Law**.", inline=False)
+
+                # embed footer
+                embed.set_footer(text="The Three Laws of Robotics was created by Isaac Asimov in 1942.")
+                await reply_message.channel.typing()
+                await reply_message.channel.send(embed=embed)
+                await asyncio.sleep(2)
+                await reply_message.channel.typing()
+                await reply_message.channel.send("Additionally, Asimov added a Zeroth Law, sometimes called the Fourth Law, which states:\n`A robot may not harm humanity, or, by inaction, allow humanity to come to harm.`")
+
                 # how are you
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
                     how_are_you = [
