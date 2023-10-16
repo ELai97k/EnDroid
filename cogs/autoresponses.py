@@ -353,6 +353,8 @@ class AutoResponses(commands.Cog):
                 "oh okay",
                 "Hi",
                 "hi",
+                "Hi there",
+                "hi there",
                 "Hello",
                 "hello",
                 "hello there",
