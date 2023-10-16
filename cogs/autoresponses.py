@@ -2,6 +2,7 @@ import discord
 import random
 import asyncio
 import pytz
+import random
 from datetime import datetime
 from discord.ext import commands
 
@@ -328,6 +329,45 @@ class AutoResponses(commands.Cog):
             if "):" in reply_message.content.lower():
                 await message.channel.typing()
                 await message.channel.send("Listen here you piece of shit!")
+
+
+        if "e" in message.content.lower() and "!" not in message.content and message.author.id != 696008187991687189:
+            chance = random.randint(1, 190)
+            responses = [
+                "What's going on here?",
+                "What is going on here?",
+                "yes",
+                "Yes",
+                "no",
+                "No",
+                "whatever",
+                "Whatever",
+                "I thought you did",
+                "Okay",
+                "okay",
+                "Ok",
+                "ok",
+                "Oh",
+                "oh",
+                "Oh okay",
+                "oh okay",
+                "Hi",
+                "hi",
+                "Hello",
+                "hello",
+                "hello there",
+                "Hello there",
+                "Are you still there?",
+                "Help",
+                "help",
+                "Help?",
+                "help?",
+                "Help me",
+                "help me"
+            ]
+
+            if chance == 76:
+                await message.channel.send(random.choice(responses))
 
 
 async def setup(client):
