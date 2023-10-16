@@ -73,8 +73,8 @@ class AutoResponses(commands.Cog):
             color=0xc7ecf7
         )
         # you're / ur responses
-        embed.add_field(name="you're / ur",
-        value="```stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot```",
+        embed.add_field(name="```you're / ur```",
+        value="stupid\ndumb\ndum\na dumbass\nuseless\nnot helpful\nnot helping\na good bot\na clever bot\na cleverbot\na smart bot",
         inline=False)
 
         await ctx.send(embed=embed)
