@@ -1,6 +1,8 @@
 import discord
 import random
 import asyncio
+import pytz
+from datetime import datetime
 from discord.ext import commands
 
 class AutoResponses(commands.Cog):
@@ -314,6 +316,18 @@ class AutoResponses(commands.Cog):
                 if reply_message.content.lower().startswith("who made you") or reply_message.content.lower().startswith("who made u") or reply_message.content.lower().startswith("who created you") or reply_message.content.lower().startswith("who created u"):
                     await reply_message.channel.typing()
                     await reply_message.channel.send("Elai is my Creator.")
+
+                # time GMT+8
+                if reply_message.content.lower().startswith("what is the time") or reply_message.content.lower().startswith("what is the time now") or reply_message.content.lower().startswith("whats the time") or reply_message.content.lower().startswith("whats the time now") or reply_message.content.lower().startswith("what's the time") or reply_message.content.lower().startswith("what's the time now"):
+                    timestamp = datetime.now()
+                    gmt8 = pytz.timezone('Asia/Singapore')
+                    embed = discord.Embed (
+                        title = "Current date and time in GMT+8",
+                        color=0xc7ecf7
+                    )
+                    embed.add_field(name="Date", value=timestamp.astimezone(gmt8).strftime("%a, %d %b, %Y"), inline=False)
+                    embed.add_field(name="Time", value=timestamp.astimezone(gmt8).strftime("%I:%M %p"), inline=False)
+                    await reply_message.send(embed=embed)
 
                 # how are you
                 if reply_message.content.lower().startswith("how are you") or reply_message.content.lower().startswith("how are u") or reply_message.content.lower().startswith("how r u") or reply_message.content.lower().startswith("how are you doing") or reply_message.content.lower().startswith("how are u doing") or reply_message.content.lower().startswith("how r u doing"):
