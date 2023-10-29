@@ -89,7 +89,7 @@ class Reminder(commands.Cog):
             return
         
         embed = discord.Embed (
-            title = "Remind Command Help.",
+            title = "Remind Command Help",
             description = "```!remind duration text```",
             color=0xc7ecf7
         )
