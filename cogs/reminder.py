@@ -90,7 +90,7 @@ class Reminder(commands.Cog):
         
         embed = discord.Embed (
             title = "Remind Command Help",
-            description = "```!remind duration text```",
+            description = "**How to use:** `!remind duration text`\n**E.g.** `!remind 1m test`",
             color=0xc7ecf7
         )
         embed.add_field(name="Days", value="`d`")
