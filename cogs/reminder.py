@@ -88,7 +88,7 @@ class Reminder(commands.Cog):
         if ctx.author.bot:
             return
         
-        embed = discord.embed (
+        embed = discord.Embed (
             title = "Remind Command Help.",
             description = "```!remind duration text```",
             color=0xc7ecf7
