@@ -81,6 +81,26 @@ class Reminder(commands.Cog):
             print(f"Unable to process reminder for {user}")
 
 
+    @commands.command(aliases = ["remind_help", "reminderhelp", "reminder_help"], help="Remind command help.")
+    async def remindhelp(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        
+        embed = discord.embed (
+            title = "Remind Command Help.",
+            description = "```!remind duration text```",
+            color=0xc7ecf7
+        )
+        embed.add_field(name="Days", value="`d`")
+        embed.add_field(name="Hours", value="`h`")
+        embed.add_field(name="Minutes", value="`m`")
+        embed.add_field(name="Minimum duration", value="```1 minute```")
+        embed.add_field(name="Maximum duration", value="```104 days```")
+        await ctx.send(embed=embed)
+
+
 async def setup(client):
     await client.add_cog(Reminder(client))
 
